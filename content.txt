@@ -356,6 +356,7 @@ Co-chairs:
 • Jim Halcomb: EDM Association
 • Jacobus Geluk: agnos.ai
 • Roberto Breitman: Open Data Institute
+• Stuart Coleman: Open Data Institute
 • Jesse Wright: Open Data Institute
 
 Note under co-chairs:

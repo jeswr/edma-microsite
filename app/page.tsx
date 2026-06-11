@@ -660,6 +660,7 @@ const CHAIRS = [
   { name: "Jim Halcomb", org: "EDM Association" },
   { name: "Jacobus Geluk", org: "agnos.ai" },
   { name: "Roberto Breitman", org: "Open Data Institute" },
+  { name: "Stuart Coleman", org: "Open Data Institute" },
   { name: "Jesse Wright", org: "Open Data Institute" },
 ];
 
