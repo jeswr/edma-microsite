@@ -79,7 +79,7 @@ function Hero() {
           Solid Community of Practice
         </h1>
         <p className="mt-4 text-xl sm:text-2xl font-medium text-amber max-w-3xl">
-          Making regulated data shareable — without losing control of it.
+          Making regulated data shareable, without losing control of it.
         </p>
         <p className="mt-6 text-base sm:text-lg text-slate-200 max-w-3xl leading-relaxed">
           The EDM Association and the Open Data Institute are convening the
@@ -90,10 +90,9 @@ function Hero() {
           >
             Solid
           </a>{" "}
-          production-ready for finance, healthcare and government — with
+          production-ready for finance, healthcare and government, with
           conformance anchored to CDMC and sector bindings built on assets such
-          as FIBO. Joining now means shaping the rails your whole sector will
-          run on.
+          as FIBO. Join now to shape the rails your sector will run on.
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
           <a
@@ -110,9 +109,9 @@ function Hero() {
           </a>
         </div>
         <p className="mt-6 text-sm text-slate-300">
-          Participation is open — anyone can register on EDMConnect, not just
-          EDM Association members. All outputs are published openly under the
-          MIT licence.
+          Participation is open: anyone can register on EDMConnect, not just
+          EDM Association members. All outputs are published under the MIT
+          licence.
         </p>
       </div>
     </section>
@@ -172,7 +171,7 @@ function About() {
         <SectionHeading
           eyebrow="About the community"
           title="A two-way exchange between industry and the Solid project"
-          lead="The Community of Practice pairs the data-management expertise of the EDM Association's member and partner community with the open, standards-based way of giving people and organisations genuine control over their data that the Solid project provides. Industry brings the requirements, domain models and demand of regulated sectors; Solid brings a way to break down the data silos, lock-in and duplication that hold those sectors back."
+          lead="The Community of Practice pairs the data-management expertise of the EDM Association's members and partners with Solid's open, standards-based approach to giving people and organisations genuine control over their data. Industry brings the requirements, domain models and demand of regulated sectors; Solid brings a way to break down the silos, lock-in and duplication that hold those sectors back."
         />
         <div className="mt-12 grid md:grid-cols-2 gap-6">
           <div className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
@@ -180,10 +179,9 @@ function About() {
               The EDM Association
             </h3>
             <p className="mt-3 text-slate-600 leading-relaxed">
-              The global association elevating the practice of data management
-              as a strategic business priority. EDMA convenes and sponsors the
-              community, bringing its members and partner network across
-              finance and beyond, the{" "}
+              The global association elevating data management as a strategic
+              business priority. EDMA convenes and sponsors the community,
+              bringing its member and partner network, the{" "}
               <a
                 href="https://spec.edmcouncil.org/fibo/"
                 className="text-edmblue underline underline-offset-2"
@@ -204,8 +202,8 @@ function About() {
               >
                 DCAM
               </a>{" "}
-              frameworks, the EDMConnect platform, and the convening authority
-              to engage regulators, standards bodies and commercial partners.
+              frameworks, the EDMConnect platform, and the authority to engage
+              regulators, standards bodies and commercial partners.
             </p>
           </div>
           <div className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
@@ -221,13 +219,12 @@ function About() {
               </a>{" "}
               became Solid&apos;s steward in October 2024, bringing more than
               a decade of experience in responsible data innovation. Its
-              stewardship ensures the infrastructure develops in a way that
-              benefits society — with governance frameworks that reflect
-              community values and technical standards that enable global
-              interoperability. The ODI is maintaining Solid&apos;s
-              open-source foundations, taking the Linked Web Storage
-              specification through the W3C, training hundreds of new
-              developers, and catalysing use-case pilots that demonstrate real
+              stewardship ensures the infrastructure develops to benefit
+              society, with governance that reflects community values and
+              standards that enable global interoperability. The ODI maintains
+              Solid&apos;s open-source foundations, is taking the Linked Web
+              Storage specification through the W3C, trains hundreds of new
+              developers, and catalyses use-case pilots that demonstrate real
               impact.
             </p>
           </div>
@@ -237,15 +234,15 @@ function About() {
           <p className="mt-3 text-slate-700 leading-relaxed max-w-4xl">
             Solid is a privacy-by-design protocol built on standard web
             technologies. Rather than each application holding its own copy of
-            a person&apos;s or organisation&apos;s data, Solid stores that data
-            in a <strong>Pod</strong> — a personal or organisational datastore
-            — governed by fine-grained access controls, so applications read
-            and write only with permission. Because Pods use open, linked-data
-            standards, the same data can be reused across many applications
-            without bespoke integration, and it remains under the control of
-            the entity it describes. Solid was developed by Sir Tim
-            Berners-Lee&apos;s research group at MIT, has been nurtured by a
-            dedicated global community, and is standardised through the{" "}
+            a person&apos;s or organisation&apos;s data, Solid stores it in a{" "}
+            <strong>Pod</strong>: a personal or organisational datastore with
+            fine-grained access controls, so applications read and write only
+            with permission. Because Pods use open, linked-data standards, the
+            same data can be reused across applications without bespoke
+            integration, and it stays under the control of the entity it
+            describes. Solid was developed by Sir Tim Berners-Lee&apos;s
+            research group at MIT, nurtured by a global community, and is
+            standardised through the{" "}
             <a
               href="https://www.w3.org/community/solid/"
               className="text-edmblue underline underline-offset-2"
@@ -270,7 +267,7 @@ function About() {
 const BENEFITS = [
   {
     title: "Reduced data custody and breach exposure",
-    body: "Organisations read data from the Pod rather than holding and securing their own copies — lowering cost, liability and compliance burden.",
+    body: "Organisations read data from the Pod instead of holding and securing their own copies, lowering cost, liability and compliance burden.",
   },
   {
     title: "Reusable verifiable credentials",
@@ -282,15 +279,15 @@ const BENEFITS = [
   },
   {
     title: "Interoperability without lock-in",
-    body: "An open, W3C-track standard — semantic interoperability comes via the shared sector ontologies this group will define.",
+    body: "An open W3C-track standard; semantic interoperability comes from the shared sector ontologies this group will define.",
   },
   {
     title: "New permissioned services and revenue",
-    body: "Value-added services — for example bank-provided identity — built on user-controlled data.",
+    body: "Value-added services, such as bank-provided identity, built on user-controlled data.",
   },
   {
     title: "AI- and agent-ready data",
-    body: "As AI agents develop, Solid ensures they serve users who keep control of their data — structured, consented, attributable data as a foundation for trustworthy AI.",
+    body: "As AI agents develop, Solid keeps users in control: structured, consented, attributable data as a foundation for trustworthy AI.",
   },
   {
     title: "Regulatory future-proofing",
@@ -298,7 +295,7 @@ const BENEFITS = [
   },
   {
     title: "Better customer experience",
-    body: "Data that travels with people across platforms and providers — more trustworthy digital experiences.",
+    body: "Data that travels with people across platforms and providers, for more trustworthy digital experiences.",
   },
 ];
 
@@ -310,16 +307,16 @@ function WhySolid() {
           Why Solid
         </p>
         <h2 className="text-3xl sm:text-4xl font-bold max-w-3xl">
-          The problem is structural — every service keeps its own copy of your
+          The problem is structural: every service keeps its own copy of your
           data
         </h2>
         <p className="mt-4 text-lg text-slate-300 max-w-3xl leading-relaxed">
           The same data is collected, copied and secured many times over, yet
-          is rarely current, portable, or under the control of the person or
+          is rarely current, portable or under the control of the person or
           organisation it describes. The result: silos and duplication,
           concentrated breach risk, vendor lock-in, coarse consent, and
-          identity that is re-proofed at every institution. Solid addresses
-          these problems at their root by decoupling data from applications.
+          identity re-proofed at every institution. Solid fixes this at the
+          root by decoupling data from applications.
         </p>
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {BENEFITS.map((b) => (
@@ -339,7 +336,7 @@ function WhySolid() {
           citizen-data ecosystem, VITO&apos;s healthcare platform, Graphmetrix
           in US construction supply chains, and pilots with the BBC, the Bezos
           Earth Fund, NatWest Bank and Visa across media, sustainability,
-          banking and commerce. Adoption is still early — assessing that
+          banking and commerce. Adoption is still early; assessing that
           readiness and closing the gaps is the remit of this community.
         </p>
       </div>
@@ -351,7 +348,7 @@ const AUDIENCES = [
   {
     role: "Anchor sponsors & sector champions",
     who: "Institutions in finance, healthcare or government ready to lead",
-    hook: "Put your name on your sector's defining Solid pilot — and steer it to your priorities.",
+    hook: "Put your name on your sector's defining Solid pilot and steer it to your priorities.",
   },
   {
     role: "Infrastructure & hosting providers",
@@ -366,7 +363,7 @@ const AUDIENCES = [
   {
     role: "Certification & assurance",
     who: "Assessors, auditors and advisory firms with DCAM/CDMC practices",
-    hook: "Co-design the conformance scheme and extend your accreditation into a new Solid assessment line — be first-accredited.",
+    hook: "Co-design the conformance scheme and extend your accreditation into a new Solid assessment line. Be first-accredited.",
   },
   {
     role: "Product vendors",
@@ -376,7 +373,7 @@ const AUDIENCES = [
   {
     role: "Data-rich organisations",
     who: "Banks, insurers, care providers and public agencies on the demand side",
-    hook: "Cut data-sharing friction now — and give customers a real data wallet ahead of regulation.",
+    hook: "Cut data-sharing friction now and give customers a real data wallet ahead of regulation.",
   },
 ];
 
@@ -387,7 +384,7 @@ function WhoItsFor() {
         <SectionHeading
           eyebrow="Who it's for"
           title="Every organisation has a role"
-          lead="The community matches each participating organisation to a concrete role around real sector pilots — demand first, with supply, standards and assurance built around it. Wherever you sit in the data ecosystem, there is a seat at the table."
+          lead="The community matches each organisation to a concrete role around real sector pilots: demand first, with supply, standards and assurance built around it. Wherever you sit in the data ecosystem, there is a seat at the table."
         />
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {AUDIENCES.map((a) => (
@@ -408,7 +405,7 @@ function WhoItsFor() {
             href={EDM_CONNECT}
             className="inline-flex items-center rounded-md bg-edmblue hover:bg-navy text-white font-semibold px-6 py-3 transition-colors"
           >
-            Take a role — join via EDMConnect
+            Take a role via EDMConnect
           </a>
           <p className="text-sm text-slate-600">
             Not sure where you fit? Join the open community call and we&apos;ll
@@ -425,19 +422,19 @@ const SECTORS = [
     name: "Finance",
     accent: "var(--edm-blue)",
     intro:
-      "Where the EDM Association's roots and the FIBO community already are — the first sector the community is proving Solid in.",
+      "Home of the EDM Association's roots and the FIBO community, and the first sector the community is proving Solid in.",
     cases: [
       {
         title: "Lending on verified, current data",
-        body: "Loan and mortgage agreements modelled in FIBO and verified against the borrower's Pod let lenders read data at source — instead of re-keyed, hard-to-verify copies.",
+        body: "Loan and mortgage agreements modelled in FIBO and verified against the borrower's Pod let lenders read data at source instead of re-keyed, hard-to-verify copies.",
       },
       {
         title: "Reusable KYC/AML onboarding",
-        body: "Verifiable credentials for identity, address and source of funds are proofed once and confirmed by signature check — cutting weeks of onboarding and significant compliance cost per client.",
+        body: "Verifiable credentials for identity, address and source of funds are proofed once and confirmed by signature check, cutting weeks of onboarding and significant compliance cost per client.",
       },
       {
         title: "Bank-provided identity services",
-        body: "Banks issue credentials into a customer's Pod and let the customer present them to third parties — turning a compliance cost centre into a service line.",
+        body: "Banks issue credentials into a customer's Pod and let the customer present them to third parties, turning a compliance cost centre into a service line.",
       },
     ],
   },
@@ -453,11 +450,11 @@ const SECTORS = [
       },
       {
         title: "Medication management",
-        body: "A medication record in the patient's Pod, described with shared definitions such as IDMP-O, gives pharmacists, prescribers and hospitals one current view — fewer reconciliation errors.",
+        body: "A medication record in the patient's Pod, described with shared definitions such as IDMP-O, gives pharmacists, prescribers and hospitals one current view and fewer reconciliation errors.",
       },
       {
         title: "A governed home for consumer health data",
-        body: "Readings from consumer devices that fall outside HIPAA gain a consented, governed home — a gap regulators are actively grappling with.",
+        body: "Readings from consumer devices that fall outside HIPAA gain a consented, governed home, addressing a gap regulators are actively grappling with.",
       },
     ],
   },
@@ -469,11 +466,11 @@ const SECTORS = [
     cases: [
       {
         title: "Citizen vaults and “tell us once”",
-        body: "Flanders' data utility athumi, built on Solid, is architected to serve ~6.5 million citizens — with live services including diploma sharing and online death registration.",
+        body: "Flanders' data utility athumi, built on Solid, is architected to serve ~6.5 million citizens, with live services including diploma sharing and online death registration.",
       },
       {
         title: "Social services for vulnerable citizens",
-        body: "A citizen-controlled Pod holds verified documents and releases only what each service needs — control and dignity for the data subject. Code for PDX's Solid digital wallet already helps people at risk of homelessness complete housing-assistance applications.",
+        body: "A citizen-controlled Pod holds verified documents and releases only what each service needs: control and dignity for the data subject. Code for PDX's Solid wallet already helps people at risk of homelessness complete housing-assistance applications.",
       },
       {
         title: "Less repeated admin",
@@ -544,23 +541,23 @@ const DELIVERABLES = [
   },
   {
     title: "Sector ontology bindings",
-    body: "Recommendations for how established domain ontologies, identifier schemes and terminologies — FIBO, IDMP-O and peers — bind to Solid in each sector. The group recommends bindings rather than inventing new ontologies.",
+    body: "Recommendations for how established domain ontologies, identifier schemes and terminologies (FIBO, IDMP-O and peers) bind to Solid in each sector, rather than inventing new ontologies.",
   },
   {
     title: "Security & functional requirements",
-    body: "A definition of what a Solid service must do to be deployed in a given sector — including how providers satisfy cloud and data-management expectations such as CDMC.",
+    body: "What a Solid service must do to be deployed in a given sector, including how providers satisfy cloud and data-management expectations such as CDMC.",
   },
   {
     title: "The Solid Certification",
-    body: "A neutral, evidence-based mark certifying that a class of Solid product — server, application or identity provider — meets the security and data-quality requirements of a target sector.",
+    body: "A neutral, evidence-based mark certifying that a Solid server, application or identity provider meets the security and data-quality requirements of a target sector.",
   },
   {
     title: "Solid–DPROD bindings for data products",
-    body: "Recommendations for how DPROD — the EDM Council/EKGF profile of W3C DCAT — describes where the data products in a Pod can be found and how to request access to them.",
+    body: "Recommendations for how DPROD (the EDM Council/EKGF profile of W3C DCAT) describes where the data products in a Pod live and how to request access.",
   },
   {
     title: "An open community platform",
-    body: "A neutral home for the community, branded with the Solid identity and hosted on EDMConnect — with every output published openly under the MIT licence.",
+    body: "A neutral home for the community, branded with the Solid identity and hosted on EDMConnect, with every output published under the MIT licence.",
   },
 ];
 
@@ -601,15 +598,15 @@ const CERT_LAYERS = [
   },
   {
     name: "Solid-CDMC conformance",
-    body: "A mapping of the EDM Council's Cloud Data Management Capabilities controls onto each class of Solid service — the technical data-control layer.",
+    body: "A mapping of the EDM Council's Cloud Data Management Capabilities controls onto each class of Solid service: the technical data-control layer.",
   },
   {
     name: "Solid-DCAM conformance",
-    body: "A mapping of the Data Management Capability Assessment Model onto the organisation building the service — the organisational data-management layer.",
+    body: "A mapping of the Data Management Capability Assessment Model onto the organisation building the service: the organisational data-management layer.",
   },
   {
     name: "Sector overlay",
-    body: "The sector-specific requirements — FIBO bindings and regulation in finance, clinical vocabularies and safety in healthcare, identity trust frameworks in government.",
+    body: "Sector-specific requirements: FIBO bindings and regulation in finance, clinical vocabularies and safety in healthcare, identity trust frameworks in government.",
   },
 ];
 
@@ -625,11 +622,11 @@ function Certification() {
         </h2>
         <p className="mt-4 text-lg text-slate-300 max-w-3xl leading-relaxed">
           Regulated buyers will not deploy on trust alone. The proposed Solid
-          Certification is a neutral, evidence-based mark — awarded on evidence
-          of conformance, not by endorsement — certifying that a Solid server,
-          application or identity provider meets the bar of a target sector. A
-          certificate is issued per class of product and sector: for example{" "}
-          <em>Solid Lending Application — Finance</em>.
+          Certification is a neutral mark, awarded on evidence of conformance
+          rather than endorsement, certifying that a Solid server, application
+          or identity provider meets the bar of a target sector. Certificates
+          are issued per class of product and sector, for example{" "}
+          <em>Solid Lending Application (Finance)</em>.
         </p>
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {CERT_LAYERS.map((l, i) => (
@@ -648,12 +645,11 @@ function Certification() {
           ))}
         </div>
         <p className="mt-8 text-sm text-slate-400 max-w-3xl">
-          Assurance is tiered — self-assessment for entry-level conformance,
-          independent third-party verification for the most sensitive
-          deployments. Conformance profiles, test scripts and scoring
-          methodology are published openly so claims are checkable and the bar
-          is transparent. EDMA administers the mark as the neutral certifying
-          body.
+          Assurance is tiered: self-assessment for entry-level conformance,
+          independent verification for the most sensitive deployments.
+          Profiles, test scripts and scoring methodology are published openly
+          so claims are checkable. EDMA administers the mark as the neutral
+          certifying body.
         </p>
       </div>
     </section>
@@ -674,7 +670,7 @@ function Governance() {
         <SectionHeading
           eyebrow="Governance"
           title="Open participation, consensus decisions"
-          lead="The community starts as an open forum while the work is being defined, then converts into a formal working group with well-defined work items and deliverables. Decisions are taken by consensus among participating members, facilitated by the co-chairs, with the EDM Association and the Open Data Institute providing overall stewardship."
+          lead="The community starts as an open forum while the work is defined, then converts into a formal working group with defined work items and deliverables. Decisions are taken by consensus, facilitated by the co-chairs, with the EDM Association and the Open Data Institute providing overall stewardship."
         />
         <div className="mt-12 grid lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
@@ -736,7 +732,7 @@ function GetInvolved() {
         <SectionHeading
           eyebrow="Get involved"
           title="Shape the rails your sector will run on"
-          lead="Joining now means shaping how Solid is bound to the standards of your industry — and being first in line when the market follows."
+          lead="Join now to shape how Solid binds to your industry's standards, and be first in line when the market follows."
         />
         <div className="mt-12 grid md:grid-cols-3 gap-6">
           <div className="rounded-lg bg-white border border-slate-200 p-6 shadow-sm">
@@ -744,7 +740,7 @@ function GetInvolved() {
             <h3 className="mt-2 font-bold text-navy">Register on EDMConnect</h3>
             <p className="mt-2 text-sm text-slate-600 leading-relaxed">
               The community is hosted on the EDM Association&apos;s EDMConnect
-              platform. Anyone can register — membership is not required.
+              platform. Anyone can register; membership is not required.
             </p>
           </div>
           <div className="rounded-lg bg-white border border-slate-200 p-6 shadow-sm">
@@ -753,9 +749,9 @@ function GetInvolved() {
               Join the community call
             </h3>
             <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-              The bi-weekly call is open to all participants — hear from the
-              W3C Solid Community Group, the Linked Web Storage Working Group
-              and implementers across sectors.
+              The bi-weekly call is open to all: hear from the W3C Solid
+              Community Group, the Linked Web Storage Working Group and
+              implementers across sectors.
             </p>
           </div>
           <div className="rounded-lg bg-white border border-slate-200 p-6 shadow-sm">
@@ -811,7 +807,7 @@ function Footer() {
           <p className="mt-4 text-sm leading-relaxed">
             Co-convened by the EDM Association and the Open Data Institute to
             grow the adoption of Solid specifications, tools and standards
-            across industry data management — and to channel industry&apos;s
+            across industry data management, and to channel industry&apos;s
             expertise back into the Solid project.
           </p>
         </div>
