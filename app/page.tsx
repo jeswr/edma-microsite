@@ -122,11 +122,7 @@ function Hero() {
 const STATS = [
   { value: "300+", label: "participants in the W3C Solid Community Group" },
   { value: "3", label: "priority sectors: finance, healthcare, government" },
-  {
-    value: "$3M",
-    label:
-      "Google.org funding for Solid under ODI stewardship — first phase of a $10M programme",
-  },
+  { value: "2015", label: "Solid founded at MIT by Sir Tim Berners-Lee" },
   { value: "MIT", label: "open licence for every output of the community" },
 ];
 
@@ -228,33 +224,27 @@ function About() {
               stewardship ensures the infrastructure develops in a way that
               benefits society — with governance frameworks that reflect
               community values and technical standards that enable global
-              interoperability. Backed by USD 3 million from Google.org, the
-              first phase of a broader USD 10 million programme, the ODI is
-              maintaining Solid&apos;s open-source foundations, taking the
-              Linked Web Storage specification through the W3C, training
-              hundreds of new developers, and catalysing use-case pilots that
-              demonstrate real impact.
+              interoperability. The ODI is maintaining Solid&apos;s
+              open-source foundations, taking the Linked Web Storage
+              specification through the W3C, training hundreds of new
+              developers, and catalysing use-case pilots that demonstrate real
+              impact.
             </p>
           </div>
         </div>
         <div className="mt-6 rounded-lg bg-mist p-8 border border-slate-200">
           <h3 className="text-xl font-bold text-navy">What is Solid?</h3>
           <p className="mt-3 text-slate-700 leading-relaxed max-w-4xl">
-            Solid is, in practice, a file system for the web — returning the
-            web to its original vision of serving people. Rather than each
-            application holding its own copy of a person&apos;s or
-            organisation&apos;s data, Solid stores that data in a{" "}
-            <strong>Pod</strong> — a personal or organisational datastore
-            governed by fine-grained access controls. It&apos;s a bit like
-            carrying all your data in a rucksack with lots of pockets:
-            applications can only open the pockets you allow them to open,
-            rather than taking the whole rucksack — the rest stays private.
-            Because Pods use open, linked-data standards, the same data can be
-            reused across many applications without bespoke integration, and
-            it remains under the control of the entity it describes. Solid was
-            developed by Sir Tim Berners-Lee and his team at MIT in
-            collaboration with the Qatar Computing Research Institute, Oxford
-            University and other academic research centres, nurtured by a
+            Solid is a privacy-by-design protocol built on standard web
+            technologies. Rather than each application holding its own copy of
+            a person&apos;s or organisation&apos;s data, Solid stores that data
+            in a <strong>Pod</strong> — a personal or organisational datastore
+            — governed by fine-grained access controls, so applications read
+            and write only with permission. Because Pods use open, linked-data
+            standards, the same data can be reused across many applications
+            without bespoke integration, and it remains under the control of
+            the entity it describes. Solid was developed by Sir Tim
+            Berners-Lee&apos;s research group at MIT, has been nurtured by a
             dedicated global community, and is standardised through the{" "}
             <a
               href="https://www.w3.org/community/solid/"
