@@ -1,0 +1,428 @@
+SOLID COMMUNITY OF PRACTICE — MICROSITE CONTENT
+Live site: https://edma-microsite.vercel.app
+This file contains all the words on the page, in page order. Edit the text;
+the structure notes in [brackets] describe where each piece appears.
+
+=====================================================================
+HEADER [sticky bar at the top of the page]
+=====================================================================
+
+Site name: Solid Community of Practice
+Subtitle: EDM Association · Open Data Institute
+
+Menu items: About | Why Solid | Who it's for | Use cases | Work programme | Certification | Governance
+Button: Join the community  →  links to https://hub.edmcouncil.org/
+
+=====================================================================
+HERO [large dark-blue banner]
+=====================================================================
+
+Eyebrow text: EDM ASSOCIATION · COMMUNITY OF PRACTICE
+
+Title: Solid Community of Practice
+
+Strapline: Making regulated data shareable — without losing control of it.
+
+Paragraph:
+The EDM Association and the Open Data Institute are convening the community
+that will make Solid production-ready for finance, healthcare and government
+— with conformance anchored to CDMC and sector bindings built on assets such
+as FIBO. Joining now means shaping the rails your whole sector will run on.
+
+Buttons: "Join via EDMConnect" and "Explore the work programme"
+
+Small print:
+Participation is open — anyone can register on EDMConnect, not just EDM
+Association members. All outputs are published openly under the MIT licence.
+
+=====================================================================
+STATS BAND [four large figures under the hero]
+=====================================================================
+
+300+  — participants in the W3C Solid Community Group
+3     — priority sectors: finance, healthcare, government
+2015  — Solid founded at MIT by Sir Tim Berners-Lee
+MIT   — open licence for every output of the community
+
+=====================================================================
+ABOUT THE COMMUNITY
+=====================================================================
+
+Heading: A two-way exchange between industry and the Solid project
+
+Intro:
+The Community of Practice pairs the data-management expertise of the EDM
+Association's member and partner community with the open, standards-based way
+of giving people and organisations genuine control over their data that the
+Solid project provides. Industry brings the requirements, domain models and
+demand of regulated sectors; Solid brings a way to break down the data silos,
+lock-in and duplication that hold those sectors back.
+
+[Card 1] The EDM Association
+The global association elevating the practice of data management as a
+strategic business priority. EDMA convenes and sponsors the community,
+bringing its members and partner network across finance and beyond, the FIBO
+ontology, the CDMC and DCAM frameworks, the EDMConnect platform, and the
+convening authority to engage regulators, standards bodies and commercial
+partners.
+
+[Card 2] The Open Data Institute
+The ODI became Solid's steward in October 2024, bringing more than a decade
+of experience in responsible data innovation. Its stewardship ensures the
+infrastructure develops in a way that benefits society — with governance
+frameworks that reflect community values and technical standards that enable
+global interoperability. The ODI is maintaining Solid's open-source
+foundations, taking the Linked Web Storage specification through the W3C,
+training hundreds of new developers, and catalysing use-case pilots that
+demonstrate real impact.
+
+[Panel] What is Solid?
+Solid is a privacy-by-design protocol built on standard web technologies.
+Rather than each application holding its own copy of a person's or
+organisation's data, Solid stores that data in a Pod — a personal or
+organisational datastore — governed by fine-grained access controls, so
+applications read and write only with permission. Because Pods use open,
+linked-data standards, the same data can be reused across many applications
+without bespoke integration, and it remains under the control of the entity
+it describes. Solid was developed by Sir Tim Berners-Lee's research group at
+MIT, has been nurtured by a dedicated global community, and is standardised
+through the W3C Solid Community Group and the Linked Web Storage Working
+Group.
+
+=====================================================================
+WHY SOLID [dark-blue section]
+=====================================================================
+
+Heading: The problem is structural — every service keeps its own copy of your data
+
+Intro:
+The same data is collected, copied and secured many times over, yet is rarely
+current, portable, or under the control of the person or organisation it
+describes. The result: silos and duplication, concentrated breach risk,
+vendor lock-in, coarse consent, and identity that is re-proofed at every
+institution. Solid addresses these problems at their root by decoupling data
+from applications.
+
+[Eight benefit cards]
+
+1. Reduced data custody and breach exposure
+   Organisations read data from the Pod rather than holding and securing
+   their own copies — lowering cost, liability and compliance burden.
+
+2. Reusable verifiable credentials
+   Already-proven identity and eligibility attributes are reused across
+   sectors, cutting onboarding time and KYC/AML cost.
+
+3. A single, current source of truth
+   Less reconciliation effort and stale-copy error; customers and citizens
+   update their details once, not everywhere.
+
+4. Interoperability without lock-in
+   An open, W3C-track standard — semantic interoperability comes via the
+   shared sector ontologies this group will define.
+
+5. New permissioned services and revenue
+   Value-added services — for example bank-provided identity — built on
+   user-controlled data.
+
+6. AI- and agent-ready data
+   As AI agents develop, Solid ensures they serve users who keep control of
+   their data — structured, consented, attributable data as a foundation for
+   trustworthy AI.
+
+7. Regulatory future-proofing
+   Demonstrable user control aligns with GDPR Article 20, the EU Data Act
+   and the Digital Markets Act.
+
+8. Better customer experience
+   Data that travels with people across platforms and providers — more
+   trustworthy digital experiences.
+
+Closing note:
+Real implementations prove the model works: the Flanders/athumi citizen-data
+ecosystem, VITO's healthcare platform, Graphmetrix in US construction supply
+chains, and pilots with the BBC, the Bezos Earth Fund, NatWest Bank and Visa
+across media, sustainability, banking and commerce. Adoption is still early —
+assessing that readiness and closing the gaps is the remit of this community.
+
+=====================================================================
+WHO IT'S FOR
+=====================================================================
+
+Heading: Every organisation has a role
+
+Intro:
+The community matches each participating organisation to a concrete role
+around real sector pilots — demand first, with supply, standards and
+assurance built around it. Wherever you sit in the data ecosystem, there is a
+seat at the table.
+
+[Six role cards: role / who it is / the pitch]
+
+1. Anchor sponsors & sector champions
+   Institutions in finance, healthcare or government ready to lead.
+   "Put your name on your sector's defining Solid pilot — and steer it to
+   your priorities."
+
+2. Infrastructure & hosting providers
+   Cloud platforms, Solid server builders, managed-hosting and data-custody
+   operators.
+   "Define the production baseline, or launch Pod hosting and regulated data
+   custody as a new service line."
+
+3. Ontology & identifier stewards
+   Standards bodies and stewards of domain ontologies, identifier schemes and
+   terminologies.
+   "Hold the pen on the bindings and identifiers your whole sector will
+   reference."
+
+4. Certification & assurance
+   Assessors, auditors and advisory firms with DCAM/CDMC practices.
+   "Co-design the conformance scheme and extend your accreditation into a new
+   Solid assessment line — be first-accredited."
+
+5. Product vendors
+   Data-management and governance software vendors.
+   "Ship a certified Solid-native product into the EDM Association's member
+   shop window."
+
+6. Data-rich organisations
+   Banks, insurers, care providers and public agencies on the demand side.
+   "Cut data-sharing friction now — and give customers a real data wallet
+   ahead of regulation."
+
+Button: Take a role — join via EDMConnect
+Side note: Not sure where you fit? Join the open community call and we'll
+help you find out.
+
+=====================================================================
+SECTORS & USE CASES
+=====================================================================
+
+Heading: Proving the value where the stakes are highest
+
+Intro:
+Finance, healthcare and government are the priorities because that is where
+the costs of the status quo are highest and where credible champions already
+sit. Demonstrating value there is the fastest route to wider adoption.
+
+[FINANCE column]
+Tagline: Where the EDM Association's roots and the FIBO community already are
+— the first sector the community is proving Solid in.
+
+• Lending on verified, current data
+  Loan and mortgage agreements modelled in FIBO and verified against the
+  borrower's Pod let lenders read data at source — instead of re-keyed,
+  hard-to-verify copies.
+
+• Reusable KYC/AML onboarding
+  Verifiable credentials for identity, address and source of funds are
+  proofed once and confirmed by signature check — cutting weeks of onboarding
+  and significant compliance cost per client.
+
+• Bank-provided identity services
+  Banks issue credentials into a customer's Pod and let the customer present
+  them to third parties — turning a compliance cost centre into a service
+  line.
+
+[HEALTHCARE column]
+Tagline: Among the most mature areas of Solid deployment, with real clinical
+data and real consent already in production pilots.
+
+• Patient-controlled records
+  VITO's WeAre vaults in Flanders let patients share health data across
+  providers and researchers; an NHS pilot in Greater Manchester used personal
+  stores to improve dementia care.
+
+• Medication management
+  A medication record in the patient's Pod, described with shared definitions
+  such as IDMP-O, gives pharmacists, prescribers and hospitals one current
+  view — fewer reconciliation errors.
+
+• A governed home for consumer health data
+  Readings from consumer devices that fall outside HIPAA gain a consented,
+  governed home — a gap regulators are actively grappling with.
+
+[GOVERNMENT column]
+Tagline: The clearest evidence yet that citizen-controlled data can operate
+as public infrastructure.
+
+• Citizen vaults and "tell us once"
+  Flanders' data utility athumi, built on Solid, is architected to serve
+  ~6.5 million citizens — with live services including diploma sharing and
+  online death registration.
+
+• Social services for vulnerable citizens
+  A citizen-controlled Pod holds verified documents and releases only what
+  each service needs — control and dignity for the data subject. Code for
+  PDX's Solid digital wallet already helps people at risk of homelessness
+  complete housing-assistance applications.
+
+• Less repeated admin
+  UK residents spend roughly 56 hours a year on government admin. A
+  government-backed vault lets citizens maintain core data once, with
+  services reading it by permission.
+
+Closing note:
+See the Solid Project website for deployed services and applications, and
+the ODI's visual walkthrough of the Solid user experience.
+
+=====================================================================
+WORK PROGRAMME
+=====================================================================
+
+Heading: What the community will deliver
+
+Intro:
+The deliverables follow directly from the community's objectives: raise
+awareness and adoption, assess Solid's readiness, demonstrate value through
+real deployments, and develop the best practice and commercial understanding
+that adoption depends on.
+
+[Six numbered cards]
+
+1. Use cases & reference implementations
+   Demonstrable deployments showing Solid's value in each sector, with white
+   papers and webinars detailing implementers' experience.
+
+2. Sector ontology bindings
+   Recommendations for how established domain ontologies, identifier schemes
+   and terminologies — FIBO, IDMP-O and peers — bind to Solid in each sector.
+   The group recommends bindings rather than inventing new ontologies.
+
+3. Security & functional requirements
+   A definition of what a Solid service must do to be deployed in a given
+   sector — including how providers satisfy cloud and data-management
+   expectations such as CDMC.
+
+4. The Solid Certification
+   A neutral, evidence-based mark certifying that a class of Solid product —
+   server, application or identity provider — meets the security and
+   data-quality requirements of a target sector.
+
+5. Solid–DPROD bindings for data products
+   Recommendations for how DPROD — the EDM Council/EKGF profile of W3C DCAT —
+   describes where the data products in a Pod can be found and how to request
+   access to them.
+
+6. An open community platform
+   A neutral home for the community, branded with the Solid identity and
+   hosted on EDMConnect — with every output published openly under the MIT
+   licence.
+
+=====================================================================
+THE SOLID CERTIFICATION [dark-blue section]
+=====================================================================
+
+Heading: Trust, expressed in terms regulated buyers already use
+
+Intro:
+Regulated buyers will not deploy on trust alone. The proposed Solid
+Certification is a neutral, evidence-based mark — awarded on evidence of
+conformance, not by endorsement — certifying that a Solid server, application
+or identity provider meets the bar of a target sector. A certificate is
+issued per class of product and sector: for example Solid Lending Application
+— Finance.
+
+[Four layer cards]
+
+Layer 1 — Recognised cyber-security baseline
+An accredited infrastructure-security certification: ISO/IEC 27001 and/or
+Cyber Essentials Plus, with SOC 2 where relevant.
+
+Layer 2 — Solid-CDMC conformance
+A mapping of the EDM Council's Cloud Data Management Capabilities controls
+onto each class of Solid service — the technical data-control layer.
+
+Layer 3 — Solid-DCAM conformance
+A mapping of the Data Management Capability Assessment Model onto the
+organisation building the service — the organisational data-management layer.
+
+Layer 4 — Sector overlay
+The sector-specific requirements — FIBO bindings and regulation in finance,
+clinical vocabularies and safety in healthcare, identity trust frameworks in
+government.
+
+Closing note:
+Assurance is tiered — self-assessment for entry-level conformance,
+independent third-party verification for the most sensitive deployments.
+Conformance profiles, test scripts and scoring methodology are published
+openly so claims are checkable and the bar is transparent. EDMA administers
+the mark as the neutral certifying body.
+
+=====================================================================
+GOVERNANCE
+=====================================================================
+
+Heading: Open participation, consensus decisions
+
+Intro:
+The community starts as an open forum while the work is being defined, then
+converts into a formal working group with well-defined work items and
+deliverables. Decisions are taken by consensus among participating members,
+facilitated by the co-chairs, with the EDM Association and the Open Data
+Institute providing overall stewardship.
+
+Co-chairs:
+• Jim Halcomb — EDM Association
+• Jacobus Geluk — agnos.ai
+• Roberto Breitman — Open Data Institute
+• Jesse Wright — Open Data Institute
+
+Note under co-chairs:
+FIBO and ontology leadership: Shaun Rolls and Elisa Kendall. Sector leads for
+finance, healthcare and government drive each workstream.
+
+How we meet:
+• A standing bi-weekly community call, open to all participants.
+• Sector and project sub-groups on their own cadence as the work matures.
+• Webinars and working sessions around milestones, including showcases of
+  what members have built.
+• Discussion and documents on EDMConnect; code and deliverables on GitHub
+  under the MIT licence.
+
+=====================================================================
+GET INVOLVED
+=====================================================================
+
+Heading: Shape the rails your sector will run on
+
+Intro:
+Joining now means shaping how Solid is bound to the standards of your
+industry — and being first in line when the market follows.
+
+[Three step cards]
+
+1. Register on EDMConnect
+   The community is hosted on the EDM Association's EDMConnect platform.
+   Anyone can register — membership is not required.
+
+2. Join the community call
+   The bi-weekly call is open to all participants — hear from the W3C Solid
+   Community Group, the Linked Web Storage Working Group and implementers
+   across sectors.
+
+3. Bring a use case or take a role
+   Sponsor a sector pilot, build or host infrastructure, steward bindings,
+   co-design the certification, or pilot Solid in your own organisation.
+
+Button: Join the Solid Community of Practice  →  https://hub.edmcouncil.org/
+
+=====================================================================
+FOOTER [dark-blue, bottom of page]
+=====================================================================
+
+About blurb:
+Co-convened by the EDM Association and the Open Data Institute to grow the
+adoption of Solid specifications, tools and standards across industry data
+management — and to channel industry's expertise back into the Solid project.
+
+Resources links: Solid Project | W3C Solid Community Group | W3C Linked Web
+Storage Working Group | FIBO | CDMC | DCAM | DPROD
+
+Conveners links: EDM Association | Open Data Institute | EDMConnect community
+platform
+
+Legal line:
+© 2026 EDM Association & Open Data Institute. Community outputs published
+under the MIT licence. FIBO is a trademark of EDM Association, Inc.
