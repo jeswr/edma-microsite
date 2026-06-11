@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+:root {
+  /* EDM Association palette (edmcouncil.org) */
+  --edm-navy: #042e62;
+  --edm-blue: #025394;
+  --edm-bright: #4192f7;
+  --edm-teal: #5dc5d6;
+  --edm-amber: #f3b13e;
+  --edm-orange: #e78747;
+  --edm-mist: #ebf1f6;
+  /* Solid brand */
+  --solid-purple: #7c4dff;
+  --solid-purple-dark: #5a2ee0;
+
+  --background: #ffffff;
+  --foreground: #1a2433;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy: var(--edm-navy);
+  --color-edmblue: var(--edm-blue);
+  --color-bright: var(--edm-bright);
+  --color-teal: var(--edm-teal);
+  --color-amber: var(--edm-amber);
+  --color-orange: var(--edm-orange);
+  --color-mist: var(--edm-mist);
+  --color-solid: var(--solid-purple);
+  --color-soliddark: var(--solid-purple-dark);
+  --font-sans: var(--font-hanken);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-hanken), system-ui, sans-serif;
+}
