@@ -122,7 +122,11 @@ function Hero() {
 const STATS = [
   { value: "300+", label: "participants in the W3C Solid Community Group" },
   { value: "3", label: "priority sectors: finance, healthcare, government" },
-  { value: "2015", label: "Solid founded at MIT by Sir Tim Berners-Lee" },
+  {
+    value: "$3M",
+    label:
+      "Google.org funding for Solid under ODI stewardship — first phase of a $10M programme",
+  },
   { value: "MIT", label: "open licence for every output of the community" },
 ];
 
@@ -219,29 +223,39 @@ function About() {
               >
                 The ODI
               </a>{" "}
-              has stewarded the Solid Project since 2024 and contributes deep
-              technical and standards expertise: a role in the W3C work
-              maturing the specification, engineering capacity for Solid
-              tooling and reference implementations, and its convening of the
-              Solid community — Solid World, the advisory committee and the
-              developer community.
+              became Solid&apos;s steward in October 2024, bringing more than
+              a decade of experience in responsible data innovation. Its
+              stewardship ensures the infrastructure develops in a way that
+              benefits society — with governance frameworks that reflect
+              community values and technical standards that enable global
+              interoperability. Backed by USD 3 million from Google.org, the
+              first phase of a broader USD 10 million programme, the ODI is
+              maintaining Solid&apos;s open-source foundations, taking the
+              Linked Web Storage specification through the W3C, training
+              hundreds of new developers, and catalysing use-case pilots that
+              demonstrate real impact.
             </p>
           </div>
         </div>
         <div className="mt-6 rounded-lg bg-mist p-8 border border-slate-200">
           <h3 className="text-xl font-bold text-navy">What is Solid?</h3>
           <p className="mt-3 text-slate-700 leading-relaxed max-w-4xl">
-            Solid is a privacy-by-design protocol built on standard web
-            technologies. Rather than each application holding its own copy of
-            a person&apos;s or organisation&apos;s data, Solid stores that data
-            in a <strong>Pod</strong> — a personal or organisational datastore
-            — governed by fine-grained access controls, so applications read
-            and write only with permission. Because Pods use open, linked-data
-            standards, the same data can be reused across many applications
-            without bespoke integration, and it remains under the control of
-            the entity it describes. Solid was developed by Sir Tim
-            Berners-Lee&apos;s research group at MIT and is standardised
-            through the{" "}
+            Solid is, in practice, a file system for the web — returning the
+            web to its original vision of serving people. Rather than each
+            application holding its own copy of a person&apos;s or
+            organisation&apos;s data, Solid stores that data in a{" "}
+            <strong>Pod</strong> — a personal or organisational datastore
+            governed by fine-grained access controls. It&apos;s a bit like
+            carrying all your data in a rucksack with lots of pockets:
+            applications can only open the pockets you allow them to open,
+            rather than taking the whole rucksack — the rest stays private.
+            Because Pods use open, linked-data standards, the same data can be
+            reused across many applications without bespoke integration, and
+            it remains under the control of the entity it describes. Solid was
+            developed by Sir Tim Berners-Lee and his team at MIT in
+            collaboration with the Qatar Computing Research Institute, Oxford
+            University and other academic research centres, nurtured by a
+            dedicated global community, and is standardised through the{" "}
             <a
               href="https://www.w3.org/community/solid/"
               className="text-edmblue underline underline-offset-2"
@@ -286,7 +300,7 @@ const BENEFITS = [
   },
   {
     title: "AI- and agent-ready data",
-    body: "Structured, consented, attributable data as a foundation for trustworthy AI.",
+    body: "As AI agents develop, Solid ensures they serve users who keep control of their data — structured, consented, attributable data as a foundation for trustworthy AI.",
   },
   {
     title: "Regulatory future-proofing",
@@ -331,10 +345,12 @@ function WhySolid() {
           ))}
         </div>
         <p className="mt-10 text-sm text-slate-400 max-w-3xl">
-          Solid is architecturally proven and in early production — for example
-          the Flanders/athumi ecosystem and health deployments such as VITO —
-          but adoption is still early. Assessing that readiness and closing the
-          gaps is the remit of this community.
+          Real implementations prove the model works: the Flanders/athumi
+          citizen-data ecosystem, VITO&apos;s healthcare platform, Graphmetrix
+          in US construction supply chains, and pilots with the BBC, the Bezos
+          Earth Fund, NatWest Bank and Visa across media, sustainability,
+          banking and commerce. Adoption is still early — assessing that
+          readiness and closing the gaps is the remit of this community.
         </p>
       </div>
     </section>
@@ -467,7 +483,7 @@ const SECTORS = [
       },
       {
         title: "Social services for vulnerable citizens",
-        body: "A citizen-controlled Pod holds verified documents and releases only what each service needs — accurate identification without surveillance, control and dignity for the data subject.",
+        body: "A citizen-controlled Pod holds verified documents and releases only what each service needs — control and dignity for the data subject. Code for PDX's Solid digital wallet already helps people at risk of homelessness complete housing-assistance applications.",
       },
       {
         title: "Less repeated admin",
