@@ -209,15 +209,28 @@ function About() {
               >
                 The ODI
               </a>{" "}
-              became Solid&apos;s steward in October 2024, bringing more than
-              a decade of experience in responsible data innovation. Its
-              stewardship ensures the infrastructure develops to benefit
-              society, with governance that reflects community values and
-              standards that enable global interoperability. The ODI maintains
-              Solid&apos;s open-source foundations, is taking the Linked Web
-              Storage specification through the W3C, trains hundreds of new
-              developers, and catalyses use-case pilots that demonstrate real
-              impact.
+              became{" "}
+              <a
+                href="https://solidproject.org/"
+                className="text-edmblue underline underline-offset-2"
+              >
+                Solid
+              </a>
+              &apos;s steward in October 2024, bringing more than a decade of
+              experience in responsible data innovation. Its stewardship
+              ensures the infrastructure develops to benefit society, with
+              governance that reflects community values and standards that
+              enable global interoperability. The ODI maintains Solid&apos;s
+              open-source foundations, is supporting the standardisation of
+              parts of Solid technology in the{" "}
+              <a
+                href="https://www.w3.org/groups/wg/lws/"
+                className="text-edmblue underline underline-offset-2"
+              >
+                Linked Web Storage
+              </a>{" "}
+              group, trains hundreds of new developers, and catalyses use-case
+              pilots that demonstrate real impact.
             </p>
           </div>
         </div>
@@ -232,9 +245,15 @@ function About() {
             with permission. Because Pods use open, linked-data standards, the
             same data can be reused across applications without bespoke
             integration, and it stays under the control of the entity it
-            describes. Solid was developed by Sir Tim Berners-Lee&apos;s
-            research group at MIT, nurtured by a global community, and is
-            standardised through the{" "}
+            describes. Solid was developed by{" "}
+            <a
+              href="https://www.w3.org/People/Berners-Lee/"
+              className="text-edmblue underline underline-offset-2"
+            >
+              Sir Tim Berners-Lee
+            </a>
+            &apos;s research group at MIT, nurtured by a global community, and
+            is standardised through the{" "}
             <a
               href="https://www.w3.org/community/solid/"
               className="text-edmblue underline underline-offset-2"
@@ -324,8 +343,27 @@ function WhySolid() {
           ))}
         </div>
         <p className="mt-10 text-sm text-slate-400 max-w-3xl">
-          Real implementations prove the model works: the Flanders/athumi
-          citizen-data ecosystem, VITO&apos;s healthcare platform, Graphmetrix
+          Real implementations prove the model works: the Flanders/
+          <a
+            href="https://athumi.eu/"
+            className="text-teal underline underline-offset-2 hover:text-white"
+          >
+            athumi
+          </a>{" "}
+          citizen-data ecosystem,{" "}
+          <a
+            href="https://vito.be"
+            className="text-teal underline underline-offset-2 hover:text-white"
+          >
+            VITO
+          </a>
+          &apos;s healthcare platform,{" "}
+          <a
+            href="https://graphmetrix.com"
+            className="text-teal underline underline-offset-2 hover:text-white"
+          >
+            Graphmetrix
+          </a>{" "}
           in US construction supply chains, and pilots with the BBC, the Bezos
           Earth Fund, NatWest Bank and Visa across media, sustainability,
           banking and commerce. Adoption is still early; assessing that
@@ -438,7 +476,20 @@ const SECTORS = [
     cases: [
       {
         title: "Patient-controlled records",
-        body: "VITO's WeAre vaults in Flanders let patients share health data across providers and researchers; an NHS pilot in Greater Manchester used personal stores to improve dementia care.",
+        body: (
+          <>
+            VITO&apos;s{" "}
+            <a
+              href="https://we-are-health.be"
+              className="text-edmblue underline underline-offset-2"
+            >
+              WeAre
+            </a>{" "}
+            vaults in Flanders let patients share health data across providers
+            and researchers; an NHS pilot in Greater Manchester used personal
+            stores to improve dementia care.
+          </>
+        ),
       },
       {
         title: "Medication management",
@@ -458,11 +509,37 @@ const SECTORS = [
     cases: [
       {
         title: "Citizen vaults and “tell us once”",
-        body: "Flanders' data utility athumi, built on Solid, is architected to serve ~6.5 million citizens, with live services including diploma sharing and online death registration.",
+        body: (
+          <>
+            Flanders&apos; data utility{" "}
+            <a
+              href="https://athumi.eu/"
+              className="text-edmblue underline underline-offset-2"
+            >
+              athumi
+            </a>
+            , built on Solid, is architected to serve ~6.5 million citizens,
+            with live services including diploma sharing and online death
+            registration.
+          </>
+        ),
       },
       {
         title: "Social services for vulnerable citizens",
-        body: "A citizen-controlled Pod holds verified documents and releases only what each service needs: control and dignity for the data subject. Code for PDX's Solid wallet already helps people at risk of homelessness complete housing-assistance applications.",
+        body: (
+          <>
+            A citizen-controlled Pod holds verified documents and releases only
+            what each service needs: control and dignity for the data subject.{" "}
+            <a
+              href="https://www.codepdx.org/"
+              className="text-edmblue underline underline-offset-2"
+            >
+              Code for PDX
+            </a>
+            &apos;s Solid wallet already helps people at risk of homelessness
+            complete housing-assistance applications.
+          </>
+        ),
       },
       {
         title: "Less repeated admin",
@@ -799,19 +876,15 @@ function Footer() {
                 Open Data Institute
               </a>
             </li>
-            <li>
-              <a href={EDM_CONNECT} className="hover:text-teal">
-                EDMConnect community platform
-              </a>
-            </li>
           </ul>
         </div>
       </div>
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-6 text-xs text-slate-400 flex flex-col sm:flex-row gap-2 sm:justify-between">
           <p>
-            © {new Date().getFullYear()} EDM Association &amp; Open Data
-            Institute. Community outputs published under the MIT licence.
+            © {new Date().getFullYear()}{" "}
+            EDM Association &amp; Open Data Institute. Community outputs
+            published under the MIT licence.
           </p>
           <p>FIBO is a trademark of EDM Association, Inc.</p>
         </div>

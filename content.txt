@@ -70,9 +70,11 @@ The ODI became Solid's steward in October 2024, bringing more than a decade
 of experience in responsible data innovation. Its stewardship ensures the
 infrastructure develops to benefit society, with governance that reflects
 community values and standards that enable global interoperability. The ODI
-maintains Solid's open-source foundations, is taking the Linked Web Storage
-specification through the W3C, trains hundreds of new developers, and
-catalyses use-case pilots that demonstrate real impact.
+maintains Solid's open-source foundations, is supporting the standardisation
+of parts of Solid technology in the Linked Web Storage group, trains hundreds
+of new developers, and catalyses use-case pilots that demonstrate real impact.
+[Links in this card: "Solid" → https://solidproject.org/ ; "Linked Web
+Storage" → https://www.w3.org/groups/wg/lws/]
 
 [Panel] What is Solid?
 Solid is a privacy-by-design protocol built on standard web technologies.
@@ -85,6 +87,7 @@ stays under the control of the entity it describes. Solid was developed by
 Sir Tim Berners-Lee's research group at MIT, nurtured by a global community,
 and is standardised through the W3C Solid Community Group and the Linked Web
 Storage Working Group.
+[Link in this panel: "Sir Tim Berners-Lee" → https://www.w3.org/People/Berners-Lee/]
 
 =====================================================================
 WHY SOLID [dark-blue section]
@@ -139,6 +142,8 @@ ecosystem, VITO's healthcare platform, Graphmetrix in US construction supply
 chains, and pilots with the BBC, the Bezos Earth Fund, NatWest Bank and Visa
 across media, sustainability, banking and commerce. Adoption is still early;
 assessing that readiness and closing the gaps is the remit of this community.
+[Links in this note: athumi → https://athumi.eu/ ; VITO → https://vito.be ;
+Graphmetrix → https://graphmetrix.com]
 
 =====================================================================
 WHO IT'S FOR
@@ -228,6 +233,7 @@ data and real consent already in production pilots.
   VITO's WeAre vaults in Flanders let patients share health data across
   providers and researchers; an NHS pilot in Greater Manchester used personal
   stores to improve dementia care.
+  [Link: "WeAre" → https://we-are-health.be]
 
 • Medication management
   A medication record in the patient's Pod, described with shared,
@@ -246,12 +252,14 @@ as public infrastructure.
   Flanders' data utility athumi, built on Solid, is architected to serve
   ~6.5 million citizens, with live services including diploma sharing and
   online death registration.
+  [Link: "athumi" → https://athumi.eu/]
 
 • Social services for vulnerable citizens
   A citizen-controlled Pod holds verified documents and releases only what
   each service needs: control and dignity for the data subject. Code for
   PDX's Solid wallet already helps people at risk of homelessness complete
   housing-assistance applications.
+  [Link: "Code for PDX" → https://www.codepdx.org/]
 
 • Less repeated admin
   UK residents spend roughly 56 hours a year on government admin. A
@@ -375,8 +383,7 @@ management, and to channel industry's expertise back into the Solid project.
 Resources links: Solid Project | W3C Solid Community Group | W3C Linked Web
 Storage Working Group | FIBO | CDMC | DPROD
 
-Conveners links: EDM Association | Open Data Institute | EDMConnect community
-platform
+Conveners links: EDM Association | Open Data Institute
 
 Legal line:
 © 2026 EDM Association & Open Data Institute. Community outputs published
