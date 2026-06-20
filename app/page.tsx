@@ -8,7 +8,6 @@ const NAV = [
   { label: "Who it's for", href: "#who" },
   { label: "Use cases", href: "#use-cases" },
   { label: "Work programme", href: "#work" },
-  { label: "Certification", href: "#certification" },
   { label: "Governance", href: "#governance" },
 ];
 
@@ -195,14 +194,7 @@ function About() {
               >
                 CDMC
               </a>{" "}
-              and{" "}
-              <a
-                href="https://edmcouncil.org/frameworks/dcam/"
-                className="text-edmblue underline underline-offset-2"
-              >
-                DCAM
-              </a>{" "}
-              frameworks, the EDMConnect platform, and the authority to engage
+              framework, the EDMConnect platform, and the authority to engage
               regulators, standards bodies and commercial partners.
             </p>
           </div>
@@ -362,7 +354,7 @@ const AUDIENCES = [
   },
   {
     role: "Certification & assurance",
-    who: "Assessors, auditors and advisory firms with DCAM/CDMC practices",
+    who: "Assessors, auditors and advisory firms with data-governance and CDMC practices",
     hook: "Co-design the conformance scheme and extend your accreditation into a new Solid assessment line. Be first-accredited.",
   },
   {
@@ -450,7 +442,7 @@ const SECTORS = [
       },
       {
         title: "Medication management",
-        body: "A medication record in the patient's Pod, described with shared definitions such as IDMP-O, gives pharmacists, prescribers and hospitals one current view and fewer reconciliation errors.",
+        body: "A medication record in the patient's Pod, described with shared, standardised definitions, gives pharmacists, prescribers and hospitals one current view and fewer reconciliation errors.",
       },
       {
         title: "A governed home for consumer health data",
@@ -522,7 +514,7 @@ function UseCases() {
           </a>{" "}
           for deployed services and applications, and the ODI&apos;s{" "}
           <a
-            href="https://youtu.be/sXwZXWMuymM"
+            href="https://solidproject.org/engagement"
             className="text-edmblue underline underline-offset-2"
           >
             visual walkthrough
@@ -541,7 +533,7 @@ const DELIVERABLES = [
   },
   {
     title: "Sector ontology bindings",
-    body: "Recommendations for how established domain ontologies, identifier schemes and terminologies (FIBO, IDMP-O and peers) bind to Solid in each sector, rather than inventing new ontologies.",
+    body: "Recommendations for how established domain ontologies, identifier schemes and terminologies (FIBO and peers) bind to Solid in each sector, rather than inventing new ontologies.",
   },
   {
     title: "Security & functional requirements",
@@ -549,7 +541,7 @@ const DELIVERABLES = [
   },
   {
     title: "The Solid Certification",
-    body: "A neutral, evidence-based mark certifying that a Solid server, application or identity provider meets the security and data-quality requirements of a target sector.",
+    body: "A neutral, evidence-based mark certifying that a Solid server, application or identity provider meets a target sector's bar. It layers a recognised cyber-security baseline, CDMC data-control conformance and sector-specific requirements, with assurance tiered from self-assessment to independent verification.",
   },
   {
     title: "Solid–DPROD bindings for data products",
@@ -591,77 +583,32 @@ function WorkProgramme() {
   );
 }
 
-const CERT_LAYERS = [
-  {
-    name: "Recognised cyber-security baseline",
-    body: "An accredited infrastructure-security certification: ISO/IEC 27001 and/or Cyber Essentials Plus, with SOC 2 where relevant.",
-  },
-  {
-    name: "Solid-CDMC conformance",
-    body: "A mapping of the EDM Council's Cloud Data Management Capabilities controls onto each class of Solid service: the technical data-control layer.",
-  },
-  {
-    name: "Solid-DCAM conformance",
-    body: "A mapping of the Data Management Capability Assessment Model onto the organisation building the service: the organisational data-management layer.",
-  },
-  {
-    name: "Sector overlay",
-    body: "Sector-specific requirements: FIBO bindings and regulation in finance, clinical vocabularies and safety in healthcare, identity trust frameworks in government.",
-  },
-];
-
-function Certification() {
-  return (
-    <section id="certification" className="scroll-mt-20 bg-navy text-white">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-20">
-        <p className="text-sm font-semibold uppercase tracking-widest text-teal mb-3">
-          The Solid Certification
-        </p>
-        <h2 className="text-3xl sm:text-4xl font-bold max-w-3xl">
-          Trust, expressed in terms regulated buyers already use
-        </h2>
-        <p className="mt-4 text-lg text-slate-300 max-w-3xl leading-relaxed">
-          Regulated buyers will not deploy on trust alone. The proposed Solid
-          Certification is a neutral mark, awarded on evidence of conformance
-          rather than endorsement, certifying that a Solid server, application
-          or identity provider meets the bar of a target sector. Certificates
-          are issued per class of product and sector, for example{" "}
-          <em>Solid Lending Application (Finance)</em>.
-        </p>
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {CERT_LAYERS.map((l, i) => (
-            <div
-              key={l.name}
-              className="rounded-lg bg-white/5 border border-white/10 p-6"
-            >
-              <p className="text-xs font-semibold uppercase tracking-wider text-amber">
-                Layer {i + 1}
-              </p>
-              <h3 className="mt-2 font-semibold text-white">{l.name}</h3>
-              <p className="mt-2 text-sm text-slate-300 leading-relaxed">
-                {l.body}
-              </p>
-            </div>
-          ))}
-        </div>
-        <p className="mt-8 text-sm text-slate-400 max-w-3xl">
-          Assurance is tiered: self-assessment for entry-level conformance,
-          independent verification for the most sensitive deployments.
-          Profiles, test scripts and scoring methodology are published openly
-          so claims are checkable. EDMA administers the mark as the neutral
-          certifying body.
-        </p>
-      </div>
-    </section>
-  );
-}
-
 const CHAIRS = [
-  { name: "Jim Halcomb", org: "EDM Association" },
-  { name: "Jacobus Geluk", org: "agnos.ai" },
-  { name: "Roberto Breitman", org: "Open Data Institute" },
-  { name: "Stuart Coleman", org: "Open Data Institute" },
-  { name: "Jesse Wright", org: "Open Data Institute" },
+  {
+    name: "Jim Halcomb",
+    org: "EDM Association",
+    linkedin: "https://www.linkedin.com/in/jimhalcomb",
+  },
+  {
+    name: "Jacobus Geluk",
+    org: "agnos.ai",
+    linkedin: "https://www.linkedin.com/in/jgeluk",
+  },
+  {
+    name: "Roberto Breitman",
+    org: "Open Data Institute",
+    linkedin: "https://www.linkedin.com/in/roberto-s-k-breitman-07429a157",
+  },
+  {
+    name: "Stuart Coleman",
+    org: "Open Data Institute",
+    linkedin: "https://www.linkedin.com/in/infonation",
+  },
+  {
+    name: "Jesse Wright",
+    org: "Open Data Institute",
+    linkedin: "https://www.linkedin.com/in/jeswr",
+  },
 ];
 
 function Governance() {
@@ -678,13 +625,25 @@ function Governance() {
             <h3 className="text-lg font-bold text-navy">Co-chairs</h3>
             <div className="mt-4 grid sm:grid-cols-2 gap-4">
               {CHAIRS.map((c) => (
-                <div
+                <a
                   key={c.name}
-                  className="rounded-md bg-mist px-4 py-3 border border-slate-200"
+                  href={c.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group rounded-md bg-mist px-4 py-3 border border-slate-200 hover:border-edmblue hover:bg-white transition-colors"
                 >
-                  <p className="font-semibold text-navy">{c.name}</p>
+                  <p className="font-semibold text-navy group-hover:text-edmblue inline-flex items-center gap-1.5">
+                    {c.name}
+                    <svg
+                      aria-hidden
+                      viewBox="0 0 24 24"
+                      className="h-3.5 w-3.5 fill-current text-slate-400 group-hover:text-edmblue"
+                    >
+                      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+                    </svg>
+                  </p>
                   <p className="text-sm text-slate-500">{c.org}</p>
-                </div>
+                </a>
               ))}
             </div>
             <p className="mt-5 text-sm text-slate-600">
@@ -792,7 +751,6 @@ const FOOTER_RESOURCES = [
   },
   { label: "FIBO", href: "https://spec.edmcouncil.org/fibo/" },
   { label: "CDMC", href: "https://edmcouncil.org/frameworks/cdmc/" },
-  { label: "DCAM", href: "https://edmcouncil.org/frameworks/dcam/" },
   { label: "DPROD", href: "https://ekgf.github.io/dprod/" },
 ];
 
@@ -873,7 +831,6 @@ export default function Home() {
       <WhoItsFor />
       <UseCases />
       <WorkProgramme />
-      <Certification />
       <Governance />
       <GetInvolved />
       <Footer />

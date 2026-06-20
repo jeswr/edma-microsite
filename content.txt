@@ -10,7 +10,7 @@ HEADER [sticky bar at the top of the page]
 Site name: Solid Community of Practice
 Subtitle: EDM Association · Open Data Institute
 
-Menu items: About | Why Solid | Who it's for | Use cases | Work programme | Certification | Governance
+Menu items: About | Why Solid | Who it's for | Use cases | Work programme | Governance
 Button: Join the community  →  links to https://hub.edmcouncil.org/
 
 =====================================================================
@@ -61,9 +61,9 @@ that hold those sectors back.
 [Card 1] The EDM Association
 The global association elevating data management as a strategic business
 priority. EDMA convenes and sponsors the community, bringing its member and
-partner network, the FIBO ontology, the CDMC and DCAM frameworks, the
-EDMConnect platform, and the authority to engage regulators, standards bodies
-and commercial partners.
+partner network, the FIBO ontology, the CDMC framework, the EDMConnect
+platform, and the authority to engage regulators, standards bodies and
+commercial partners.
 
 [Card 2] The Open Data Institute
 The ODI became Solid's steward in October 2024, bringing more than a decade
@@ -171,7 +171,8 @@ Wherever you sit in the data ecosystem, there is a seat at the table.
    reference."
 
 4. Certification & assurance
-   Assessors, auditors and advisory firms with DCAM/CDMC practices.
+   Assessors, auditors and advisory firms with data-governance and CDMC
+   practices.
    "Co-design the conformance scheme and extend your accreditation into a new
    Solid assessment line. Be first-accredited."
 
@@ -229,9 +230,9 @@ data and real consent already in production pilots.
   stores to improve dementia care.
 
 • Medication management
-  A medication record in the patient's Pod, described with shared definitions
-  such as IDMP-O, gives pharmacists, prescribers and hospitals one current
-  view and fewer reconciliation errors.
+  A medication record in the patient's Pod, described with shared,
+  standardised definitions, gives pharmacists, prescribers and hospitals one
+  current view and fewer reconciliation errors.
 
 • A governed home for consumer health data
   Readings from consumer devices that fall outside HIPAA gain a consented,
@@ -281,8 +282,8 @@ that adoption depends on.
 
 2. Sector ontology bindings
    Recommendations for how established domain ontologies, identifier schemes
-   and terminologies (FIBO, IDMP-O and peers) bind to Solid in each sector,
-   rather than inventing new ontologies.
+   and terminologies (FIBO and peers) bind to Solid in each sector, rather
+   than inventing new ontologies.
 
 3. Security & functional requirements
    What a Solid service must do to be deployed in a given sector, including
@@ -290,8 +291,10 @@ that adoption depends on.
 
 4. The Solid Certification
    A neutral, evidence-based mark certifying that a Solid server, application
-   or identity provider meets the security and data-quality requirements of a
-   target sector.
+   or identity provider meets a target sector's bar. It layers a recognised
+   cyber-security baseline, CDMC data-control conformance and sector-specific
+   requirements, with assurance tiered from self-assessment to independent
+   verification.
 
 5. Solid–DPROD bindings for data products
    Recommendations for how DPROD (the EDM Council/EKGF profile of W3C DCAT)
@@ -300,44 +303,6 @@ that adoption depends on.
 6. An open community platform
    A neutral home for the community, branded with the Solid identity and
    hosted on EDMConnect, with every output published under the MIT licence.
-
-=====================================================================
-THE SOLID CERTIFICATION [dark-blue section]
-=====================================================================
-
-Heading: Trust, expressed in terms regulated buyers already use
-
-Intro:
-Regulated buyers will not deploy on trust alone. The proposed Solid
-Certification is a neutral mark, awarded on evidence of conformance rather
-than endorsement, certifying that a Solid server, application or identity
-provider meets the bar of a target sector. Certificates are issued per class
-of product and sector, for example Solid Lending Application (Finance).
-
-[Four layer cards]
-
-Layer 1: Recognised cyber-security baseline
-An accredited infrastructure-security certification: ISO/IEC 27001 and/or
-Cyber Essentials Plus, with SOC 2 where relevant.
-
-Layer 2: Solid-CDMC conformance
-A mapping of the EDM Council's Cloud Data Management Capabilities controls
-onto each class of Solid service: the technical data-control layer.
-
-Layer 3: Solid-DCAM conformance
-A mapping of the Data Management Capability Assessment Model onto the
-organisation building the service: the organisational data-management layer.
-
-Layer 4: Sector overlay
-Sector-specific requirements: FIBO bindings and regulation in finance,
-clinical vocabularies and safety in healthcare, identity trust frameworks in
-government.
-
-Closing note:
-Assurance is tiered: self-assessment for entry-level conformance, independent
-verification for the most sensitive deployments. Profiles, test scripts and
-scoring methodology are published openly so claims are checkable. EDMA
-administers the mark as the neutral certifying body.
 
 =====================================================================
 GOVERNANCE
@@ -352,12 +317,12 @@ deliverables. Decisions are taken by consensus, facilitated by the co-chairs,
 with the EDM Association and the Open Data Institute providing overall
 stewardship.
 
-Co-chairs:
-• Jim Halcomb: EDM Association
-• Jacobus Geluk: agnos.ai
-• Roberto Breitman: Open Data Institute
-• Stuart Coleman: Open Data Institute
-• Jesse Wright: Open Data Institute
+Co-chairs (each name links to the person's LinkedIn profile):
+• Jim Halcomb: EDM Association  →  https://www.linkedin.com/in/jimhalcomb
+• Jacobus Geluk: agnos.ai  →  https://www.linkedin.com/in/jgeluk
+• Roberto Breitman: Open Data Institute  →  https://www.linkedin.com/in/roberto-s-k-breitman-07429a157
+• Stuart Coleman: Open Data Institute  →  https://www.linkedin.com/in/infonation
+• Jesse Wright: Open Data Institute  →  https://www.linkedin.com/in/jeswr
 
 Note under co-chairs:
 FIBO and ontology leadership: Shaun Rolls and Elisa Kendall. Sector leads for
@@ -408,7 +373,7 @@ adoption of Solid specifications, tools and standards across industry data
 management, and to channel industry's expertise back into the Solid project.
 
 Resources links: Solid Project | W3C Solid Community Group | W3C Linked Web
-Storage Working Group | FIBO | CDMC | DCAM | DPROD
+Storage Working Group | FIBO | CDMC | DPROD
 
 Conveners links: EDM Association | Open Data Institute | EDMConnect community
 platform
