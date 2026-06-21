@@ -364,10 +364,45 @@ function WhySolid() {
           >
             Graphmetrix
           </a>{" "}
-          in US construction supply chains, and pilots with the BBC, the Bezos
-          Earth Fund, NatWest Bank and Visa across media, sustainability,
-          banking and commerce. Adoption is still early; assessing that
-          readiness and closing the gaps is the remit of this community.
+          in US construction supply chains,{" "}
+          <a
+            href="https://www.muze.nl/"
+            className="text-teal underline underline-offset-2 hover:text-white"
+          >
+            Muze
+          </a>{" "}
+          building Solid apps in the Dutch personal-data-vault ecosystem, and
+          pilots with the{" "}
+          <a
+            href="https://www.bbc.co.uk/rd/blog/2022-10-social-tv-and-personal-data"
+            className="text-teal underline underline-offset-2 hover:text-white"
+          >
+            BBC
+          </a>
+          , the{" "}
+          <a
+            href="https://www.inrupt.com/case-study/blocpower-enables-data-transparency-and-consent"
+            className="text-teal underline underline-offset-2 hover:text-white"
+          >
+            Bezos Earth Fund
+          </a>
+          ,{" "}
+          <a
+            href="https://www.inrupt.com/blog/solid-enterprise-natwest-bbc"
+            className="text-teal underline underline-offset-2 hover:text-white"
+          >
+            NatWest Bank
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://www.inrupt.com/blog/standards-for-agentic-commerce-visas-bold-move"
+            className="text-teal underline underline-offset-2 hover:text-white"
+          >
+            Visa
+          </a>{" "}
+          across media, sustainability, banking and commerce. Adoption is still
+          early; assessing that readiness and closing the gaps is the remit of
+          this community.
         </p>
       </div>
     </section>
@@ -464,7 +499,21 @@ const SECTORS = [
       },
       {
         title: "Bank-provided identity services",
-        body: "Banks issue credentials into a customer's Pod and let the customer present them to third parties, turning a compliance cost centre into a service line.",
+        body: (
+          <>
+            Banks issue credentials into a customer&apos;s Pod and let the
+            customer present them to third parties, turning a compliance cost
+            centre into a service line.{" "}
+            <a
+              href="https://www.inrupt.com/blog/solid-enterprise-natwest-bbc"
+              className="text-edmblue underline underline-offset-2"
+            >
+              NatWest
+            </a>{" "}
+            has piloted customer-controlled “life moments” on Solid, such as
+            updating a name across services from the customer&apos;s own Pod.
+          </>
+        ),
       },
     ],
   },
@@ -486,18 +535,52 @@ const SECTORS = [
               WeAre
             </a>{" "}
             vaults in Flanders let patients share health data across providers
-            and researchers; an NHS pilot in Greater Manchester used personal
-            stores to improve dementia care.
+            and researchers; an{" "}
+            <a
+              href="https://www.cimar.co.uk/nhs-personal-online-data-store-pilot-begins/"
+              className="text-edmblue underline underline-offset-2"
+            >
+              NHS pilot in Greater Manchester
+            </a>{" "}
+            used personal stores to improve dementia care.
           </>
         ),
       },
       {
         title: "Medication management",
-        body: "A medication record in the patient's Pod, described with shared, standardised definitions, gives pharmacists, prescribers and hospitals one current view and fewer reconciliation errors.",
+        body: (
+          <>
+            A medication record in the patient&apos;s Pod, described with
+            shared, standardised definitions, gives pharmacists, prescribers and
+            hospitals one current view and fewer reconciliation errors.{" "}
+            <a
+              href="https://everbetter.com/everbetter-and-solid/"
+              className="text-edmblue underline underline-offset-2"
+            >
+              EverBetter
+            </a>{" "}
+            is building a patient-controlled health record on Solid using
+            standard clinical vocabularies such as FHIR and SNOMED CT.
+          </>
+        ),
       },
       {
         title: "A governed home for consumer health data",
-        body: "Readings from consumer devices that fall outside HIPAA gain a consented, governed home, addressing a gap regulators are actively grappling with.",
+        body: (
+          <>
+            Readings from consumer devices that fall outside HIPAA gain a
+            consented, governed home, addressing a gap regulators are actively
+            grappling with. Flanders&apos;{" "}
+            <a
+              href="https://athumi.be/en/manage-my-health"
+              className="text-edmblue underline underline-offset-2"
+            >
+              athumi
+            </a>{" "}
+            already does this for activity trackers, sports watches and
+            heart-rate monitors.
+          </>
+        ),
       },
     ],
   },
@@ -543,7 +626,19 @@ const SECTORS = [
       },
       {
         title: "Less repeated admin",
-        body: "UK residents spend roughly 56 hours a year on government admin. A government-backed vault lets citizens maintain core data once, with services reading it by permission.",
+        body: (
+          <>
+            UK residents spend{" "}
+            <a
+              href="https://www.gov.uk/government/publications/state-of-digital-government-review/state-of-digital-government-review"
+              className="text-edmblue underline underline-offset-2"
+            >
+              roughly 56 hours a year
+            </a>{" "}
+            on government admin. A government-backed vault lets citizens maintain
+            core data once, with services reading it by permission.
+          </>
+        ),
       },
     ],
   },

@@ -139,11 +139,17 @@ Solid fixes this at the root by decoupling data from applications.
 Closing note:
 Real implementations prove the model works: the Flanders/athumi citizen-data
 ecosystem, VITO's healthcare platform, Graphmetrix in US construction supply
-chains, and pilots with the BBC, the Bezos Earth Fund, NatWest Bank and Visa
-across media, sustainability, banking and commerce. Adoption is still early;
+chains, Muze building Solid apps in the Dutch personal-data-vault ecosystem,
+and pilots with the BBC, the Bezos Earth Fund, NatWest Bank and Visa across
+media, sustainability, banking and commerce. Adoption is still early;
 assessing that readiness and closing the gaps is the remit of this community.
 [Links in this note: athumi → https://athumi.eu/ ; VITO → https://vito.be ;
-Graphmetrix → https://graphmetrix.com]
+Graphmetrix → https://graphmetrix.com ; Muze → https://www.muze.nl/ ;
+BBC → https://www.bbc.co.uk/rd/blog/2022-10-social-tv-and-personal-data ;
+Bezos Earth Fund →
+https://www.inrupt.com/case-study/blocpower-enables-data-transparency-and-consent ;
+NatWest Bank → https://www.inrupt.com/blog/solid-enterprise-natwest-bbc ;
+Visa → https://www.inrupt.com/blog/standards-for-agentic-commerce-visas-bold-move]
 
 =====================================================================
 WHO IT'S FOR
@@ -223,7 +229,9 @@ first sector the community is proving Solid in.
 • Bank-provided identity services
   Banks issue credentials into a customer's Pod and let the customer present
   them to third parties, turning a compliance cost centre into a service
-  line.
+  line. NatWest has piloted customer-controlled "life moments" on Solid, such
+  as updating a name across services from the customer's own Pod.
+  [Link: "NatWest" → https://www.inrupt.com/blog/solid-enterprise-natwest-bbc]
 
 [HEALTHCARE column]
 Tagline: Among the most mature areas of Solid deployment, with real clinical
@@ -233,16 +241,23 @@ data and real consent already in production pilots.
   VITO's WeAre vaults in Flanders let patients share health data across
   providers and researchers; an NHS pilot in Greater Manchester used personal
   stores to improve dementia care.
-  [Link: "WeAre" → https://we-are-health.be]
+  [Links: "WeAre" → https://we-are-health.be ; "NHS pilot in Greater
+  Manchester" → https://www.cimar.co.uk/nhs-personal-online-data-store-pilot-begins/]
 
 • Medication management
   A medication record in the patient's Pod, described with shared,
   standardised definitions, gives pharmacists, prescribers and hospitals one
-  current view and fewer reconciliation errors.
+  current view and fewer reconciliation errors. EverBetter is building a
+  patient-controlled health record on Solid using standard clinical
+  vocabularies such as FHIR and SNOMED CT.
+  [Link: "EverBetter" → https://everbetter.com/everbetter-and-solid/]
 
 • A governed home for consumer health data
   Readings from consumer devices that fall outside HIPAA gain a consented,
   governed home, addressing a gap regulators are actively grappling with.
+  Flanders' athumi already does this for activity trackers, sports watches and
+  heart-rate monitors.
+  [Link: "athumi" → https://athumi.be/en/manage-my-health]
 
 [GOVERNMENT column]
 Tagline: The clearest evidence yet that citizen-controlled data can operate
@@ -265,6 +280,7 @@ as public infrastructure.
   UK residents spend roughly 56 hours a year on government admin. A
   government-backed vault lets citizens maintain core data once, with
   services reading it by permission.
+  [Link: "roughly 56 hours a year" → https://www.gov.uk/government/publications/state-of-digital-government-review/state-of-digital-government-review]
 
 Closing note:
 See the Solid Project website for deployed services and applications, and
