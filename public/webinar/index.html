@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#072589" />
   <meta name="color-scheme" content="dark light" />
-  <title>Solid Community of Practice — Launch Webinar</title>
+  <title>Solid Community of Practice, Launch Webinar</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
 
   <style>
     /* ============================================================
-       SOLID COMMUNITY OF PRACTICE — LAUNCH WEBINAR
+       SOLID COMMUNITY OF PRACTICE, LAUNCH WEBINAR
        ODI brand system. Palette from theodi.org live CSS.
        Design pass guided by Emil Kowalski's design-engineering
        principles: one accent per segment, transform/opacity-only
@@ -79,7 +79,7 @@
 
     /* ---------- layout scaffold ---------- */
     .slide { display: flex; flex-direction: column; height: 100%; }
-    .pad { padding: 30px 56px 56px; }
+    .pad { padding: 44px 56px 56px; }
     .kicker {
       display: inline-flex; align-items: center; gap: 0.5em;
       font-size: 0.6rem; font-weight: 800; letter-spacing: 0.16em;
@@ -88,7 +88,7 @@
     .kicker::before { content: ""; width: 22px; height: 3px; background: var(--accent); border-radius: 2px; }
     .rule { width: 64px; height: 6px; background: var(--accent); border: 0; border-radius: 3px; margin: 0.55rem 0 1.1rem; }
 
-    .grow { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; }
+    .grow { flex: 0 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; }
 
     /* brand footer */
     .foot {
@@ -186,6 +186,19 @@
     section.dark .person .nm { color: #fff; }
     .person .ro { font-size: 0.58rem; color: var(--slate); margin-top: 2px; line-height: 1.28; }
     section.dark .person .ro { color: #c7d2ff; }
+
+    .avatar.photo { background-size: cover; background-position: center top; color: transparent; font-size: 0; }
+    .figure { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: #fff; box-shadow: 0 1px 2px rgba(10,18,48,0.05); }
+    .figure img { display: block; width: 100%; max-height: 372px; height: auto; object-fit: contain; }
+    .figcap { font-size: 0.5rem; color: var(--slate); margin-top: 6px; }
+    .spectrum-img { display: block; margin: 14px auto 0; max-width: 100%; max-height: 462px; width: auto; height: auto; border-radius: 14px; box-shadow: 0 6px 24px rgba(10,18,48,0.18); }
+    .logo-wall { display: block; width: 100%; max-height: 320px; object-fit: contain; object-position: center; border-radius: 12px; }
+    .map-img { width: 100%; border-radius: 12px; display: block; border: 1px solid var(--line); }
+    .spkrow { display: flex; gap: 24px; margin-top: 1.3rem; flex-wrap: wrap; }
+    .spk { text-align: center; width: 96px; }
+    .spk .av { width: 66px; height: 66px; border-radius: 999px; margin: 0 auto 9px; background-size: cover; background-position: center top; background-image: linear-gradient(150deg, var(--blue-2), #061d6e); box-shadow: 0 0 0 3px rgba(7,37,137,1), 0 0 0 4.5px var(--accent); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 0.8rem; }
+    .spk .nmx { font-size: 0.56rem; color: #fff; font-weight: 700; line-height: 1.15; }
+    .spk .rox { font-size: 0.46rem; color: #c7d2ff; margin-top: 1px; }
 
     /* scene cards (theory of change) */
     .scene { border-radius: 16px; padding: 16px; background: #fff; border: 1px solid var(--line); }
@@ -324,21 +337,21 @@
           <div class="cols c2-3 mid">
             <div>
               <p class="lead">The community where the people responsible for enterprise data management set the
-              standards their industries run on — with the deepest roots in <strong>financial services</strong>.</p>
+              standards their industries run on, with the deepest roots in <strong>financial services</strong>.</p>
               <p class="small">We bring the requirements, the domain models and the demand of regulated sectors to the table.</p>
             </div>
             <div class="cols c3 stagger">
               <div class="card">
                 <div class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#0a1230" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div>
-                <h3>FIBO</h3><p>The Financial Industry Business Ontology — the shared language of finance.</p>
+                <h3>FIBO</h3><p>The Financial Industry Business Ontology, the shared language of finance.</p>
               </div>
               <div class="card">
                 <div class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#0a1230" stroke-width="2"><path d="M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3z"/><path d="M4 7v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
-                <h3>CDMC</h3><p>Cloud Data Management Capabilities — the benchmark for data control.</p>
+                <h3>CDMC</h3><p>Cloud Data Management Capabilities, the benchmark for data control.</p>
               </div>
               <div class="card">
                 <div class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#0a1230" stroke-width="2"><circle cx="6" cy="7" r="2.4"/><circle cx="18" cy="7" r="2.4"/><circle cx="12" cy="17" r="2.4"/><path d="M7.6 8.6l3 6.8M16.4 8.6l-3 6.8M8.4 7h7.2"/></svg></div>
-                <h3>EDMConnect</h3><p>Our member &amp; partner platform — and the home of this community.</p>
+                <h3>EDMConnect</h3><p>Our member &amp; partner platform, and the home of this community.</p>
               </div>
             </div>
           </div>
@@ -385,10 +398,10 @@
             </div>
             <div>
               <div class="cols stagger" style="gap:12px;">
-                <div class="card tint"><h3>Industry brings</h3><p>Requirements, domain models, regulated-sector demand — and the authority to engage regulators and standards bodies.</p></div>
+                <div class="card tint"><h3>Industry brings</h3><p>Requirements, domain models, regulated-sector demand, and the authority to engage regulators and standards bodies.</p></div>
                 <div class="card tint"><h3>Solid brings</h3><p>An open, standards-based way to break down the silos, lock-in and duplication that hold those sectors back.</p></div>
               </div>
-              <p class="small" style="margin-top:12px;">The problem is structural: every service keeps its own copy of the same data. EDMA convenes and sponsors this community to fix that at the root — and channel industry's expertise back into Solid.</p>
+              <p class="small" style="margin-top:12px;">The problem is structural: every service keeps its own copy of the same data. EDMA convenes and sponsors this community to fix that at the root, and channel industry's expertise back into Solid.</p>
             </div>
           </div>
         </div>
@@ -428,8 +441,8 @@
         <div class="grow">
           <div class="cols c2 mid">
             <div class="stagger">
-              <p class="lead"><strong>Vision —</strong> a world where data works for everyone.</p>
-              <p class="lead"><strong>Mission —</strong> we build open and trustworthy data ecosystems.</p>
+              <p class="lead"><strong>Vision:</strong> a world where data works for everyone.</p>
+              <p class="lead"><strong>Mission:</strong> we build open and trustworthy data ecosystems.</p>
             </div>
             <div class="card tint rise1">
               <p class="pull">“Without data, there would be <span class="mark">no AI</span>.”</p>
@@ -456,9 +469,9 @@
         <hr class="rule" />
         <div class="grow">
           <div class="ppl stagger">
-            <div class="person"><div class="avatar">LB</div><div class="nm">Louise Burke</div><div class="ro">CEO, Fellow ACCA</div></div>
-            <div class="person"><div class="avatar">TBL</div><div class="nm">Sir Tim Berners-Lee</div><div class="ro">President &amp; Co-founder · inventor of the World Wide Web</div></div>
-            <div class="person"><div class="avatar">NS</div><div class="nm">Sir Nigel Shadbolt</div><div class="ro">Executive Chair &amp; Co-founder · Professor of AI, Oxford</div></div>
+            <div class="person"><div class="avatar photo" style="background-image:url('img/louise-burke.jpg')"></div><div class="nm">Louise Burke</div><div class="ro">CEO, Fellow ACCA</div></div>
+            <div class="person"><div class="avatar photo" style="background-image:url('img/tim-berners-lee.jpg')"></div><div class="nm">Sir Tim Berners-Lee</div><div class="ro">President &amp; Co-founder · inventor of the World Wide Web</div></div>
+            <div class="person"><div class="avatar photo" style="background-image:url('img/nigel-shadbolt.jpg')"></div><div class="nm">Sir Nigel Shadbolt</div><div class="ro">Executive Chair &amp; Co-founder · Professor of AI, Oxford</div></div>
           </div>
           <p class="small rise1" style="text-align:center; margin-top:18px;">Research led by Professor Elena Simperl, a leading scholar in knowledge engineering.</p>
         </div>
@@ -473,41 +486,25 @@
       </aside>
     </section>
 
-    <!-- ===================== 9 · ODI THEORY OF CHANGE ===================== -->
+    <!-- ===================== 9 · ODI DATA SPECTRUM ===================== -->
     <section class="seg-odi">
       <div class="slide pad">
-        <p class="kicker">Our theory of change</p>
-        <h2>Openness and trust create value from data</h2>
+        <p class="kicker">Our vision in practice</p>
+        <h2>We work across the data spectrum</h2>
         <hr class="rule" />
         <div class="grow">
-          <div class="cols c3 stagger">
-            <div class="scene" style="border-top:4px solid var(--mint)">
-              <svg aria-hidden="true" viewBox="0 0 200 92"><rect width="200" height="92" rx="10" fill="#eafff0"/><path d="M0 70h200" stroke="#6bf58b" stroke-width="3"/><g stroke="#1dd3a7" stroke-width="3" fill="none"><path d="M40 70V48M40 56l-9-6M40 56l9-6M100 70V42M100 52l-10-7M100 52l10-7M160 70V50M160 58l-9-6M160 58l9-6"/></g><circle cx="170" cy="22" r="10" fill="#6bf58b"/></svg>
-              <span class="tag" style="color:#1dd3a7">The goal</span>
-              <h3>Farmland</h3><p>Value grown together — stewards, builders and decision-makers in one ecosystem.</p>
-            </div>
-            <div class="scene" style="border-top:4px solid var(--orange)">
-              <svg aria-hidden="true" viewBox="0 0 200 92"><rect width="200" height="92" rx="10" fill="#fff1e8"/><path d="M0 70h200" stroke="#f37533" stroke-width="3"/><g stroke="#9a4a16" stroke-width="3" fill="none"><path d="M96 70V30M96 30l12-8M84 44h24"/></g><rect x="60" y="56" width="80" height="14" fill="#c9621f"/><circle cx="150" cy="26" r="7" fill="#f37533"/></svg>
-              <span class="tag" style="color:#c9621f">Threat 1</span>
-              <h3>Oil field</h3><p>Data hoarding — value trapped in silos. We counter it with <em>openness</em>.</p>
-            </div>
-            <div class="scene" style="border-top:4px solid var(--pink)">
-              <svg aria-hidden="true" viewBox="0 0 200 92"><rect width="200" height="92" rx="10" fill="#fdeef7"/><path d="M0 70h200" stroke="#f467c0" stroke-width="3"/><path d="M40 70l16-22 14 14 18-26 16 20 22-16 18 26" fill="none" stroke="#b23a86" stroke-width="3" stroke-dasharray="3 6"/></svg>
-              <span class="tag" style="color:#b23a86">Threat 2</span>
-              <h3>Wasteland</h3><p>Data fearing — people withdraw access after breaches. We counter it with <em>trust</em>.</p>
-            </div>
-          </div>
-          <p class="pull rise1" style="font-size:1.05rem; margin-top:16px;">Improving <span class="mark">openness</span> and <span class="mark">trust</span> to create impact from data.</p>
+          <p class="small" style="max-width:74ch;">The ODI created the Data Spectrum: a shared language for data that runs from closed, through shared, to open. We work across the whole of it, and Solid is how the shared middle becomes practical: data that moves between organisations while staying under the control of whoever it describes.</p>
+          <img class="spectrum-img" src="img/data-spectrum.jpg" alt="The ODI Data Spectrum: from Closed through Shared to Open data" />
+          <p class="figcap">The ODI Data Spectrum · theodi.org/data-spectrum</p>
         </div>
       </div>
       <div class="foot"><span class="lock">ODI</span><span>theodi.org</span></div>
       <aside class="notes">
-        LOUISE — part 3 (~1 min): "We think about data through three landscapes. The one we want is farmland —
-        value grown together by those who steward data, build from it, and decide with it. Two things threaten
-        it: the oil field, where data is hoarded and trapped in silos — we counter that with openness; and the
-        wasteland, where after breach upon breach people withdraw access — we counter that with trust. Our whole
-        theory of change is there: improving openness and trust to create impact from data. Solid does both at
-        once."
+        LOUISE — part 3 (~1 min): "One idea that shapes everything we do is the Data Spectrum. Data isn't simply
+        open or closed — it runs along a spectrum, from closed, through shared, to open. Most valuable data sits
+        in the shared middle: it can't be fully open, but locking it away wastes its value. We work across the
+        whole spectrum, and Solid is precisely how that shared middle becomes practical — data that moves between
+        organisations while staying under the control of the person or organisation it describes."
       </aside>
     </section>
 
@@ -530,8 +527,8 @@
               </div>
             </div>
             <div class="card rise1" style="border-left:6px solid var(--accent)">
-              <p class="small" style="margin-bottom:10px;">We work across private, public and third sectors — from Microsoft and Google to national and regional governments — on data sharing, responsible stewardship, ethics, privacy-enhancing technologies, and data architectures for AI.</p>
-              <p class="lead" style="margin:0;"><strong>And since October 2024, we are the steward of Solid</strong> — its standards, codebases and communities.</p>
+              <p class="small" style="margin-bottom:10px;">We work across private, public and third sectors, from Microsoft and Google to national and regional governments, on data sharing, responsible stewardship, ethics, privacy-enhancing technologies, and data architectures for AI.</p>
+              <p class="lead" style="margin:0;"><strong>And since October 2024, we are the steward of Solid</strong>, its standards, codebases and communities.</p>
             </div>
           </div>
         </div>
@@ -546,6 +543,30 @@
       </aside>
     </section>
 
+    <!-- ===================== 10b · ODI REACH ===================== -->
+    <section class="seg-odi">
+      <div class="slide pad">
+        <p class="kicker">Our reach</p>
+        <h2>Trusted across sectors, working worldwide</h2>
+        <hr class="rule" />
+        <div class="grow">
+          <div class="stats" style="margin-bottom:22px;">
+            <div class="stat"><div class="n">60,000</div><div class="l">people trained in banking, government &amp; media</div></div>
+            <div class="stat"><div class="n">$395bn</div><div class="l">anticipated size of the open-banking market by 2026</div></div>
+            <div class="stat"><div class="n">300</div><div class="l">early-stage organisations supported</div></div>
+          </div>
+          <p class="kicker" style="margin-bottom:10px;">Clients &amp; partners include</p>
+          <img class="logo-wall" src="img/clients.png" alt="ODI clients and partners including Microsoft, Google, Roche, BBC, Barclays and the Gates Foundation" />
+        </div>
+      </div>
+      <div class="foot"><span class="lock">ODI</span><span>theodi.org</span></div>
+      <aside class="notes">
+        LOUISE — reach (~30s): "And this isn't theoretical — we've trained sixty thousand people, supported
+        three hundred early-stage organisations, and we work with everyone from Microsoft and Google to Barclays,
+        the BBC and the Gates Foundation, across the UK, Europe, the Americas and Asia-Pacific."
+      </aside>
+    </section>
+
     <!-- ===================== 11 · SOLID DIVIDER ===================== -->
     <section class="dark seg-solid divider">
       <div class="slide pad" style="justify-content:center;">
@@ -554,6 +575,7 @@
           <p class="meta rise1">Segment 3 · 7 min</p>
           <h1 class="rise1">Intro to Solid</h1>
           <p class="speakers rise1"><b>Jesse Wright</b> &amp; <b>Matthieu Bosquet</b> &nbsp;·&nbsp; the ODI</p>
+          <div class="spkrow"><div class="spk"><div class="av" style="background-image:url('img/jesse-wright.jpg')"></div><div class="nmx">Jesse Wright</div><div class="rox">the ODI</div></div><div class="spk"><div class="av">MB</div><div class="nmx">Matthieu Bosquet</div><div class="rox">the ODI</div></div></div>
           <span class="chip rise1">Includes a live demo</span>
         </div>
       </div>
@@ -570,9 +592,9 @@
           <div class="cols c2 mid">
             <div>
               <p class="lead">Instead of every app holding its own copy of your data, Solid stores it in a
-              <strong>Pod</strong> — a personal or organisational datastore with fine-grained access controls.
+              <strong>Pod</strong>, a personal or organisational datastore with fine-grained access controls.
               Apps read and write only <em>with permission</em>.</p>
-              <p class="small">Open, linked-data standards mean the same data is reused across apps without bespoke integration — and stays under the control of whoever it describes.</p>
+              <p class="small">Open, linked-data standards mean the same data is reused across apps without bespoke integration, and stays under the control of whoever it describes.</p>
             </div>
             <div class="svgwrap rise1">
               <svg aria-hidden="true" viewBox="0 0 360 170" width="100%" height="170">
@@ -620,7 +642,7 @@
         <div class="grow">
           <div class="cols c2-3 mid">
             <div class="stagger">
-              <p class="lead">Collected, copied and secured many times over — yet rarely current, portable or under your control.</p>
+              <p class="lead">Collected, copied and secured many times over, yet rarely current, portable or under your control.</p>
               <ul>
                 <li>Silos and duplication</li>
                 <li>Concentrated breach risk</li>
@@ -628,10 +650,11 @@
                 <li>Coarse, all-or-nothing consent</li>
                 <li>Identity re-proofed at every institution</li>
               </ul>
+              <p class="lead" style="margin-top:12px;"><strong>Solid fixes this at the root by decoupling data from applications.</strong></p>
             </div>
-            <div class="card tint rise1" style="border-left:6px solid var(--accent)">
-              <p class="pull" style="font-size:1.15rem;">Solid fixes this at the root by <span class="mark">decoupling data from applications</span>.</p>
-              <p class="small" style="margin-top:10px;">Read data from the Pod instead of holding your own copy: lower cost, lower liability, and a single current source of truth.</p>
+            <div class="rise1">
+              <div class="figure"><img src="img/walled-gardens.png" alt="Cartoon of people lost in a maze of walled social-media gardens" /></div>
+              <p class="figcap">“Walled Gardens”, illustration by David Simonds</p>
             </div>
           </div>
         </div>
@@ -657,7 +680,7 @@
           <div class="cols c3-2 mid">
             <div class="cols c3 stagger">
               <div class="card"><div class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#0a1230" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div><h3>Data sovereignty</h3><p>People and organisations keep genuine control as AI proliferates.</p></div>
-              <div class="card"><div class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#0a1230" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></div><h3>Consented &amp; attributable</h3><p>Structured, permissioned, attributable data — the right base for AI you can trust.</p></div>
+              <div class="card"><div class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#0a1230" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></div><h3>Consented &amp; attributable</h3><p>Structured, permissioned, attributable data, the right base for AI you can trust.</p></div>
               <div class="card"><div class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#0a1230" stroke-width="2"><path d="M4 12a8 8 0 018-8M20 12a8 8 0 01-8 8" /><path d="M12 4l3 3-3 3M12 20l-3-3 3-3"/></svg></div><h3>Reusable across agents</h3><p>An agent reads once, with consent, instead of each service scraping its own copy.</p></div>
             </div>
             <div class="svgwrap rise1">
@@ -719,9 +742,9 @@
             <div class="stagger">
               <p class="lead">Solid adds the three pieces the web never standardised:</p>
               <ul>
-                <li><strong>Global single sign-on</strong> — one identity, everywhere</li>
-                <li><strong>Fine-grained authorization</strong> — access controlled per resource</li>
-                <li><strong>A universal data API</strong> — any app reads &amp; writes in a standard way</li>
+                <li><strong>Global single sign-on</strong>, one identity, everywhere</li>
+                <li><strong>Fine-grained authorization</strong>, access controlled per resource</li>
+                <li><strong>A universal data API</strong>, any app reads &amp; writes in a standard way</li>
               </ul>
               <p class="small">All open, W3C-track standards. No proprietary chain, no lock-in.</p>
             </div>
@@ -748,11 +771,11 @@
         <div class="grow">
           <div class="demo rise1">
             <span class="tag-live"><span class="dot"></span> Live demo</span>
-            <p class="lead" style="margin:12px 0 6px;">One person's data in a Pod, reused across two apps — with consent granted and revoked in real time.</p>
+            <p class="lead" style="margin:12px 0 6px;">One person's data in a Pod, reused across two apps, with consent granted and revoked in real time.</p>
             <ul class="steps">
-              <li>Log in once with a WebID — global single sign-on</li>
+              <li>Log in once with a WebID, global single sign-on</li>
               <li>App A writes a profile / record into the Pod</li>
-              <li>App B reads the same data — no re-entry, no integration</li>
+              <li>App B reads the same data, no re-entry, no integration</li>
               <li>Grant, then revoke, access to a single resource</li>
             </ul>
           </div>
@@ -776,7 +799,7 @@
     <!-- ===================== 17 · BACKUP ===================== -->
     <section class="seg-cop">
       <div class="slide pad">
-        <span class="banner rise1">Backup — use only if the live demo fails</span>
+        <span class="banner rise1">Backup, use only if the live demo fails</span>
         <h2 style="margin-top:12px;">Solid in action</h2>
         <hr class="rule" />
         <div class="grow">
@@ -786,7 +809,7 @@
               <ul>
                 <li>One login → a WebID and a Pod</li>
                 <li>App A writes data to the Pod</li>
-                <li>App B reuses it instantly — no integration</li>
+                <li>App B reuses it instantly, no integration</li>
                 <li>Access granted and revoked per resource</li>
               </ul>
             </div>
@@ -815,7 +838,7 @@
           <div class="rise1" style="display:flex; align-items:center; gap:26px; margin-top:22px;">
             <div class="person"><div class="avatar" style="box-shadow:0 0 0 4px rgba(7,37,137,1),0 0 0 6px var(--accent)">JB</div><div class="nm" style="color:#fff">John Bruce</div><div class="ro" style="color:#c7d2ff">CEO, Inrupt</div></div>
             <div style="font-size:1.6rem; color:var(--accent); font-weight:800;">×</div>
-            <div class="person"><div class="avatar" style="box-shadow:0 0 0 4px rgba(7,37,137,1),0 0 0 6px var(--accent)">TBL</div><div class="nm" style="color:#fff">Sir Tim Berners-Lee</div><div class="ro" style="color:#c7d2ff">Inventor of the web · originator of Solid</div></div>
+            <div class="person"><div class="avatar photo" style="background-image:url('img/tim-berners-lee.jpg'); box-shadow:0 0 0 4px rgba(7,37,137,1),0 0 0 6px var(--accent)"></div><div class="nm" style="color:#fff">Sir Tim Berners-Lee</div><div class="ro" style="color:#c7d2ff">Inventor of the web · originator of Solid</div></div>
           </div>
           <span class="chip rise1">Audience Q&amp;A via chat</span>
         </div>
@@ -836,6 +859,7 @@
           <p class="meta rise1">Segment 5 · 15 min</p>
           <h1 class="rise1">The Community of Practice</h1>
           <p class="speakers rise1"><b>Roberto Breitman</b> · scope &amp; goals &nbsp;|&nbsp; <b>Elisa Kendall</b> · FIBO &amp; finance &nbsp;|&nbsp; <b>Stuart Coleman</b> · business value</p>
+          <div class="spkrow"><div class="spk"><div class="av" style="background-image:url('img/roberto-breitman.jpg')"></div><div class="nmx">Roberto Breitman</div><div class="rox">scope &amp; goals</div></div><div class="spk"><div class="av">EK</div><div class="nmx">Elisa Kendall</div><div class="rox">FIBO &amp; finance</div></div><div class="spk"><div class="av" style="background-image:url('img/stuart-coleman.jpg')"></div><div class="nmx">Stuart Coleman</div><div class="rox">business value</div></div></div>
         </div>
       </div>
       <div class="foot"><span class="lock">ODI <i>×</i> EDM ASSOCIATION</span><span>edma-microsite.vercel.app</span></div>
@@ -891,7 +915,7 @@
         <div class="grow">
           <div class="deliv stagger">
             <div class="card"><span class="n">1</span><h3>Use cases &amp; reference implementations</h3><p>Demonstrable deployments per sector, with white papers and webinars.</p></div>
-            <div class="card"><span class="n">2</span><h3>Sector ontology bindings</h3><p>How established ontologies (FIBO and peers) bind to Solid — not new ontologies.</p></div>
+            <div class="card"><span class="n">2</span><h3>Sector ontology bindings</h3><p>How established ontologies (FIBO and peers) bind to Solid, not new ontologies.</p></div>
             <div class="card"><span class="n">3</span><h3>Security &amp; functional requirements</h3><p>What a Solid service must do per sector, including CDMC expectations.</p></div>
             <div class="card"><span class="n">4</span><h3>The Solid Certification</h3><p>A neutral mark: cyber-security baseline + CDMC + sector requirements, tiered assurance.</p></div>
             <div class="card"><span class="n">5</span><h3>Solid–DPROD bindings</h3><p>Describing the data products in a Pod and how to request access.</p></div>
@@ -931,12 +955,12 @@
                   <defs><marker id="d" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0l8 4.5L0 9z" fill="#475073"/></marker></defs>
                 </svg>
               </div>
-              <p class="small">Finance already has a shared, rigorous vocabulary in <strong>FIBO</strong>. Bind it to Solid and data in a Pod means the same thing to every institution — <em>semantic interoperability</em>, nothing new invented.</p>
+              <p class="small">Finance already has a shared, rigorous vocabulary in <strong>FIBO</strong>. Bind it to Solid and data in a Pod means the same thing to every institution, <em>semantic interoperability</em>, nothing new invented.</p>
             </div>
             <div class="cols stagger" style="gap:12px;">
-              <div class="card"><h3>Lending on verified, current data</h3><p>Agreements modelled in FIBO, verified against the borrower's Pod — read at source, not re-keyed.</p></div>
-              <div class="card"><h3>Reusable KYC / AML</h3><p>Identity, address and source-of-funds proofed once, confirmed by signature check — weeks and cost out of onboarding.</p></div>
-              <div class="card"><h3>Bank-provided identity</h3><p>Banks issue credentials into a Pod the customer presents elsewhere — a cost centre becomes a service line. (e.g. NatWest's Solid pilots.)</p></div>
+              <div class="card"><h3>Lending on verified, current data</h3><p>Agreements modelled in FIBO, verified against the borrower's Pod, read at source, not re-keyed.</p></div>
+              <div class="card"><h3>Reusable KYC / AML</h3><p>Identity, address and source-of-funds proofed once, confirmed by signature check, weeks and cost out of onboarding.</p></div>
+              <div class="card"><h3>Bank-provided identity</h3><p>Banks issue credentials into a Pod the customer presents elsewhere, a cost centre becomes a service line. (e.g. NatWest's Solid pilots.)</p></div>
             </div>
           </div>
         </div>
@@ -967,11 +991,11 @@
         <hr class="rule" />
         <div class="grow">
           <div class="vtiles stagger">
-            <div class="card"><h3>Less data custody</h3><p>Read from the Pod instead of holding copies — lower cost, liability and compliance burden.</p></div>
-            <div class="card"><h3>Reusable credentials</h3><p>Proven identity &amp; eligibility reused across sectors — onboarding and KYC/AML cost falls.</p></div>
-            <div class="card"><h3>Single source of truth</h3><p>Update once, not everywhere — less reconciliation, fewer stale-copy errors.</p></div>
+            <div class="card"><h3>Less data custody</h3><p>Read from the Pod instead of holding copies, lower cost, liability and compliance burden.</p></div>
+            <div class="card"><h3>Reusable credentials</h3><p>Proven identity &amp; eligibility reused across sectors, onboarding and KYC/AML cost falls.</p></div>
+            <div class="card"><h3>Single source of truth</h3><p>Update once, not everywhere, less reconciliation, fewer stale-copy errors.</p></div>
             <div class="card"><h3>Interoperability, no lock-in</h3><p>Open W3C-track standard; shared sector ontologies, not bespoke integrations.</p></div>
-            <div class="card"><h3>New permissioned revenue</h3><p>Value-added services — like bank-provided identity — on user-controlled data.</p></div>
+            <div class="card"><h3>New permissioned revenue</h3><p>Value-added services, like bank-provided identity, on user-controlled data.</p></div>
             <div class="card"><h3>AI-ready &amp; future-proof</h3><p>Consented, attributable data for trustworthy AI; aligns with GDPR Art. 20, the EU Data Act &amp; DMA.</p></div>
           </div>
         </div>
@@ -1001,7 +1025,7 @@
         <hr class="rule" />
         <div class="grow">
           <div class="cols c3 stagger">
-            <div class="card"><span class="n" style="display:inline-grid;place-items:center;width:1.8em;height:1.8em;border-radius:999px;background:var(--accent);color:var(--ink);margin-bottom:10px;">1</span><h3>Register on EDMConnect</h3><p>Hosted on EDMConnect. Anyone can register — membership is not required.</p></div>
+            <div class="card"><span class="n" style="display:inline-grid;place-items:center;width:1.8em;height:1.8em;border-radius:999px;background:var(--accent);color:var(--ink);margin-bottom:10px;">1</span><h3>Register on EDMConnect</h3><p>Hosted on EDMConnect. Anyone can register, membership is not required.</p></div>
             <div class="card"><span class="n" style="display:inline-grid;place-items:center;width:1.8em;height:1.8em;border-radius:999px;background:var(--accent);color:var(--ink);margin-bottom:10px;">2</span><h3>Join the community call</h3><p>A bi-weekly call open to all: the W3C Solid CG, the Linked Web Storage WG, and implementers.</p></div>
             <div class="card"><span class="n" style="display:inline-grid;place-items:center;width:1.8em;height:1.8em;border-radius:999px;background:var(--accent);color:var(--ink);margin-bottom:10px;">3</span><h3>Bring a use case or take a role</h3><p>Sponsor a pilot, build or host infrastructure, steward bindings, co-design the certification, or pilot Solid.</p></div>
           </div>
