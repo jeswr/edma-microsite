@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solid Community of Practice — Launch Webinar</title>
+
+  <!-- reveal.js core + theme base (CDN). Self-contained single file otherwise. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme" />
+
+  <style>
+    /* ============================================================
+       ODI BRAND THEME
+       Palette pulled from theodi.org live CSS:
+         deep blue  #072589   (primary)
+         mint       #6bf58b
+         hot pink   #f467c0
+         cyan       #6df8ff
+         orange     #f37533
+         blue       #5897fb
+         teal       #1dd3a7
+         mist       #f0f3f4 / #e2e6e9
+       Typeface: Helvetica Neue (ODI web stack)
+       ============================================================ */
+    :root {
+      --odi-blue: #072589;
+      --odi-mint: #6bf58b;
+      --odi-pink: #f467c0;
+      --odi-cyan: #6df8ff;
+      --odi-orange: #f37533;
+      --odi-blue2: #5897fb;
+      --odi-teal: #1dd3a7;
+      --odi-mist: #f0f3f4;
+      --odi-mist2: #e2e6e9;
+      --odi-ink: #0a1230;
+    }
+
+    .reveal {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 30px;
+      color: var(--odi-ink);
+    }
+    .reveal .slides { text-align: left; }
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: var(--odi-blue);
+      text-transform: none;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.08;
+    }
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em; }
+    .reveal h3 { font-size: 1.05em; }
+    .reveal p, .reveal li { line-height: 1.35; }
+    .reveal strong { color: var(--odi-blue); }
+    .reveal a { color: var(--odi-blue2); text-decoration: underline; }
+    .reveal ul { margin-left: 1em; }
+    .reveal li { margin: 0.28em 0; }
+
+    /* Eyebrow / kicker */
+    .kicker {
+      font-size: 0.5em; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--odi-blue2); margin: 0 0 0.4em 0;
+    }
+    .kicker.on-dark { color: var(--odi-cyan); }
+
+    /* Accent rule under headings */
+    .rule { width: 90px; height: 8px; background: var(--odi-mint); border: 0; margin: 0.2em 0 0.7em; }
+    .rule.pink { background: var(--odi-pink); }
+    .rule.cyan { background: var(--odi-cyan); }
+    .rule.orange { background: var(--odi-orange); }
+
+    /* Persistent footer brand line */
+    .brandbar {
+      position: absolute; bottom: 14px; left: 40px; right: 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; letter-spacing: 0.04em; color: #6b7280;
+      text-transform: uppercase; pointer-events: none;
+    }
+    .brandbar .odi { font-weight: 700; color: var(--odi-blue); }
+    section.dark .brandbar { color: #9fb0e8; }
+    section.dark .brandbar .odi { color: #fff; }
+
+    /* ---------- SECTION DIVIDER (deep blue) ---------- */
+    section.dark {
+      background: var(--odi-blue);
+    }
+    section.dark, section.dark h1, section.dark h2, section.dark h3,
+    section.dark p, section.dark li, section.dark strong { color: #fff; }
+    section.dark a { color: var(--odi-cyan); }
+    section.dark .kicker { color: var(--odi-cyan); }
+    .seg-no {
+      font-size: 0.7em; font-weight: 700; color: var(--odi-mint);
+      letter-spacing: 0.06em; margin-bottom: 0.2em;
+    }
+    .speakers {
+      margin-top: 0.8em; font-size: 0.62em; color: #c9d4ff; font-weight: 400;
+    }
+    .speakers b { color: #fff; font-weight: 700; }
+    .timing {
+      display: inline-block; margin-top: 0.9em; padding: 0.25em 0.8em;
+      border: 1.5px solid var(--odi-cyan); border-radius: 999px;
+      font-size: 0.5em; letter-spacing: 0.08em; text-transform: uppercase; color: var(--odi-cyan);
+    }
+
+    /* ---------- TITLE SLIDE ---------- */
+    .title-slide h1 { font-size: 2.3em; line-height: 1.02; }
+    .title-slide .strap { font-size: 0.85em; color: var(--odi-mint); margin-top: 0.5em; font-weight: 700; }
+
+    /* ---------- COMPONENTS ---------- */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; align-items: start; }
+    .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.9em; align-items: start; }
+    .card {
+      background: var(--odi-mist); border-radius: 14px; padding: 0.7em 0.85em;
+      border-left: 6px solid var(--odi-blue2);
+    }
+    .card h3 { margin: 0 0 0.25em; font-size: 0.82em; }
+    .card p, .card li { font-size: 0.62em; color: #2a3354; line-height: 1.3; }
+    .card.mint { border-left-color: var(--odi-mint); }
+    .card.pink { border-left-color: var(--odi-pink); }
+    .card.cyan { border-left-color: var(--odi-teal); }
+    .card.orange { border-left-color: var(--odi-orange); }
+
+    section.dark .card { background: rgba(255,255,255,0.07); }
+    section.dark .card p, section.dark .card li { color: #dbe3ff; }
+
+    .lead { font-size: 0.92em; color: #2a3354; }
+    section.dark .lead { color: #dbe3ff; }
+    .small { font-size: 0.62em; color: #4a5578; }
+    .big-quote { font-size: 1.15em; font-weight: 700; color: var(--odi-blue); line-height: 1.18; }
+    section.dark .big-quote { color: #fff; }
+    .attrib { font-size: 0.6em; color: var(--odi-blue2); margin-top: 0.5em; font-weight: 700; }
+    section.dark .attrib { color: var(--odi-cyan); }
+
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.4em; margin-top: 0.4em; }
+    .pill {
+      font-size: 0.55em; font-weight: 700; padding: 0.22em 0.7em; border-radius: 999px;
+      background: var(--odi-blue); color: #fff;
+    }
+    .pill.mint { background: var(--odi-mint); color: var(--odi-ink); }
+    .pill.pink { background: var(--odi-pink); color: #fff; }
+    .pill.cyan { background: var(--odi-cyan); color: var(--odi-ink); }
+    .pill.orange{ background: var(--odi-orange); color: #fff; }
+    .pill.ghost { background: transparent; color: var(--odi-blue); border: 1.5px solid var(--odi-blue); }
+
+    .stat-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.8em; margin-top: 0.4em; }
+    .stat .n { font-size: 1.5em; font-weight: 800; color: var(--odi-blue); line-height: 1; }
+    section.dark .stat .n { color: var(--odi-mint); }
+    .stat .l { font-size: 0.55em; color: #4a5578; }
+    section.dark .stat .l { color: #c9d4ff; }
+
+    /* Web stack diagram */
+    .stack { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6em; margin-top: 0.5em; }
+    .stack .layer { border-radius: 12px; padding: 0.55em 0.7em; color: #fff; }
+    .stack .layer h3 { color: #fff; margin: 0 0 0.15em; font-size: 0.7em; }
+    .stack .layer p { font-size: 0.55em; line-height: 1.25; margin: 0; color: rgba(255,255,255,0.92); }
+    .stack .w1 { background: #1b3aa0; }
+    .stack .w2 { background: var(--odi-blue2); }
+    .stack .w3 { background: var(--odi-teal); color: var(--odi-ink); }
+    .stack .w3 h3 { color: var(--odi-ink); }
+    .stack .w3 p { color: rgba(10,18,48,0.85); }
+
+    .demo-box {
+      border: 3px dashed var(--odi-pink); border-radius: 16px; padding: 1em 1.2em;
+      background: #fff;
+    }
+    .demo-box .tag {
+      display: inline-block; background: var(--odi-pink); color: #fff; font-weight: 700;
+      font-size: 0.55em; padding: 0.2em 0.7em; border-radius: 999px; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .checklist { list-style: none; margin-left: 0; }
+    .checklist li::before { content: "▸ "; color: var(--odi-pink); font-weight: 800; }
+
+    .backup-banner {
+      background: var(--odi-orange); color: #fff; font-weight: 700; font-size: 0.55em;
+      letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2em 0.7em; border-radius: 6px;
+      display: inline-block; margin-bottom: 0.4em;
+    }
+
+    .people { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1em; margin-top: 0.6em; }
+    .person .nm { font-weight: 700; color: var(--odi-blue); font-size: 0.8em; }
+    section.dark .person .nm { color: #fff; }
+    .person .ro { font-size: 0.58em; color: #4a5578; }
+    section.dark .person .ro { color: #c9d4ff; }
+
+    .cta a { color: var(--odi-cyan); font-weight: 700; }
+    .reveal section img { border: 0; box-shadow: none; }
+  </style>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- ============================================================
+         SLIDE 1 — TITLE
+         ============================================================ -->
+    <section class="dark title-slide" data-background-color="#072589">
+      <p class="kicker on-dark">EDM Association &nbsp;·&nbsp; Open Data Institute</p>
+      <h1>Solid Community<br/>of Practice</h1>
+      <p class="strap">Making regulated data shareable, without losing control of it.</p>
+      <p class="speakers" style="margin-top:1.1em;">Launch Webinar &nbsp;•&nbsp; <b>14 July 2026</b> &nbsp;•&nbsp; 3:00&nbsp;pm BST</p>
+      <div class="brandbar"><span class="odi">ODI</span><span>edma-microsite.vercel.app</span></div>
+      <aside class="notes">
+        HOST / MC welcome (≈45s, while people join):
+        "Good afternoon and welcome. Thank you for joining the launch of the Solid Community of Practice,
+        co-convened by the EDM Association and the Open Data Institute. Over the next hour you'll hear what
+        the community is, why finance, healthcare and government are the proving grounds, and a fireside
+        conversation between John Bruce of Inrupt and Sir Tim Berners-Lee, the inventor of the web and the
+        originator of Solid. Please drop questions in the chat throughout — we'll gather them for the panel.
+        Let me hand over to Jim Halcomb of the EDM Association."
+      </aside>
+    </section>
+
+    <!-- ============================================================
+         SLIDE 2 — RUN OF SHOW / AGENDA
+         ============================================================ -->
+    <section>
+      <p class="kicker">Today's run of show</p>
+      <h2>One hour, five voices</h2>
+      <hr class="rule" />
+      <div class="two-col">
+        <div>
+          <div class="card mint"><h3>1 · Intro to the EDM Association</h3><p>Jim Halcomb &nbsp;—&nbsp; 4 min</p></div>
+          <div class="card cyan"><h3>2 · Intro to the ODI</h3><p>Louise Burke &nbsp;—&nbsp; 4 min</p></div>
+          <div class="card"><h3>3 · Intro to Solid</h3><p>Jesse Wright &amp; Matthieu Bosquet &nbsp;—&nbsp; 7 min</p></div>
+        </div>
+        <div>
+          <div class="card pink"><h3>4 · Fireside chat</h3><p>John Bruce (Inrupt) × Sir Tim Berners-Lee &nbsp;—&nbsp; 30 min</p></div>
+          <div class="card orange"><h3>5 · Overview of the Community of Practice</h3><p>Roberto Breitman, Elisa Kendall &amp; Stuart Coleman &nbsp;—&nbsp; 15 min</p></div>
+          <div class="card ghost" style="border-left-color:var(--odi-blue);"><h3>Close · How to get involved</h3><p>Register on EDMConnect &nbsp;—&nbsp; everyone welcome</p></div>
+        </div>
+      </div>
+      <div class="brandbar"><span class="odi">ODI</span><span>EDM Association × Open Data Institute</span></div>
+      <aside class="notes">
+        MC (≈30s): "Here's how the hour runs. Short introductions from each convener, a 7-minute tour of Solid
+        with a live demo, then the main event — 30 minutes with John Bruce and Tim Berners-Lee. We close with
+        the shape of the community and exactly how to join. Everything you'll see is published under the MIT
+        licence, and participation is open to anyone, not just EDM Association members."
+      </aside>
+    </section>
+
+    <!-- ============================================================
+         SEGMENT 1 — JIM — INTRO TO EDMA (4 min)
+         ============================================================ -->
+    <section class="dark" data-background-color="#072589">
+      <p class="seg-no">SEGMENT 1 · 4 MIN</p>
+      <h1>Intro to the EDM Association</h1>
+      <hr class="rule" />
+      <p class="speakers"><b>Jim Halcomb</b> &nbsp;—&nbsp; EDM Association</p>
+      <span class="timing">Up next: the ODI</span>
+      <div class="brandbar"><span class="odi">EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
+    </section>
+
+    <section>
+      <p class="kicker">Who we are</p>
+      <h2>The global association elevating data management as a strategic priority</h2>
+      <hr class="rule" />
+      <div class="two-col">
+        <div>
+          <p class="lead">The EDM Association is the community where the people responsible for enterprise data
+          management set the standards their industries run on — most prominently in financial services.</p>
+          <p class="small">We bring the requirements, the domain models and the demand of regulated sectors to the table.</p>
+        </div>
+        <div>
+          <div class="card mint"><h3>FIBO</h3><p>The Financial Industry Business Ontology — the shared language of finance.</p></div>
+          <div class="card cyan"><h3>CDMC</h3><p>The Cloud Data Management Capabilities framework for data control and governance.</p></div>
+          <div class="card"><h3>EDMConnect</h3><p>Our member &amp; partner platform — and the home of this community.</p></div>
+        </div>
+      </div>
+      <div class="brandbar"><span class="odi">EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
+      <aside class="notes">
+        JIM — part 1 (≈2 min):
+        "Thanks. I'm Jim Halcomb from the EDM Association. For those who don't know us: the EDM Association is
+        the global body that elevates data management as a strategic business priority. Our members are the
+        chief data officers, data architects and governance leaders inside the world's largest institutions —
+        with our deepest roots in financial services.
+
+        We're best known for three things. First, FIBO — the Financial Industry Business Ontology — the
+        open, shared vocabulary that lets financial institutions mean the same thing by the same term. Second,
+        CDMC, the Cloud Data Management Capabilities framework, which is becoming the benchmark for how
+        organisations demonstrate control over data in the cloud. And third, EDMConnect, the platform where
+        our members and partners collaborate — and, as you'll hear, the neutral home for this new community.
+
+        What we bring to Solid is the demand side: the real requirements, the domain models, and the
+        regulatory reality of finance, healthcare and government."
+      </aside>
+    </section>
+
+    <section>
+      <p class="kicker">Why we're convening this</p>
+      <h2>A two-way exchange between industry and the Solid project</h2>
+      <hr class="rule" />
+      <div class="two-col">
+        <div>
+          <div class="card"><h3>Industry brings</h3><p>Requirements, domain models, regulated-sector demand — and the authority to engage regulators, standards bodies and commercial partners.</p></div>
+          <div class="card mint"><h3>Solid brings</h3><p>An open, standards-based way to break down the silos, lock-in and duplication that hold those sectors back.</p></div>
+        </div>
+        <div>
+          <p class="lead">The problem is structural: every service keeps its own copy of the same data. It is
+          copied and secured many times over, yet rarely current, portable, or under the control of the person
+          or organisation it describes.</p>
+          <p class="small">EDMA convenes and sponsors this community to fix that at the root — and to channel
+          industry's expertise back into the Solid project.</p>
+        </div>
+      </div>
+      <div class="brandbar"><span class="odi">EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
+      <aside class="notes">
+        JIM — part 2 (≈2 min):
+        "So why is the EDM Association convening a community around Solid? Because the problem we all live with
+        is structural. Every service — every bank, every hospital, every agency — keeps its own copy of the
+        same data. That data gets collected, copied and secured over and over, and yet it's rarely current,
+        rarely portable, and almost never genuinely under the control of the person or organisation it
+        describes. That's cost, that's risk, and that's friction for every customer and citizen.
+
+        This community is a two-way exchange. Industry brings the requirements, the domain models like FIBO,
+        and the demand of regulated sectors — plus the convening authority to bring regulators and standards
+        bodies into the room. Solid brings a credible, open, standards-based way to break down those silos.
+
+        We sponsor and host the community; we don't own the answers. The work is done in the open, and every
+        output is MIT-licensed. To tell you about our partner in this — the steward of Solid itself — let me
+        hand to Louise Burke, CEO of the Open Data Institute."
+      </aside>
+    </section>
+
+    <!-- ============================================================
+         SEGMENT 2 — LOUISE — INTRO TO ODI (4 min) — stock ODI deck
+         ============================================================ -->
+    <section class="dark" data-background-color="#072589">
+      <p class="seg-no">SEGMENT 2 · 4 MIN</p>
+      <h1>Intro to the<br/>Open Data Institute</h1>
+      <hr class="rule cyan" />
+      <p class="speakers"><b>Louise Burke</b> &nbsp;—&nbsp; CEO, the ODI</p>
+      <span class="timing">Up next: Solid</span>
+      <div class="brandbar"><span class="odi">ODI</span><span>theodi.org</span></div>
+    </section>
+
+    <section>
+      <p class="kicker">Our vision &amp; mission</p>
+      <h2>We want data to work for everyone</h2>
+      <hr class="rule cyan" />
+      <div class="two-col">
+        <div>
+          <p class="lead"><strong>Vision:</strong> a world where data works for everyone.</p>
+          <p class="lead"><strong>Mission:</strong> we build open and trustworthy data ecosystems.</p>
+        </div>
+        <div>
+          <p class="big-quote">"Without data, there would be no AI."</p>
+          <p class="attrib">Professor Sir Nigel Shadbolt, Co-founder of the ODI</p>
+        </div>
+      </div>
+      <div class="brandbar"><span class="odi">ODI</span><span>theodi.org</span></div>
+      <aside class="notes">
+        LOUISE — part 1 (≈1 min):
+        "Thank you, Jim. I'm Louise Burke, CEO of the Open Data Institute. Our vision is simple to state and
+        hard to achieve: a world where data works for everyone. Our mission is to build open and trustworthy
+        data ecosystems to get there. As my co-founder Sir Nigel Shadbolt puts it — without data, there is no
+        AI. Everything we are living through right now runs on data, which makes how we steward it one of the
+        defining questions of the decade."
+      </aside>
+    </section>
+
+    <section>
+      <p class="kicker">Founded in 2012</p>
+      <h2>Founders &amp; leadership</h2>
+      <hr class="rule cyan" />
+      <div class="people">
+        <div class="person"><div class="nm">Louise Burke</div><div class="ro">CEO, Fellow ACCA</div></div>
+        <div class="person"><div class="nm">Sir Tim Berners-Lee</div><div class="ro">President &amp; Co-founder · inventor of the World Wide Web</div></div>
+        <div class="person"><div class="nm">Sir Nigel Shadbolt</div><div class="ro">Executive Chair &amp; Co-founder · Professor of AI, Principal of Jesus College Oxford</div></div>
+      </div>
+      <p class="small" style="margin-top:0.8em;">Our research discipline is led by Professor Elena Simperl, a leading scholar in knowledge engineering.</p>
+      <div class="brandbar"><span class="odi">ODI</span><span>theodi.org</span></div>
+      <aside class="notes">
+        LOUISE — part 2 (≈1 min):
+        "The ODI was founded in 2012 by two people you'll recognise: Sir Tim Berners-Lee, who invented the
+        World Wide Web, and Sir Nigel Shadbolt, one of the UK's leading AI academics. Tim is our President;
+        Nigel is our Executive Chair; our research is led by Professor Elena Simperl. I mention the lineage
+        because it matters for today: Solid came out of Tim's lab, and the ODI is the natural steward for it —
+        the same people who gave the web its openness now stewarding the next layer of user control."
+      </aside>
+    </section>
+
+    <section>
+      <p class="kicker">Our theory of change</p>
+      <h2>Openness and trust create value from data</h2>
+      <hr class="rule cyan" />
+      <div class="three-col">
+        <div class="card mint"><h3>Farmland</h3><p>Value created together: stewards, builders and decision-makers working in one ecosystem.</p></div>
+        <div class="card orange"><h3>Oil field</h3><p>Data hoarding: value captured by a few, trapped in silos. We combat it with openness.</p></div>
+        <div class="card pink"><h3>Wasteland</h3><p>Data fearing: people withdraw access after breaches. We combat it with trust.</p></div>
+      </div>
+      <p class="big-quote" style="margin-top:0.7em; font-size:0.9em;">Improving openness and trust to create impact from data.</p>
+      <div class="brandbar"><span class="odi">ODI</span><span>theodi.org</span></div>
+      <aside class="notes">
+        LOUISE — part 3 (≈1 min):
+        "We think about data through three landscapes. The one we want is farmland — value grown together by
+        those who steward data, those who build products from it, and those who make better decisions with it.
+        Two things threaten that. The first is the oil field — data hoarding, where a handful of organisations
+        trap value in silos; we counter that with openness. The second is the wasteland — data fearing, where,
+        after breach after breach, people simply withdraw access; we counter that with trust. Our whole theory
+        of change is right there: improving openness and trust to create impact from data. And, as you'll see,
+        Solid is one of the most powerful tools we have for doing both at once."
+      </aside>
+    </section>
+
+    <section>
+      <p class="kicker">What we do</p>
+      <h2>A mission-driven, not-for-profit institute</h2>
+      <hr class="rule cyan" />
+      <div class="two-col">
+        <div>
+          <p class="lead">A not-for-profit SME of ~50 people, founded in 2012. We build open and trustworthy
+          data ecosystems through:</p>
+          <div class="pill-row">
+            <span class="pill">Consultancy</span>
+            <span class="pill mint">Training</span>
+            <span class="pill cyan">Policy &amp; advocacy</span>
+            <span class="pill orange">Research</span>
+            <span class="pill pink">Convening</span>
+          </div>
+        </div>
+        <div>
+          <p class="small">We work across private, public and third sectors — from Microsoft and Google to
+          national and regional governments around the world — on data sharing, responsible stewardship, data
+          ethics, privacy-enhancing technologies and ethical data architectures for AI.</p>
+          <p class="small"><strong>And we are the steward of Solid</strong> — its standards, codebases and communities.</p>
+        </div>
+      </div>
+      <div class="brandbar"><span class="odi">ODI</span><span>theodi.org</span></div>
+      <aside class="notes">
+        LOUISE — part 4 (≈1 min):
+        "Practically, we're a mission-driven not-for-profit — about fifty people — and we work through five
+        services: consultancy, training, policy and advocacy, research, and convening. We work with everyone
+        from Microsoft and Google to national and regional governments, on data sharing, responsible
+        stewardship, data ethics, privacy-enhancing technologies, and the data architectures that AI depends
+        on. And since October 2024 we are the steward of Solid — its standards, its open-source codebases, and
+        its global community. So let me hand to Jesse and Matthieu to show you what Solid actually is."
+      </aside>
+    </section>
+
+    <!-- ============================================================
+         SEGMENT 3 — JESSE + MATTHIEU — INTRO TO SOLID (7 min)
+         ============================================================ -->
+    <section class="dark" data-background-color="#072589">
+      <p class="seg-no">SEGMENT 3 · 7 MIN</p>
+      <h1>Intro to Solid</h1>
+      <hr class="rule" />
+      <p class="speakers"><b>Jesse Wright</b> &amp; <b>Matthieu Bosquet</b> &nbsp;—&nbsp; the ODI</p>
+      <span class="timing">Includes a live demo</span>
+      <div class="brandbar"><span class="odi">SOLID</span><span>solidproject.org</span></div>
+    </section>
+
+    <section>
+      <p class="kicker">What is Solid?</p>
+      <h2>An open standard for user-centric data and identity on the web</h2>
+      <hr class="rule" />
+      <div class="two-col">
+        <div>
+          <p class="lead">Instead of every application holding its own copy of your data, Solid stores it in a
+          <strong>Pod</strong> — a personal or organisational datastore with fine-grained access controls.
+          Applications read and write only with permission.</p>
+          <p class="small">Because Pods use open, linked-data standards, the same data is reused across apps
+          without bespoke integration — and it stays under the control of whoever it describes.</p>
+        </div>
+        <div>
+          <div class="card mint"><h3>Privacy by design</h3><p>Fine-grained, revocable access control on every resource.</p></div>
+          <div class="card cyan"><h3>Built on web standards</h3><p>From Sir Tim Berners-Lee's group at MIT; standardised at the W3C.</p></div>
+          <div class="card"><h3>Stewarded by the ODI</h3><p>Deployed across government, finance and healthcare.</p></div>
+        </div>
+      </div>
+      <div class="brandbar"><span class="odi">SOLID</span><span>solidproject.org</span></div>
+      <aside class="notes">
+        JESSE — (≈1.5 min):
+        "Thanks Louise. I'm Jesse Wright, and I'm here with Matthieu Bosquet — we both work on Solid at the
+        ODI. Let me give you the one-sentence version: Solid is an open standard for user-centric data and
+        identity on the web.
+
+        Here's the shift. Today, every app you use keeps its own copy of your data. Solid inverts that. Your
+        data lives in a Pod — think of it as a personal or organisational datastore — and applications read and
+        write to it only with your permission, at the level of individual pieces of data. Because Pods use open,
+        linked-data standards, the same data can be reused across many applications without custom integration,
+        and it always stays under the control of whoever it describes. It's privacy by design, it's built
+        entirely on standard web technology from Tim's group at MIT, and it's now stewarded by the ODI and
+        standardised at the W3C."
+      </aside>
+    </section>
+
+    <section>
+      <p class="kicker">The problem Solid solves</p>
+      <h2>Every service keeps its own copy of your data</h2>
+      <hr class="rule pink" />
+      <div class="two-col">
+        <div>
+          <p class="lead">The same data is collected, copied and secured many times over — yet rarely current,
+          portable or under your control.</p>
+          <ul>
+            <li>Silos and duplication</li>
+            <li>Concentrated breach risk</li>
+            <li>Vendor lock-in</li>
+            <li>Coarse, all-or-nothing consent</li>
+            <li>Identity re-proofed at every institution</li>
+          </ul>
+        </div>
+        <div>
+          <p class="big-quote" style="font-size:0.95em;">Solid fixes this at the root by decoupling data from applications.</p>
+          <p class="small">Read data from the Pod instead of holding your own copy. Lower cost, lower liability,
+          and a single current source of truth.</p>
+        </div>
+      </div>
+      <div class="brandbar"><span class="odi">SOLID</span><span>solidproject.org</span></div>
+      <aside class="notes">
+        MATTHIEU — (≈1.5 min):
+        "I'm Matthieu. Let me make the problem concrete, because it's the same five problems in every sector.
+        One: silos and duplication — the same fact stored in dozens of places. Two: breach risk concentrates,
+        because every copy is a target. Three: vendor lock-in, because your data is trapped in someone's
+        product. Four: consent is coarse — it's all-or-nothing, take-it-or-leave-it. And five: your identity
+        gets re-proven from scratch at every single institution you deal with.
+
+        Solid fixes all five at the root, by decoupling the data from the applications. The organisation reads
+        the data it needs from the Pod, with permission, instead of holding and securing yet another copy.
+        That means lower cost, lower liability, and — for the first time — a single, current source of truth
+        that the data subject actually controls."
+      </aside>
+    </section>
+
+    <section>
+      <p class="kicker">Why it matters now</p>
+      <h2>Solid is the foundation for trustworthy, agent-ready data</h2>
+      <hr class="rule" />
+      <div class="three-col">
+        <div class="card cyan"><h3>Data sovereignty</h3><p>People and organisations keep genuine control of their data as AI systems proliferate.</p></div>
+        <div class="card mint"><h3>Consented &amp; attributable</h3><p>Structured, permissioned, attributable data — the right foundation for AI agents you can trust.</p></div>
+        <div class="card"><h3>Reusable across agents</h3><p>An agent reads once, with consent, instead of every service scraping its own copy.</p></div>
+      </div>
+      <p class="small" style="margin-top:0.7em;">As AI agents start acting on our behalf, the question "who controls the data they act on?" becomes urgent. Solid has an answer.</p>
+      <div class="brandbar"><span class="odi">SOLID</span><span>solidproject.org</span></div>
+      <aside class="notes">
+        JESSE — (≈1.5 min):
+        "Why does this matter right now? Because of AI. As agents start to act on our behalf — booking, applying,
+        negotiating — the urgent question becomes: what data are they acting on, and who controls it? If the
+        answer is 'a scraped, stale copy in someone's silo,' that's neither safe nor trustworthy.
+
+        Solid gives agents structured, consented, attributable data, drawn from a source the user controls. The
+        agent reads what it needs, with permission, instead of every service hoarding its own copy. So Solid
+        isn't a relic of Web 2.0 debates — it's arguably the missing data layer for the agentic era. That's a
+        big part of why this community is forming now."
+      </aside>
+    </section>
+
+    <section>
+      <p class="kicker">The standard</p>
+      <h2>The next layer of the web</h2>
+      <hr class="rule" />
+      <div class="stack">
+        <div class="layer w1"><h3>Web 1.0</h3><p>HTTP · HTML · URLs — the document web.</p></div>
+        <div class="layer w2"><h3>Web 2.0</h3><p>JavaScript &amp; Web APIs — the interactive web.</p></div>
+        <div class="layer w3"><h3>Web 3.0 · Solid</h3><p>Global single sign-on, authorization, and a universal data API (LDP).</p></div>
+      </div>
+      <p class="small" style="margin-top:0.7em;">Solid adds three missing pieces to the open web stack: <strong>global SSO</strong> (one identity), <strong>fine-grained authorization</strong>, and a <strong>universal read/write data API</strong> — all on open W3C standards, no lock-in.</p>
+      <div class="brandbar"><span class="odi">SOLID</span><span>solidproject.org</span></div>
+      <aside class="notes">
+        MATTHIEU — (≈1 min):
+        "One slide on where this sits technically. Web 1.0 gave us HTTP, HTML and URLs — the document web.
+        Web 2.0 added JavaScript and web APIs — the interactive web. Solid is the next layer: it adds the three
+        things the web never standardised — a global single sign-on so you have one identity everywhere,
+        fine-grained authorization so you control access per-resource, and a universal data API so any app can
+        read and write your data in a standard way. Crucially, all of this is open, W3C-track standards. There's
+        no proprietary chain, no lock-in. Now — rather than describe it, let's show you."
+      </aside>
+    </section>
+
+    <!-- LIVE DEMO (primary) -->
+    <section>
+      <p class="kicker">See it in action</p>
+      <h2>Live demo</h2>
+      <hr class="rule pink" />
+      <div class="demo-box">
+        <span class="tag">Live demo</span>
+        <p class="lead" style="margin-top:0.5em;">A person's data in a Pod, reused across two apps — with consent granted and revoked in real time.</p>
+        <ul class="checklist">
+          <li>Log in once with a WebID (global single sign-on)</li>
+          <li>App A writes a profile / record into the Pod</li>
+          <li>App B reads the same data — no re-entry, no integration</li>
+          <li>Grant, then revoke, access to a single resource</li>
+        </ul>
+      </div>
+      <p class="small" style="margin-top:0.5em;">Demo driver: Matthieu &nbsp;·&nbsp; Narration: Jesse &nbsp;·&nbsp; Fallback to next slide if needed.</p>
+      <div class="brandbar"><span class="odi">SOLID</span><span>solidproject.org</span></div>
+      <aside class="notes">
+        DEMO — driven by Matthieu, narrated by Jesse (≈1.5 min). Keep it tight and benefit-led.
+        Script the demo to four beats:
+        1) "I log in once, with a single web identity — that's the global SSO."
+        2) "Here I add some data in one app — say, a profile or a health record — and it's written to my Pod."
+        3) "Now I open a completely different app. Notice it already has the data — I didn't re-enter anything,
+            and nobody built a custom integration. Same Pod, my permission."
+        4) "And the control is real: watch me grant access to just this one item, then revoke it — the second
+            app instantly loses it."
+        PRE-FLIGHT CHECKLIST (before the webinar): pod server reachable; both apps logged out and reset;
+        network/VPN stable; screen-share at readable zoom; have the BACKUP slide ready if anything stalls.
+        If the demo wobbles for more than ~15 seconds, say "let me show you the same flow as captured
+        screenshots" and advance to the backup.
+      </aside>
+    </section>
+
+    <!-- BACKUP for the demo (the "keep slide 15" backup) -->
+    <section>
+      <span class="backup-banner">Backup — use only if the live demo fails</span>
+      <h2>Solid in action</h2>
+      <hr class="rule orange" />
+      <div class="two-col">
+        <div>
+          <p class="lead">The same flow, captured step by step:</p>
+          <ul>
+            <li>One login → a WebID and a Pod</li>
+            <li>App A writes data to the Pod</li>
+            <li>App B reuses it instantly — no integration</li>
+            <li>Access granted and revoked per resource</li>
+          </ul>
+        </div>
+        <div>
+          <p class="small"><strong>Drop screenshots here</strong> from a recorded run before the webinar
+          (one image per step above), or embed the ODI's visual walkthrough of the Solid user experience.</p>
+          <p class="small">Walkthrough: <a href="https://solidproject.org/engagement">solidproject.org/engagement</a></p>
+        </div>
+      </div>
+      <div class="brandbar"><span class="odi">SOLID</span><span>solidproject.org/engagement</span></div>
+      <aside class="notes">
+        BACKUP slide (kept per request — this is "slide 15" as the fallback). Only shown if the live demo
+        fails. Before the event, paste in 3–4 screenshots from a recorded run, or link/embed the ODI's visual
+        walkthrough at solidproject.org/engagement. Narration mirrors the four demo beats. Then hand to the MC:
+        "That's Solid. Now to the conversation you came for." → Fireside.
+      </aside>
+    </section>
+
+    <!-- ============================================================
+         SEGMENT 4 — FIRESIDE (30 min) — HOLDING SLIDE ONLY
+         ============================================================ -->
+    <section class="dark" data-background-color="#072589">
+      <p class="seg-no">SEGMENT 4 · 30 MIN</p>
+      <h1>Fireside chat</h1>
+      <hr class="rule pink" />
+      <p class="speakers"><b>John Bruce</b>, CEO of Inrupt &nbsp;&nbsp;×&nbsp;&nbsp; <b>Sir Tim Berners-Lee</b>, inventor of the web &amp; originator of Solid</p>
+      <span class="timing">Audience Q&amp;A via chat</span>
+      <div class="brandbar"><span class="odi">ODI × EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
+      <aside class="notes">
+        Holding slide only — kept on screen for the 30-minute conversation. No script (unscripted fireside).
+        MC: invite audience questions into the chat; a moderator curates and feeds them to John for the last
+        portion. When time is up: "Thank you both. Let's turn to what we're actually building together." → CoP.
+      </aside>
+    </section>
+
+    <!-- ============================================================
+         SEGMENT 5 — OVERVIEW OF THE COP (15 min)
+         Roberto (scope/goals) · Elisa (FIBO/finance) · Stuart (business value)
+         ============================================================ -->
+    <section class="dark" data-background-color="#072589">
+      <p class="seg-no">SEGMENT 5 · 15 MIN</p>
+      <h1>The Community<br/>of Practice</h1>
+      <hr class="rule" />
+      <p class="speakers"><b>Roberto Breitman</b> · scope &amp; goals &nbsp;|&nbsp; <b>Elisa Kendall</b> · FIBO &amp; finance &nbsp;|&nbsp; <b>Stuart Coleman</b> · business value</p>
+      <div class="brandbar"><span class="odi">ODI × EDM ASSOCIATION</span><span>edma-microsite.vercel.app</span></div>
+    </section>
+
+    <!-- ROBERTO 1 — scope & goals -->
+    <section>
+      <p class="kicker">Roberto Breitman · scope &amp; goals</p>
+      <h2>Making Solid production-ready for regulated sectors</h2>
+      <hr class="rule" />
+      <div class="two-col">
+        <div>
+          <p class="lead">A two-way exchange: the EDM Association's data-management expertise meets Solid's open,
+          standards-based control over data. Industry brings the requirements; Solid breaks down the silos.</p>
+          <div class="stat-row" style="grid-template-columns:repeat(3,1fr);">
+            <div class="stat"><div class="n">3</div><div class="l">priority sectors: finance, healthcare, government</div></div>
+            <div class="stat"><div class="n">300+</div><div class="l">in the W3C Solid Community Group</div></div>
+            <div class="stat"><div class="n">MIT</div><div class="l">licence on every output</div></div>
+          </div>
+        </div>
+        <div>
+          <p class="small" style="margin-bottom:0.3em;"><strong>Our objectives:</strong></p>
+          <ul>
+            <li>Raise awareness and adoption of Solid</li>
+            <li>Assess Solid's readiness for each sector</li>
+            <li>Demonstrate value through real deployments</li>
+            <li>Build the best practice and commercial understanding adoption depends on</li>
+          </ul>
+        </div>
+      </div>
+      <div class="brandbar"><span class="odi">ODI × EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
+      <aside class="notes">
+        ROBERTO — part 1 (≈2.5 min):
+        "Thanks. I'm Roberto Breitman, one of the co-chairs. Let me set out what this community actually is and
+        what we're here to do. At its heart it's a two-way exchange: the EDM Association's members bring decades
+        of data-management expertise and the demand of regulated industries; Solid brings an open, standards-
+        based way to give people and organisations genuine control of their data. Industry brings the
+        requirements; Solid brings the way to break down the silos.
+
+        We've deliberately picked three priority sectors — finance, healthcare and government — because that's
+        where the cost of the status quo is highest and where credible champions already sit. We're building on
+        an existing base of over 300 participants in the W3C Solid Community Group, and everything we produce is
+        published under the MIT licence — no walled gardens.
+
+        We have four objectives: raise awareness and adoption; honestly assess how ready Solid is for each
+        sector; demonstrate value through real deployments, not slideware; and develop the best-practice and
+        commercial understanding that adoption actually depends on."
+      </aside>
+    </section>
+
+    <!-- ROBERTO 2 — work programme -->
+    <section>
+      <p class="kicker">Roberto Breitman · the work programme</p>
+      <h2>Six concrete deliverables</h2>
+      <hr class="rule" />
+      <div class="three-col">
+        <div class="card mint"><h3>1 · Use cases &amp; reference implementations</h3><p>Demonstrable deployments per sector, with white papers and webinars.</p></div>
+        <div class="card cyan"><h3>2 · Sector ontology bindings</h3><p>How established ontologies (FIBO and peers) bind to Solid — not new ontologies.</p></div>
+        <div class="card"><h3>3 · Security &amp; functional requirements</h3><p>What a Solid service must do per sector, including CDMC expectations.</p></div>
+        <div class="card orange"><h3>4 · The Solid Certification</h3><p>A neutral mark: cyber-security baseline + CDMC + sector requirements, tiered assurance.</p></div>
+        <div class="card pink"><h3>5 · Solid–DPROD bindings</h3><p>Describing the data products in a Pod and how to request access.</p></div>
+        <div class="card"><h3>6 · Open community platform</h3><p>A neutral home on EDMConnect, every output MIT-licensed.</p></div>
+      </div>
+      <div class="brandbar"><span class="odi">ODI × EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
+      <aside class="notes">
+        ROBERTO — part 2 (≈2.5 min):
+        "Those objectives turn into six concrete deliverables. One: use cases and reference implementations —
+        real, demonstrable deployments in each sector, written up so others can follow. Two: sector ontology
+        bindings — recommendations for how established domain models like FIBO bind to Solid; note we're not
+        inventing new ontologies, we're connecting the ones industries already trust. Three: security and
+        functional requirements — what a Solid service must actually do to be deployable in a given sector,
+        including cloud and data-management expectations like CDMC.
+
+        Four: the Solid Certification — a neutral, evidence-based mark that a Solid server, app or identity
+        provider meets a sector's bar; it layers a recognised cyber-security baseline, CDMC data-control
+        conformance, and sector-specific requirements, with assurance tiered from self-assessment up to
+        independent verification. Five: Solid–DPROD bindings, so you can describe the data products inside a
+        Pod and how to request access. And six: an open community platform — a neutral home on EDMConnect, with
+        everything MIT-licensed.
+
+        Elisa will now go deeper on the bindings piece, and why finance is first. Elisa."
+      </aside>
+    </section>
+
+    <!-- ELISA — FIBO / finance -->
+    <section>
+      <p class="kicker">Elisa Kendall · FIBO &amp; financial services</p>
+      <h2>FIBO is the bridge between finance and Solid</h2>
+      <hr class="rule cyan" />
+      <div class="two-col">
+        <div>
+          <p class="lead">Finance already has a shared, rigorous vocabulary in <strong>FIBO</strong>. Binding
+          FIBO to Solid means data in a Pod means the same thing to every institution — semantic
+          interoperability without inventing anything new.</p>
+          <p class="small">We bind established ontologies, identifier schemes and terminologies to Solid — we
+          don't reinvent them. That's the fastest, safest route to adoption in a regulated sector.</p>
+        </div>
+        <div>
+          <div class="card mint"><h3>Lending on verified, current data</h3><p>Agreements modelled in FIBO, verified against the borrower's Pod — read at source, not re-keyed.</p></div>
+          <div class="card cyan"><h3>Reusable KYC/AML</h3><p>Identity, address and source-of-funds proofed once, confirmed by signature check — weeks and cost out of onboarding.</p></div>
+          <div class="card"><h3>Bank-provided identity</h3><p>Banks issue credentials into a Pod the customer presents elsewhere — a compliance cost centre becomes a service line. (e.g. NatWest's Solid pilots.)</p></div>
+        </div>
+      </div>
+      <div class="brandbar"><span class="odi">ODI × EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
+      <aside class="notes">
+        ELISA — (≈5 min):
+        "Thank you, Roberto. I'm Elisa Kendall — I've spent much of my career on ontologies, and I co-lead the
+        FIBO and ontology work here. I want to explain why FIBO is the bridge that makes this real for
+        financial services, and why finance is the right first sector.
+
+        FIBO — the Financial Industry Business Ontology — is the result of years of work by the financial
+        community to agree, precisely and machine-readably, what financial terms mean: what a loan is, what a
+        legal entity is, what a counterparty is. The problem in finance has never been a shortage of data; it's
+        that the same concept means subtly different things in every system, so data can't move without
+        expensive, error-prone reconciliation.
+
+        Now connect that to Solid. Solid gives you the place to put data under the data subject's control, and a
+        standard way to read and write it. But control without shared meaning isn't enough — two banks reading
+        the same Pod still need to agree on what the fields mean. FIBO supplies exactly that shared meaning. So
+        binding FIBO to Solid gives you semantic interoperability: data in a Pod that means the same thing to
+        every institution that reads it. And critically, we are binding an ontology finance already trusts — we
+        are not asking anyone to adopt something new.
+
+        Let me make it concrete with three use cases. First, lending: imagine a loan or mortgage agreement
+        modelled in FIBO and verified against the borrower's own Pod. The lender reads current, verified data at
+        source, instead of working from re-keyed, hard-to-verify copies. Second, KYC and AML onboarding:
+        identity, address and source-of-funds verified once and held as verifiable credentials in the Pod;
+        the next institution confirms them with a signature check, taking weeks and serious cost out of
+        onboarding. Third, bank-provided identity: a bank issues credentials into the customer's Pod that the
+        customer then presents to third parties — turning what is today a pure compliance cost centre into a
+        new service line. NatWest has already piloted exactly this kind of customer-controlled flow on Solid.
+
+        This is why finance leads: the EDM Association's roots are here, FIBO is here, and the cost of the
+        status quo is enormous. Prove it in finance and the path to healthcare and government opens up. Stuart
+        will take that to the bottom line."
+      </aside>
+    </section>
+
+    <!-- STUART — business value -->
+    <section>
+      <p class="kicker">Stuart Coleman · business value</p>
+      <h2>The business case: cost out, risk down, new revenue in</h2>
+      <hr class="rule orange" />
+      <div class="three-col">
+        <div class="card"><h3>Less data custody</h3><p>Read from the Pod instead of holding copies — lower cost, liability and compliance burden.</p></div>
+        <div class="card mint"><h3>Reusable credentials</h3><p>Proven identity &amp; eligibility reused across sectors — onboarding and KYC/AML cost falls.</p></div>
+        <div class="card cyan"><h3>Single source of truth</h3><p>Update once, not everywhere — less reconciliation, fewer stale-copy errors.</p></div>
+        <div class="card"><h3>Interoperability, no lock-in</h3><p>Open W3C-track standard; shared sector ontologies, not bespoke integrations.</p></div>
+        <div class="card pink"><h3>New permissioned revenue</h3><p>Value-added services — like bank-provided identity — on user-controlled data.</p></div>
+        <div class="card orange"><h3>AI-ready &amp; future-proof</h3><p>Consented, attributable data for trustworthy AI; aligns with GDPR Art. 20, the EU Data Act &amp; DMA.</p></div>
+      </div>
+      <div class="brandbar"><span class="odi">ODI × EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
+      <aside class="notes">
+        STUART — (≈5 min):
+        "Thanks, Elisa. I'm Stuart Coleman. Elisa's given you the how; I want to give you the why-it-pays,
+        because this only scales if it makes commercial sense — and it does, in six ways.
+
+        First, you carry less data custody. Today every organisation holds and secures its own copy of customer
+        data; with Solid you read what you need from the Pod, with permission. That's directly lower storage
+        cost, lower liability, and a lighter compliance burden — every copy you don't hold is a breach you can't
+        have. Second, reusable credentials: identity and eligibility attributes that are proven once and reused
+        across services and even across sectors. That takes real time and real money out of onboarding and
+        KYC/AML.
+
+        Third, a single, current source of truth. When the customer updates their details once — in their Pod —
+        rather than in twenty places, you spend far less on reconciliation and you make fewer decisions on stale
+        data. Fourth, interoperability without lock-in: this is an open, W3C-track standard, and the
+        interoperability comes from shared sector ontologies this community defines — not from yet another
+        bespoke integration project or a proprietary platform you can never leave.
+
+        Fifth — and this is the one that turns the conversation from cost to growth — new permissioned services
+        and revenue. Once data is user-controlled, you can offer genuinely new value-added services on top of
+        it; bank-provided identity is the obvious example, turning a cost centre into a product. And sixth, you
+        future-proof: Solid gives you data that's structured, consented and attributable — the right foundation
+        for trustworthy AI and AI agents — and demonstrable user control that aligns you with GDPR Article 20,
+        the EU Data Act and the Digital Markets Act. You get ahead of regulation instead of scrambling after it.
+
+        So the business case is simple: cost out, risk down, and new revenue in — while doing right by your
+        customers. The way to capture that is to be in the room while the rails are being laid. Let me hand back
+        to tell you how."
+      </aside>
+    </section>
+
+    <!-- ============================================================
+         CLOSE — GET INVOLVED
+         ============================================================ -->
+    <section>
+      <p class="kicker">Get involved</p>
+      <h2>Shape the rails your sector will run on</h2>
+      <hr class="rule" />
+      <div class="three-col">
+        <div class="card mint"><h3>1 · Register on EDMConnect</h3><p>The community is hosted on EDMConnect. Anyone can register — membership is not required.</p></div>
+        <div class="card cyan"><h3>2 · Join the community call</h3><p>A bi-weekly call open to all: the W3C Solid CG, the Linked Web Storage WG, and implementers across sectors.</p></div>
+        <div class="card"><h3>3 · Bring a use case or take a role</h3><p>Sponsor a pilot, build or host infrastructure, steward bindings, co-design the certification, or pilot Solid yourself.</p></div>
+      </div>
+      <p class="small" style="margin-top:0.7em;"><strong>Co-chairs:</strong> Jim Halcomb (EDM Association) · Jacobus Geluk (agnos.ai) · Roberto Breitman, Stuart Coleman &amp; Jesse Wright (ODI). FIBO &amp; ontology leadership: Shaun Rolls &amp; Elisa Kendall.</p>
+      <div class="brandbar"><span class="odi">ODI × EDM ASSOCIATION</span><span>hub.edmcouncil.org</span></div>
+      <aside class="notes">
+        MC / Roberto (≈1.5 min):
+        "Here's how to take part — and the whole point is that you can. One: register on EDMConnect; anyone can,
+        you do not need to be an EDM Association member. Two: join the bi-weekly community call, where you'll
+        hear directly from the W3C Solid Community Group, the Linked Web Storage Working Group, and implementers
+        across all three sectors. Three: bring a use case or take a role — sponsor a sector pilot, build or host
+        infrastructure, steward the bindings, co-design the certification, or simply pilot Solid in your own
+        organisation. Decisions are by consensus, facilitated by our co-chairs, with the EDM Association and the
+        ODI providing stewardship. Wherever you sit in the data ecosystem, there is a seat at the table."
+      </aside>
+    </section>
+
+    <section class="dark" data-background-color="#072589">
+      <p class="kicker on-dark">Thank you</p>
+      <h1>Join the Solid<br/>Community of Practice</h1>
+      <hr class="rule" />
+      <p class="speakers cta" style="font-size:0.7em;">
+        Register &amp; join: <a href="https://hub.edmcouncil.org/">hub.edmcouncil.org</a><br/>
+        Read more: <a href="https://edma-microsite.vercel.app">edma-microsite.vercel.app</a>
+      </p>
+      <p class="small" style="color:#9fb0e8; margin-top:1em;">Co-convened by the EDM Association and the Open Data Institute. All outputs published under the MIT licence.</p>
+      <div class="brandbar"><span class="odi">ODI × EDM ASSOCIATION</span><span>#SolidCommunityOfPractice</span></div>
+      <aside class="notes">
+        MC close (≈30s): "Thank you all for joining. The single most useful thing you can do next is register
+        on EDMConnect at hub.edmcouncil.org and come to the next community call — and everything we covered today
+        is on the microsite. Huge thanks to John and to Sir Tim, to all our speakers, and to you for being here
+        at the start of this. We'll see you on the call."
+      </aside>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    transition: 'fade',
+    width: 1280,
+    height: 720,
+    margin: 0.06,
+    plugins: [ RevealNotes ],
+  });
+</script>
+</body>
+</html>
