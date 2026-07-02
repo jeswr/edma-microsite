@@ -4,280 +4,210 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#072589" />
-  <meta name="color-scheme" content="dark light" />
+  <meta name="color-scheme" content="light" />
   <title>Solid Community of Practice, Launch Webinar</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
 
   <style>
     /* ============================================================
-       SOLID COMMUNITY OF PRACTICE, LAUNCH WEBINAR
-       ODI brand system. Palette from theodi.org live CSS.
-       Design pass guided by Emil Kowalski's design-engineering
-       principles: one accent per segment, transform/opacity-only
-       motion, strong custom ease-out, automatic staggered entrances,
-       reduced-motion fallback.
+       SOLID COMMUNITY OF PRACTICE · LAUNCH WEBINAR
+       Faithful recreation of the ODI house slide template:
+       mist backgrounds, ODI-blue Helvetica headlines, flat colour
+       blocks, B&W portraits with blue caption blocks, ODI logo
+       bottom-left, page number bottom-right.
+       Colours sampled from the ODI corporate deck.
        ============================================================ */
     :root {
-      --blue:   #072589;   /* primary */
-      --blue-2: #0b2fae;
-      --mint:   #6bf58b;
-      --pink:   #f467c0;
-      --cyan:   #6df8ff;
-      --orange: #f37533;
-      --sky:    #5897fb;
-      --teal:   #1dd3a7;
-      --mist:   #f0f3f4;
-      --mist-2: #e2e6e9;
-      --ink:    #0a1230;
-      --slate:  #475073;
-      --line:   #d9dee8;
-
-      --ease: cubic-bezier(0.23, 1, 0.32, 1);
-      --accent: var(--sky);
+      --blue:   #072589;  /* ODI blue */
+      --mist:   #e0e5e9;  /* light background */
+      --green:  #21b24e;
+      --teal:   #02b3b0;
+      --orange: #ff6701;
+      --cyan:   #28bfd7;
+      --lime:   #8cc63f;
+      --amber:  #d9a521;
     }
 
-    /* Segment accents (cohesion: one family per segment) */
-    .seg-open  { --accent: var(--sky); }
-    .seg-edma  { --accent: var(--mint); }
-    .seg-odi   { --accent: var(--cyan); }
-    .seg-solid { --accent: var(--pink); }
-    .seg-cop   { --accent: var(--orange); }
-
-    html, body { background: #0a1230; }
+    html, body { background: #131722; }
 
     .reveal {
-      font-family: "Helvetica Neue", "Inter", Helvetica, Arial, sans-serif;
-      font-size: 26px;
-      color: var(--ink);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 24px;
+      color: var(--blue);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
     .reveal .slides { text-align: left; }
-    .reveal .slides section { height: 100%; padding: 4px 8px; }
-
-    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-      font-family: inherit; color: var(--blue);
-      text-transform: none; font-weight: 800; line-height: 1.04;
-      letter-spacing: -0.02em; margin: 0; text-wrap: balance;
+    .reveal .slides section {
+      height: 100%; padding: 0; background: var(--mist);
     }
-    .reveal p { text-wrap: pretty; }
-    .stat .n, .seg-num, .when b { font-variant-numeric: tabular-nums; }
-    .reveal h1 { font-size: 2.6rem; }
-    .reveal h2 { font-size: 1.62rem; }
-    .reveal h3 { font-size: 1rem; }
-    .reveal p  { line-height: 1.4; margin: 0 0 0.5em; }
-    .reveal strong { color: var(--blue); font-weight: 700; }
-    .reveal em { font-style: normal; color: var(--blue-2); font-weight: 600; }
-    .reveal a { color: var(--blue-2); text-decoration: none; border-bottom: 1.5px solid var(--accent); }
-    .reveal ul { list-style: none; margin: 0; padding: 0; }
-    .reveal li { line-height: 1.32; margin: 0.34em 0; padding-left: 1.1em; position: relative; }
-    .reveal li::before {
-      content: ""; position: absolute; left: 0; top: 0.52em;
-      width: 0.5em; height: 0.5em; border-radius: 2px; background: var(--accent);
+    .reveal .slides section.blue { background: var(--blue); }
+    .reveal .slides section.wall { background: #2a5caa; }
+    .reveal .slides section.bleed { background: #000; }
+
+    .reveal h1, .reveal h2, .reveal h3 {
+      font-family: inherit; color: var(--blue); text-transform: none;
+      font-weight: 700; letter-spacing: -0.01em; line-height: 1.06;
+      margin: 0; text-wrap: balance;
     }
+    .reveal h1 { font-size: 66px; }
+    .reveal h2 { font-size: 44px; }
+    .reveal h3 { font-size: 26px; }
+    .reveal p, .reveal li { color: var(--blue); line-height: 1.42; }
+    .reveal p { margin: 0 0 14px; }
+    .reveal strong { font-weight: 700; color: inherit; }
+    .reveal a { color: var(--blue); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .reveal ul, .reveal ol { margin: 0; padding: 0 0 0 1.15em; }
+    .reveal li { margin: 6px 0; }
+    .reveal ul li::marker { color: var(--blue); }
 
-    /* ---------- layout scaffold ---------- */
-    .slide { display: flex; flex-direction: column; height: 100%; }
-    .pad { padding: 44px 56px 56px; }
-    .kicker {
-      display: inline-flex; align-items: center; gap: 0.5em;
-      font-size: 0.6rem; font-weight: 800; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--blue-2); margin-bottom: 0.7rem;
+    section.blue h1, section.blue h2, section.blue h3,
+    section.blue p, section.blue li { color: #fff; }
+    section.blue a { color: #fff; }
+
+    /* page scaffold */
+    .wrap { position: absolute; inset: 0; padding: 56px 64px 84px; }
+
+    /* injected chrome: ODI logo bottom-left, page number bottom-right */
+    .odi-logo {
+      position: absolute; left: 30px; bottom: 24px; width: 62px; height: 26px;
+      background: var(--blue);
+      -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.1 32.3"><path d="M77 .4v31.5H62V21.4c-2 6.5-8 10.5-15.8 10.5H32.1V21.5c-2.2 6.2-8.3 10.7-15.4 10.7C7.6 32.2.3 25 .3 16.2S7.6.2 16.7.2c7.1 0 13.2 4.5 15.4 10.7V.4h14.1C54 .4 60 4.4 62 10.9V.4h15z"/></svg>') no-repeat center / contain;
+              mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.1 32.3"><path d="M77 .4v31.5H62V21.4c-2 6.5-8 10.5-15.8 10.5H32.1V21.5c-2.2 6.2-8.3 10.7-15.4 10.7C7.6 32.2.3 25 .3 16.2S7.6.2 16.7.2c7.1 0 13.2 4.5 15.4 10.7V.4h14.1C54 .4 60 4.4 62 10.9V.4h15z"/></svg>') no-repeat center / contain;
     }
-    .kicker::before { content: ""; width: 22px; height: 3px; background: var(--accent); border-radius: 2px; }
-    .rule { width: 64px; height: 6px; background: var(--accent); border: 0; border-radius: 3px; margin: 0.55rem 0 1.1rem; }
-
-    .grow { flex: 0 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; }
-
-    /* brand footer */
-    .foot {
-      position: absolute; bottom: 22px; left: 56px; right: 56px;
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; color: #97a0bf;
-      border-top: 1px solid var(--line); padding-top: 10px;
+    section.blue .odi-logo, section.wall .odi-logo, section.bleed .odi-logo { background: #fff; }
+    section.wall h1, section.wall h2, section.wall h3, section.wall p, section.wall li { color: #fff; }
+    .pg {
+      position: absolute; right: 26px; bottom: 22px;
+      font-size: 16px; font-weight: 400; color: var(--blue);
+      font-variant-numeric: tabular-nums;
     }
-    .foot .lock { font-weight: 800; color: var(--blue); letter-spacing: 0.06em; }
-    .foot .lock i { color: var(--accent); font-style: normal; }
-    section.dark .foot { color: #7e8cc4; border-top-color: rgba(255,255,255,0.14); }
-    section.dark .foot .lock { color: #fff; }
+    section.blue .pg, section.wall .pg, section.bleed .pg { color: #fff; }
 
-    /* ---------- dark section dividers ---------- */
-    section.dark { background:
-      radial-gradient(1100px 620px at 82% -10%, rgba(255,255,255,0.10), transparent 60%),
-      linear-gradient(180deg, #0a2da3 0%, var(--blue) 60%, #061d6e 100%); }
-    section.dark, section.dark h1, section.dark h2, section.dark p, section.dark li { color: #fff; }
-    section.dark .kicker { color: var(--accent); }
-    section.dark li::before { background: var(--accent); }
-    .divider { position: relative; }
-    .seg-num {
-      font-size: 11rem; font-weight: 800; line-height: 0.8; letter-spacing: -0.04em;
-      color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,0.22);
-      position: absolute; top: 8px; right: 8px; pointer-events: none;
+    /* headline patterns */
+    .kick { font-size: 22px; font-weight: 700; margin-bottom: 26px; }
+    .big-divider h1 { font-size: 84px; max-width: 20ch; }
+    .big-divider .sub { font-size: 30px; font-weight: 700; margin-top: 220px; max-width: 30ch; line-height: 1.25; }
+    .big-divider .who { font-size: 22px; font-weight: 400; margin-top: 14px; }
+
+    /* title slide */
+    .title-logo { position: absolute; top: 34px; right: 44px; width: 150px; height: 63px; background: var(--blue);
+      -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.1 32.3"><path d="M77 .4v31.5H62V21.4c-2 6.5-8 10.5-15.8 10.5H32.1V21.5c-2.2 6.2-8.3 10.7-15.4 10.7C7.6 32.2.3 25 .3 16.2S7.6.2 16.7.2c7.1 0 13.2 4.5 15.4 10.7V.4h14.1C54 .4 60 4.4 62 10.9V.4h15z"/></svg>') no-repeat center / contain;
+              mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.1 32.3"><path d="M77 .4v31.5H62V21.4c-2 6.5-8 10.5-15.8 10.5H32.1V21.5c-2.2 6.2-8.3 10.7-15.4 10.7C7.6 32.2.3 25 .3 16.2S7.6.2 16.7.2c7.1 0 13.2 4.5 15.4 10.7V.4h14.1C54 .4 60 4.4 62 10.9V.4h15z"/></svg>') no-repeat center / contain; }
+    .title-block { position: absolute; left: 34px; top: 118px; right: 220px; }
+    .title-block h1 { font-size: 54px; line-height: 1.1; }
+    .title-block .strap { font-size: 30px; font-weight: 700; font-style: italic; margin-top: 6px; }
+    .title-block .meta { font-size: 22px; margin-top: 34px; }
+    .title-block .meta b { font-weight: 700; }
+    .dots { position: absolute; left: 0; right: 0; bottom: 0; height: 250px; overflow: hidden; }
+    .dots svg { display: block; width: 100%; height: 100%; }
+
+    /* contents */
+    .toc { display: grid; grid-template-columns: 1fr; row-gap: 20px; max-width: 850px; margin: 0 auto; }
+    .toc .item { display: grid; grid-template-columns: 56px 1fr auto; column-gap: 14px; align-items: baseline; }
+    .toc .n { font-weight: 700; font-size: 24px; }
+    .toc .t { font-weight: 700; font-size: 26px; }
+    .toc .t small { display: block; font-size: 20px; font-weight: 400; margin-top: 2px; }
+    .toc .m { font-size: 20px; font-weight: 400; white-space: nowrap; }
+
+    /* split slide: left blue panel */
+    .split { position: absolute; inset: 0; display: grid; grid-template-columns: 415px 1fr; }
+    .split .panel { background: var(--blue); padding: 44px 40px 90px; }
+    .split .panel h3 { color: var(--green); font-size: 30px; margin-bottom: 24px; }
+    .split .panel p, .split .panel li { color: #fff; font-size: 20.5px; font-weight: 700; }
+    .split .panel ul { margin-top: 12px; }
+    .split .panel ul li { font-weight: 400; margin: 5px 0; }
+    .split .panel ul li::marker { color: #fff; }
+    .split .main { padding: 44px 56px 90px; position: relative; }
+    .split .main h3 { color: var(--orange); font-size: 30px; margin-bottom: 18px; }
+    .split .main p, .split .main li { font-size: 20.5px; }
+    .accent-orange { color: var(--orange); font-weight: 700; }
+
+    .impact { background: var(--blue); padding: 20px 28px 22px; margin-top: 26px; }
+    .impact h4 { color: var(--green); font-size: 23px; font-weight: 700; margin: 0 0 10px; }
+    .impact .row { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 26px; }
+    .impact .v { color: var(--green); font-size: 40px; font-weight: 700; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+    .impact .l { color: #fff; font-size: 13.5px; line-height: 1.3; margin-top: 4px; }
+
+    /* vision / mission leaves */
+    .leaves { position: absolute; inset: 0; }
+    .leaf { position: absolute; top: 118px; width: 380px; height: 380px; display: grid; place-content: center; text-align: center; padding: 30px; }
+    .leaf.green { left: 92px; background: var(--green); border-radius: 50% 50% 0 50%; }
+    .leaf.teal { right: 92px; background: var(--teal); border-radius: 0 50% 50% 50%; }
+    .leaf h3 { color: #fff; font-size: 46px; margin-bottom: 14px; }
+    .leaf p { color: #fff; font-size: 30px; font-weight: 700; line-height: 1.25; margin: 0; }
+
+    /* people: B&W photo with blue caption block */
+    .people { display: grid; grid-template-columns: repeat(3, 214px); column-gap: 22px; }
+    .people.two { grid-template-columns: repeat(2, 216px); justify-content: center; column-gap: 60px; }
+    .people > div { display: flex; flex-direction: column; }
+    .people .caption { flex: 1; }
+    .headshot { width: 100%; aspect-ratio: 6/7; background-size: cover; background-position: center top; filter: grayscale(1) contrast(1.03); }
+    .headshot.monogram { display: grid; place-content: center; background: #45526e; filter: none; color: #fff; font-size: 64px; font-weight: 700; }
+    .caption { background: var(--blue); padding: 12px 14px 16px; min-height: 118px; }
+    .people.two .caption { min-height: 92px; }
+    .caption .nm { color: #fff; font-size: 19px; font-weight: 400; margin-bottom: 6px; }
+    .caption .ro { color: #fff; font-size: 14.5px; line-height: 1.32; }
+    .quote { font-size: 27px; font-style: italic; line-height: 1.4; }
+    .quote b { font-style: italic; }
+    .quote-attrib { font-size: 20px; margin-top: 22px; }
+    .quote-attrib b { font-weight: 700; }
+
+    /* full-bleed image slide */
+    .bleed-img { position: absolute; inset: 0; background-size: contain; background-position: center; background-repeat: no-repeat; }
+
+    /* generic two-column content */
+    .cols { display: grid; grid-template-columns: 1fr 1fr; column-gap: 52px; align-items: start; }
+    .cols.w2 { grid-template-columns: 1.15fr 0.85fr; }
+    .lead { font-size: 22px; }
+    .smaller { font-size: 19px; }
+    .figure img { display: block; width: 100%; height: auto; }
+    .figcap { font-size: 14px; font-style: italic; margin-top: 8px; text-align: center; }
+
+    /* flat statement blocks (why now, business value, deliverables) */
+    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px 44px; }
+    .blk h3 { font-size: 23px; margin-bottom: 8px; }
+    .blk h3 .bnum { display: inline-block; min-width: 34px; }
+    .blk p { font-size: 18px; margin: 0; }
+    .bnum { font-weight: 700; }
+    .tick { display: block; width: 44px; height: 8px; margin-bottom: 12px; }
+    .tick.green { background: var(--green); } .tick.teal { background: var(--teal); }
+    .tick.orange { background: var(--orange); } .tick.cyan { background: var(--cyan); }
+    .tick.lime { background: var(--lime); } .tick.amber { background: var(--amber); }
+
+    /* numbered steps (demo, get involved) */
+    .steps { counter-reset: s; list-style: none; padding: 0; }
+    .steps li { counter-increment: s; position: relative; padding-left: 58px; margin: 20px 0; font-size: 22px; }
+    .steps li::before {
+      content: counter(s); position: absolute; left: 0; top: -2px;
+      width: 38px; height: 38px; background: var(--blue); color: #fff;
+      font-weight: 700; font-size: 20px; display: grid; place-content: center;
     }
-    .divider .meta { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
-    .divider h1 { margin: 0.5rem 0 0; max-width: 16ch; }
-    .speakers { margin-top: 1.3rem; font-size: 0.8rem; color: #c7d2ff; }
-    .speakers b { color: #fff; font-weight: 700; }
-    .chip {
-      display: inline-flex; align-items: center; gap: 0.5em; margin-top: 1.3rem;
-      padding: 0.34em 0.9em; border: 1.5px solid var(--accent); border-radius: 999px;
-      font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
-    }
+    section.blue .steps li::before { background: #fff; color: var(--blue); }
 
-    /* ---------- title ---------- */
-    .title h1 { font-size: 3.5rem; letter-spacing: -0.03em; }
-    .title .strap { font-size: 1.05rem; color: var(--mint); font-weight: 700; margin-top: 0.7rem; }
-    .title .when { margin-top: 1.6rem; font-size: 0.8rem; color: #c7d2ff; }
-    .title .when b { color: #fff; }
+    .live-flag { display: inline-block; background: var(--orange); color: #fff; font-weight: 700;
+      font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; margin-bottom: 22px; }
 
-    /* ---------- generic blocks ---------- */
-    .cols { display: grid; gap: 22px; }
-    .c2 { grid-template-columns: 1fr 1fr; }
-    .c3 { grid-template-columns: repeat(3, 1fr); }
-    .c2-3 { grid-template-columns: 1fr 1.25fr; }
-    .c3-2 { grid-template-columns: 1.3fr 1fr; }
-    .mid { align-items: center; }
+    /* stack diagram text */
+    .stack-note { font-size: 19px; }
 
-    .lead { font-size: 0.96rem; color: var(--slate); }
-    .small { font-size: 0.66rem; color: var(--slate); line-height: 1.34; }
-    section.dark .lead, section.dark .small { color: #c7d2ff; }
-
-    .card {
-      background: #fff; border: 1px solid var(--line); border-radius: 16px;
-      padding: 16px 18px; box-shadow: 0 1px 2px rgba(10,18,48,0.04);
-    }
-    .card.tint { background: var(--mist); border-color: transparent; }
-    .card .ico { width: 40px; height: 40px; border-radius: 11px; background: var(--accent);
-      display: grid; place-items: center; margin-bottom: 12px; }
-    .card .ico svg { width: 22px; height: 22px; }
-    .card h3 { font-size: 0.82rem; margin-bottom: 4px; }
-    .card p { font-size: 0.62rem; color: var(--slate); margin: 0; line-height: 1.32; }
-    .card .n { font-size: 0.62rem; font-weight: 800; color: var(--accent); letter-spacing: 0.04em; }
-
-    section.dark .card { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.14); }
-    section.dark .card h3 { color: #fff; } section.dark .card p { color: #c7d2ff; }
-
-    .pillrow { display: flex; flex-wrap: wrap; gap: 8px; }
-    .pill { font-size: 0.62rem; font-weight: 700; padding: 0.4em 0.95em; border-radius: 999px;
-      background: var(--mist); color: var(--blue); border: 1px solid var(--line); }
-    .pill.solid { background: var(--blue); color: #fff; border-color: transparent; }
-
-    .pull { font-size: 1.5rem; font-weight: 800; color: var(--blue); line-height: 1.12; letter-spacing: -0.02em; }
-    section.dark .pull { color: #fff; }
-    .pull .mark { color: var(--accent); }
-    .attrib { font-size: 0.66rem; color: var(--blue-2); font-weight: 700; margin-top: 0.8rem; }
-    section.dark .attrib { color: var(--accent); }
-
-    .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-    .stat .n { font-size: 2.3rem; font-weight: 800; color: var(--blue); line-height: 1; letter-spacing: -0.02em; }
-    section.dark .stat .n { color: var(--accent); }
-    .stat .l { font-size: 0.58rem; color: var(--slate); margin-top: 6px; }
-    section.dark .stat .l { color: #c7d2ff; }
-
-    /* avatars */
-    .ppl { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .person { text-align: center; }
-    .avatar { width: 108px; height: 108px; margin: 0 auto 14px; border-radius: 999px;
-      display: grid; place-items: center; font-size: 1.8rem; font-weight: 800; color: #fff;
-      background: linear-gradient(150deg, var(--blue-2), var(--blue));
-      box-shadow: 0 0 0 4px rgba(255,255,255,0.9), 0 0 0 6px var(--accent); }
-    .person .nm { font-weight: 800; color: var(--blue); font-size: 0.86rem; }
-    section.dark .person .nm { color: #fff; }
-    .person .ro { font-size: 0.58rem; color: var(--slate); margin-top: 2px; line-height: 1.28; }
-    section.dark .person .ro { color: #c7d2ff; }
-
-    .avatar.photo { background-size: cover; background-position: center top; color: transparent; font-size: 0; }
-    .figure { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: #fff; box-shadow: 0 1px 2px rgba(10,18,48,0.05); }
-    .figure img { display: block; width: 100%; max-height: 372px; height: auto; object-fit: contain; }
-    .figcap { font-size: 0.5rem; color: var(--slate); margin-top: 6px; }
-    .spectrum-img { display: block; margin: 14px auto 0; max-width: 100%; max-height: 462px; width: auto; height: auto; border-radius: 14px; box-shadow: 0 6px 24px rgba(10,18,48,0.18); }
-    .logo-wall { display: block; width: 100%; max-height: 320px; object-fit: contain; object-position: center; border-radius: 12px; }
-    .map-img { width: 100%; border-radius: 12px; display: block; border: 1px solid var(--line); }
-    .spkrow { display: flex; gap: 24px; margin-top: 1.3rem; flex-wrap: wrap; }
-    .spk { text-align: center; width: 96px; }
-    .spk .av { width: 66px; height: 66px; border-radius: 999px; margin: 0 auto 9px; background-size: cover; background-position: center top; background-image: linear-gradient(150deg, var(--blue-2), #061d6e); box-shadow: 0 0 0 3px rgba(7,37,137,1), 0 0 0 4.5px var(--accent); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 0.8rem; }
-    .spk .nmx { font-size: 0.56rem; color: #fff; font-weight: 700; line-height: 1.15; }
-    .spk .rox { font-size: 0.46rem; color: #c7d2ff; margin-top: 1px; }
-
-    /* scene cards (theory of change) */
-    .scene { border-radius: 16px; padding: 16px; background: #fff; border: 1px solid var(--line); }
-    .scene svg { width: 100%; height: 92px; display: block; margin-bottom: 10px; }
-    .scene h3 { font-size: 0.84rem; }
-    .scene p { font-size: 0.6rem; color: var(--slate); margin: 4px 0 0; line-height: 1.3; }
-    .scene .tag { font-size: 0.52rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
-
-    /* demo / backup */
-    .demo { border: 2.5px dashed var(--pink); border-radius: 18px; padding: 22px 26px; background: #fff; }
-    .tag-live { display: inline-flex; align-items: center; gap: 0.45em; background: var(--pink); color: #fff;
-      font-weight: 800; font-size: 0.56rem; letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 0.3em 0.85em; border-radius: 999px; }
-    .tag-live .dot { width: 8px; height: 8px; border-radius: 999px; background: #fff; animation: blink 1.2s var(--ease) infinite; }
-    @keyframes blink { 50% { opacity: 0.25; } }
-    .steps { counter-reset: s; }
-    .steps li { padding-left: 2.2em; margin: 0.5em 0; font-size: 0.74rem; }
-    .steps li::before { counter-increment: s; content: counter(s); background: var(--accent); color: var(--ink);
-      width: 1.5em; height: 1.5em; border-radius: 999px; display: grid; place-items: center;
-      font-size: 0.62rem; font-weight: 800; top: 0.05em; }
-    .banner { display: inline-block; background: var(--orange); color: #fff; font-weight: 800;
-      font-size: 0.56rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3em 0.8em; border-radius: 7px; }
-
-    .deliv { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
-    .deliv .card { padding: 14px 15px; }
-    .deliv .n { display: inline-grid; place-items: center; width: 1.7em; height: 1.7em; border-radius: 8px;
-      background: var(--accent); color: var(--ink); font-size: 0.62rem; margin-bottom: 8px; }
-    .deliv h3 { font-size: 0.72rem; line-height: 1.12; } .deliv p { font-size: 0.56rem; }
-
-    .vtiles { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
-    .vtiles .card { padding: 14px 15px; }
-    .vtiles h3 { font-size: 0.74rem; } .vtiles p { font-size: 0.57rem; }
-
-    .reach { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-    .reach .r { font-size: 0.58rem; font-weight: 700; color: var(--slate); background: var(--mist);
-      border-radius: 8px; padding: 0.4em 0.7em; }
-
-    .cta-big { font-size: 0.92rem; }
-    .cta-big a { color: var(--cyan); font-weight: 700; border-bottom-color: var(--cyan); }
-
-    /* ---------- automatic staggered entrances (no extra clicks) ---------- */
-    .reveal .stagger > * { opacity: 0; transform: translateY(12px); }
-    .reveal section.present .stagger > * { animation: rise 560ms var(--ease) both; }
-    .reveal section.present .stagger > *:nth-child(1){ animation-delay: 60ms; }
-    .reveal section.present .stagger > *:nth-child(2){ animation-delay: 120ms; }
-    .reveal section.present .stagger > *:nth-child(3){ animation-delay: 180ms; }
-    .reveal section.present .stagger > *:nth-child(4){ animation-delay: 240ms; }
-    .reveal section.present .stagger > *:nth-child(5){ animation-delay: 300ms; }
-    .reveal section.present .stagger > *:nth-child(6){ animation-delay: 360ms; }
-    @keyframes rise { to { opacity: 1; transform: none; } }
-
-    .reveal .rise1 { opacity: 0; transform: translateY(14px); }
-    .reveal section.present .rise1 { animation: rise 620ms var(--ease) 80ms both; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .reveal .stagger > *, .reveal .rise1 { opacity: 1 !important; transform: none !important; animation: none !important; }
-      .tag-live .dot { animation: none; }
-    }
-
-    /* SVG helpers */
-    .svgwrap { background: var(--mist); border-radius: 16px; padding: 14px; border: 1px solid var(--line); }
-    section.dark .svgwrap { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.12); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
   </style>
 </head>
 <body>
 <div class="reveal">
   <div class="slides">
 
-    <!-- ===================== 1 · TITLE ===================== -->
-    <section class="dark seg-open">
-      <div class="slide pad title" style="justify-content:center;">
-        <div class="grow">
-          <p class="kicker rise1">EDM Association &nbsp;·&nbsp; Open Data Institute</p>
-          <h1 class="rise1">Solid Community<br/>of Practice</h1>
-          <p class="strap rise1">Making regulated data shareable, without losing control of it.</p>
-          <p class="when rise1">Launch Webinar &nbsp;•&nbsp; <b>14 July 2026</b> &nbsp;•&nbsp; 3:00&nbsp;pm BST</p>
-        </div>
+    <!-- ============ 1 · TITLE ============ -->
+    <section data-nologo>
+      <div class="title-logo" aria-hidden="true"></div>
+      <div class="title-block">
+        <h1>Solid Community of Practice: Launch Webinar</h1>
+        <p class="strap">Making regulated data shareable, without losing control of it</p>
+        <p class="meta">EDM Association + the Open Data Institute<br/><b>14 July 2026 · 3:00 pm BST</b></p>
       </div>
-      <div class="foot"><span class="lock">ODI <i>×</i> EDM ASSOCIATION</span><span>edma-microsite.vercel.app</span></div>
+      <div class="dots" aria-hidden="true"></div>
       <aside class="notes">
         HOST / MC welcome (~45s, while people join): "Good afternoon and welcome to the launch of the Solid
         Community of Practice, co-convened by the EDM Association and the Open Data Institute. Over the next hour
@@ -287,24 +217,18 @@
       </aside>
     </section>
 
-    <!-- ===================== 2 · AGENDA ===================== -->
-    <section class="seg-open">
-      <div class="slide pad">
-        <p class="kicker">Today's run of show</p>
-        <h2>One hour, five voices</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="cols c2 stagger">
-            <div class="card tint"><h3>1 · Intro to the EDM Association</h3><p>Jim Halcomb &nbsp;·&nbsp; 4 min</p></div>
-            <div class="card tint"><h3>4 · Fireside chat</h3><p>John Bruce (Inrupt) × Sir Tim Berners-Lee &nbsp;·&nbsp; 30 min</p></div>
-            <div class="card tint"><h3>2 · Intro to the ODI</h3><p>Louise Burke &nbsp;·&nbsp; 4 min</p></div>
-            <div class="card tint"><h3>5 · Overview of the Community of Practice</h3><p>Roberto Breitman · Elisa Kendall · Stuart Coleman &nbsp;·&nbsp; 15 min</p></div>
-            <div class="card tint"><h3>3 · Intro to Solid <span style="color:var(--pink)">+ live demo</span></h3><p>Jesse Wright &amp; Matthieu Bosquet &nbsp;·&nbsp; 7 min</p></div>
-            <div class="card tint"><h3>Close · How to get involved</h3><p>Register on EDMConnect &nbsp;·&nbsp; everyone welcome</p></div>
-          </div>
+    <!-- ============ 2 · CONTENTS ============ -->
+    <section>
+      <div class="wrap">
+        <p class="kick">Contents</p>
+        <div class="toc" style="margin-top:30px;">
+          <div class="item"><span class="n">1.</span><span class="t">Intro to the EDM Association<small>Jim Halcomb</small></span><span class="m">4 min</span></div>
+          <div class="item"><span class="n">2.</span><span class="t">Intro to the Open Data Institute<small>Louise Burke</small></span><span class="m">4 min</span></div>
+          <div class="item"><span class="n">3.</span><span class="t">Intro to Solid, with a live demo<small>Jesse Wright &amp; Matthieu Bosquet</small></span><span class="m">7 min</span></div>
+          <div class="item"><span class="n">4.</span><span class="t">Fireside chat<small>John Bruce (Inrupt) &amp; Sir Tim Berners-Lee</small></span><span class="m">30 min</span></div>
+          <div class="item"><span class="n">5.</span><span class="t">The Community of Practice<small>Roberto Breitman · Elisa Kendall · Stuart Coleman</small></span><span class="m">15 min</span></div>
         </div>
       </div>
-      <div class="foot"><span class="lock">ODI <i>×</i> EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
       <aside class="notes">
         MC (~30s): "Short introductions from each convener, a 7-minute tour of Solid with a live demo, then the
         main event — 30 minutes with John Bruce and Tim Berners-Lee — and we close with the shape of the
@@ -313,51 +237,31 @@
       </aside>
     </section>
 
-    <!-- ===================== 3 · EDMA DIVIDER ===================== -->
-    <section class="dark seg-edma divider">
-      <div class="slide pad" style="justify-content:center;">
-        <span class="seg-num">01</span>
-        <div class="grow">
-          <p class="meta rise1">Segment 1 · 4 min</p>
-          <h1 class="rise1">Intro to the EDM Association</h1>
-          <p class="speakers rise1"><b>Jim Halcomb</b> &nbsp;·&nbsp; EDM Association</p>
-          <span class="chip rise1">Up next: the ODI</span>
-        </div>
+    <!-- ============ 3 · DIVIDER · EDMA ============ -->
+    <section>
+      <div class="wrap big-divider">
+        <h1>Intro to the EDM Association</h1>
+        <p class="sub">The community setting the standards of enterprise data management</p>
+        <p class="who">Jim Halcomb · EDM Association · 4 minutes</p>
       </div>
-      <div class="foot"><span class="lock">EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
     </section>
 
-    <!-- ===================== 4 · EDMA WHO ===================== -->
-    <section class="seg-edma">
-      <div class="slide pad">
-        <p class="kicker">Who we are</p>
-        <h2>The global association elevating data management to a strategic priority</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="cols c2-3 mid">
-            <div>
-              <p class="lead">The community where the people responsible for enterprise data management set the
-              standards their industries run on, with the deepest roots in <strong>financial services</strong>.</p>
-              <p class="small">We bring the requirements, the domain models and the demand of regulated sectors to the table.</p>
-            </div>
-            <div class="cols c3 stagger">
-              <div class="card">
-                <div class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#0a1230" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div>
-                <h3>FIBO</h3><p>The Financial Industry Business Ontology, the shared language of finance.</p>
-              </div>
-              <div class="card">
-                <div class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#0a1230" stroke-width="2"><path d="M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3z"/><path d="M4 7v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
-                <h3>CDMC</h3><p>Cloud Data Management Capabilities, the benchmark for data control.</p>
-              </div>
-              <div class="card">
-                <div class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#0a1230" stroke-width="2"><circle cx="6" cy="7" r="2.4"/><circle cx="18" cy="7" r="2.4"/><circle cx="12" cy="17" r="2.4"/><path d="M7.6 8.6l3 6.8M16.4 8.6l-3 6.8M8.4 7h7.2"/></svg></div>
-                <h3>EDMConnect</h3><p>Our member &amp; partner platform, and the home of this community.</p>
-              </div>
-            </div>
-          </div>
+    <!-- ============ 4 · EDMA WHO ============ -->
+    <section>
+      <div class="split">
+        <div class="panel">
+          <h3>About the EDM Association</h3>
+          <p>The global association elevating data management to a strategic business priority.</p>
+          <p style="margin-top:18px;">Our members are the CDOs, data architects and governance leaders inside the world's largest institutions, with our deepest roots in financial services.</p>
+        </div>
+        <div class="main">
+          <h3>What we're known for</h3>
+          <p><strong>FIBO</strong> · the Financial Industry Business Ontology, the shared, open vocabulary of finance.</p>
+          <p><strong>CDMC</strong> · Cloud Data Management Capabilities, the benchmark for proving control over data in the cloud.</p>
+          <p><strong>EDMConnect</strong> · our member and partner platform, and the neutral home of this community.</p>
+          <p class="accent-orange" style="margin-top:26px;">We bring the demand side: the requirements, domain models and regulatory reality of finance, healthcare and government.</p>
         </div>
       </div>
-      <div class="foot"><span class="lock">EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
       <aside class="notes">
         JIM — part 1 (~2 min): "I'm Jim Halcomb from the EDM Association — the global body that elevates data
         management as a strategic business priority. Our members are the CDOs, data architects and governance
@@ -369,44 +273,25 @@
       </aside>
     </section>
 
-    <!-- ===================== 5 · EDMA WHY ===================== -->
-    <section class="seg-edma">
-      <div class="slide pad">
-        <p class="kicker">Why we're convening this</p>
-        <h2>A two-way exchange between industry and the Solid project</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="cols c2 mid">
-            <div class="svgwrap">
-              <!-- silos vs exchange motif -->
-              <svg aria-hidden="true" viewBox="0 0 360 150" width="100%" height="150">
-                <g fill="none" stroke="#475073" stroke-width="2">
-                  <rect x="14" y="34" width="56" height="86" rx="8" fill="#fff"/>
-                  <rect x="86" y="34" width="56" height="86" rx="8" fill="#fff"/>
-                  <rect x="158" y="34" width="56" height="86" rx="8" fill="#fff"/>
-                </g>
-                <g fill="#f467c0"><circle cx="42" cy="62" r="5"/><circle cx="114" cy="62" r="5"/><circle cx="186" cy="62" r="5"/></g>
-                <g fill="#97a0bf"><rect x="26" y="84" width="32" height="6" rx="3"/><rect x="26" y="98" width="22" height="6" rx="3"/><rect x="98" y="84" width="32" height="6" rx="3"/><rect x="98" y="98" width="22" height="6" rx="3"/><rect x="170" y="84" width="32" height="6" rx="3"/><rect x="170" y="98" width="22" height="6" rx="3"/></g>
-                <text x="114" y="138" text-anchor="middle" font-size="11" fill="#475073" font-family="Helvetica">Same data, copied &amp; re-secured everywhere</text>
-                <g stroke="#072589" stroke-width="2.5" fill="none"><path d="M236 77h44" marker-end="url(#a)"/></g>
-                <defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0l8 4.5L0 9z" fill="#072589"/></marker></defs>
-                <rect x="288" y="44" width="60" height="66" rx="12" fill="#072589"/>
-                <path d="M318 60a8 8 0 110 16 8 8 0 010-16z" fill="#6bf58b"/>
-                <rect x="304" y="86" width="28" height="6" rx="3" fill="#6df8ff"/>
-                <text x="318" y="126" text-anchor="middle" font-size="11" fill="#072589" font-weight="bold" font-family="Helvetica">One Pod</text>
-              </svg>
-            </div>
-            <div>
-              <div class="cols stagger" style="gap:12px;">
-                <div class="card tint"><h3>Industry brings</h3><p>Requirements, domain models, regulated-sector demand, and the authority to engage regulators and standards bodies.</p></div>
-                <div class="card tint"><h3>Solid brings</h3><p>An open, standards-based way to break down the silos, lock-in and duplication that hold those sectors back.</p></div>
-              </div>
-              <p class="small" style="margin-top:12px;">The problem is structural: every service keeps its own copy of the same data. EDMA convenes and sponsors this community to fix that at the root, and channel industry's expertise back into Solid.</p>
-            </div>
+    <!-- ============ 5 · EDMA WHY ============ -->
+    <section>
+      <div class="wrap">
+        <h2>Why convene a community around Solid?</h2>
+        <div class="cols" style="margin-top:44px;">
+          <div>
+            <span class="tick orange"></span>
+            <h3 style="margin-bottom:10px;">The problem is structural</h3>
+            <p class="lead">Every bank, hospital and agency keeps its own copy of the same data: collected, copied and secured over and over, yet rarely current, portable, or under the control of the person it describes.</p>
+          </div>
+          <div>
+            <span class="tick green"></span>
+            <h3 style="margin-bottom:10px;">A two-way exchange</h3>
+            <p class="lead"><strong>Industry brings</strong> requirements, domain models and the authority to engage regulators and standards bodies.</p>
+            <p class="lead"><strong>Solid brings</strong> an open, standards-based way to break down the silos, lock-in and duplication.</p>
           </div>
         </div>
+        <p class="smaller" style="margin-top:34px;">EDMA convenes and sponsors this community. We don't own the answers: every output is MIT-licensed.</p>
       </div>
-      <div class="foot"><span class="lock">EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
       <aside class="notes">
         JIM — part 2 (~2 min): "Why is the EDM Association convening a community around Solid? Because the problem
         is structural. Every bank, hospital and agency keeps its own copy of the same data — collected, copied
@@ -418,40 +303,22 @@
       </aside>
     </section>
 
-    <!-- ===================== 6 · ODI DIVIDER ===================== -->
-    <section class="dark seg-odi divider">
-      <div class="slide pad" style="justify-content:center;">
-        <span class="seg-num">02</span>
-        <div class="grow">
-          <p class="meta rise1">Segment 2 · 4 min</p>
-          <h1 class="rise1">Intro to the Open Data Institute</h1>
-          <p class="speakers rise1"><b>Louise Burke</b> &nbsp;·&nbsp; CEO, the ODI</p>
-          <span class="chip rise1">Up next: Solid</span>
-        </div>
+    <!-- ============ 6 · DIVIDER · ODI ============ -->
+    <section>
+      <div class="wrap big-divider">
+        <h1>Intro to the ODI</h1>
+        <p class="sub">Our mission, our reach, and why we steward Solid</p>
+        <p class="who">Louise Burke · CEO, the Open Data Institute · 4 minutes</p>
       </div>
-      <div class="foot"><span class="lock">ODI</span><span>theodi.org</span></div>
     </section>
 
-    <!-- ===================== 7 · ODI VISION ===================== -->
-    <section class="seg-odi">
-      <div class="slide pad">
-        <p class="kicker">Our vision &amp; mission</p>
-        <h2>We want data to work for everyone</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="cols c2 mid">
-            <div class="stagger">
-              <p class="lead"><strong>Vision:</strong> a world where data works for everyone.</p>
-              <p class="lead"><strong>Mission:</strong> we build open and trustworthy data ecosystems.</p>
-            </div>
-            <div class="card tint rise1">
-              <p class="pull">“Without data, there would be <span class="mark">no AI</span>.”</p>
-              <p class="attrib">Professor Sir Nigel Shadbolt · Co-founder of the ODI</p>
-            </div>
-          </div>
-        </div>
+    <!-- ============ 7 · ODI VISION & MISSION ============ -->
+    <section class="blue">
+      <div class="wrap"><p class="kick" style="color:#fff;">ODI strategy</p></div>
+      <div class="leaves">
+        <div class="leaf green"><h3>Vision</h3><p>A world where data works for everyone</p></div>
+        <div class="leaf teal"><h3>Mission</h3><p>An open, trustworthy data ecosystem</p></div>
       </div>
-      <div class="foot"><span class="lock">ODI</span><span>theodi.org</span></div>
       <aside class="notes">
         LOUISE — part 1 (~1 min): "I'm Louise Burke, CEO of the ODI. Our vision is simple to state and hard to
         achieve: a world where data works for everyone. Our mission is to build open and trustworthy data
@@ -461,44 +328,36 @@
       </aside>
     </section>
 
-    <!-- ===================== 8 · ODI LEADERSHIP ===================== -->
-    <section class="seg-odi">
-      <div class="slide pad">
-        <p class="kicker">Founded in 2012</p>
-        <h2>Founders &amp; leadership</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="ppl stagger">
-            <div class="person"><div class="avatar photo" style="background-image:url('img/louise-burke.jpg')"></div><div class="nm">Louise Burke</div><div class="ro">CEO, Fellow ACCA</div></div>
-            <div class="person"><div class="avatar photo" style="background-image:url('img/tim-berners-lee.jpg')"></div><div class="nm">Sir Tim Berners-Lee</div><div class="ro">President &amp; Co-founder · inventor of the World Wide Web</div></div>
-            <div class="person"><div class="avatar photo" style="background-image:url('img/nigel-shadbolt.jpg')"></div><div class="nm">Sir Nigel Shadbolt</div><div class="ro">Executive Chair &amp; Co-founder · Professor of AI, Oxford</div></div>
+    <!-- ============ 8 · ODI FOUNDERS & LEADERSHIP ============ -->
+    <section>
+      <div class="wrap">
+        <div class="cols w2" style="align-items:center; height:100%;">
+          <div style="padding-right:26px;">
+            <p class="quote">“The emergence of the latest generative AI, indeed all of modern machine learning, depends on vast amounts of data. <b>Without data, there would be no AI.</b>”</p>
+            <p class="quote-attrib"><b>Professor Sir Nigel Shadbolt,</b> 2023</p>
           </div>
-          <p class="small rise1" style="text-align:center; margin-top:18px;">Research led by Professor Elena Simperl, a leading scholar in knowledge engineering.</p>
+          <div class="people" style="grid-template-columns: repeat(3, 168px); column-gap: 16px;">
+            <div><div class="headshot" style="background-image:url('img/nigel-shadbolt.jpg')"></div>
+              <div class="caption"><div class="nm">Sir Nigel Shadbolt</div><div class="ro">Executive Chair and Co-founder of the ODI, Professor in Artificial Intelligence, Oxford</div></div></div>
+            <div><div class="headshot" style="background-image:url('img/louise-burke.jpg')"></div>
+              <div class="caption"><div class="nm">Louise Burke</div><div class="ro">CEO, Fellow ACCA</div></div></div>
+            <div><div class="headshot" style="background-image:url('img/tim-berners-lee.jpg')"></div>
+              <div class="caption"><div class="nm">Sir Tim Berners-Lee</div><div class="ro">President and Co-founder of the ODI, inventor of the World Wide Web</div></div></div>
+          </div>
         </div>
       </div>
-      <div class="foot"><span class="lock">ODI</span><span>theodi.org</span></div>
       <aside class="notes">
         LOUISE — part 2 (~1 min): "The ODI was founded in 2012 by Sir Tim Berners-Lee, who invented the World
         Wide Web, and Sir Nigel Shadbolt, one of the UK's leading AI academics. Tim is our President; Nigel our
         Executive Chair; research is led by Professor Elena Simperl. The lineage matters today: Solid came out
         of Tim's lab, and the ODI is its natural steward — the people who gave the web its openness now
-        stewarding the next layer of user control." [Avatars are monograms — swap in headshots if preferred.]
+        stewarding the next layer of user control."
       </aside>
     </section>
 
-    <!-- ===================== 9 · ODI DATA SPECTRUM ===================== -->
-    <section class="seg-odi">
-      <div class="slide pad">
-        <p class="kicker">Our vision in practice</p>
-        <h2>We work across the data spectrum</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <p class="small" style="max-width:74ch;">The ODI created the Data Spectrum: a shared language for data that runs from closed, through shared, to open. We work across the whole of it, and Solid is how the shared middle becomes practical: data that moves between organisations while staying under the control of whoever it describes.</p>
-          <img class="spectrum-img" src="img/data-spectrum.jpg" alt="The ODI Data Spectrum: from Closed through Shared to Open data" />
-          <p class="figcap">The ODI Data Spectrum · theodi.org/data-spectrum</p>
-        </div>
-      </div>
-      <div class="foot"><span class="lock">ODI</span><span>theodi.org</span></div>
+    <!-- ============ 9 · DATA SPECTRUM (full bleed) ============ -->
+    <section class="bleed" data-nochrome>
+      <div class="bleed-img" style="background-image:url('img/data-spectrum.jpg')" role="img" aria-label="The ODI Data Spectrum: from closed, through shared, to open data"></div>
       <aside class="notes">
         LOUISE — part 3 (~1 min): "One idea that shapes everything we do is the Data Spectrum. Data isn't simply
         open or closed — it runs along a spectrum, from closed, through shared, to open. Most valuable data sits
@@ -508,120 +367,83 @@
       </aside>
     </section>
 
-    <!-- ===================== 10 · ODI WHAT WE DO ===================== -->
-    <section class="seg-odi">
-      <div class="slide pad">
-        <p class="kicker">What we do</p>
-        <h2>A mission-driven, not-for-profit institute</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="cols c2-3 mid">
-            <div>
-              <p class="lead">A not-for-profit of ~50 people, founded in 2012, building open and trustworthy data ecosystems through:</p>
-              <div class="pillrow stagger" style="margin:10px 0 16px;">
-                <span class="pill solid">Consultancy</span><span class="pill solid">Training</span>
-                <span class="pill solid">Policy &amp; advocacy</span><span class="pill solid">Research</span><span class="pill solid">Convening</span>
-              </div>
-              <div class="reach">
-                <span class="r">UK &amp; Europe</span><span class="r">North America</span><span class="r">Latin America</span><span class="r">Asia-Pacific</span>
-              </div>
-            </div>
-            <div class="card rise1" style="border-left:6px solid var(--accent)">
-              <p class="small" style="margin-bottom:10px;">We work across private, public and third sectors, from Microsoft and Google to national and regional governments, on data sharing, responsible stewardship, ethics, privacy-enhancing technologies, and data architectures for AI.</p>
-              <p class="lead" style="margin:0;"><strong>And since October 2024, we are the steward of Solid</strong>, its standards, codebases and communities.</p>
+    <!-- ============ 10 · ABOUT THE ODI / SERVICES ============ -->
+    <section>
+      <div class="split">
+        <div class="panel">
+          <h3>About the ODI</h3>
+          <p>Mission-driven, not-for-profit SME (~50 employees) founded in 2012 by the inventor of the World Wide Web, Sir Tim Berners-Lee, and leading AI academic, Sir Nigel Shadbolt. Research is led by Professor Elena Simperl.</p>
+          <p style="margin-top:16px;">We build open and trustworthy data ecosystems through:</p>
+          <ul>
+            <li>Consultancy</li>
+            <li>Training</li>
+            <li>Policy advice and advocacy</li>
+            <li>Research</li>
+            <li>Convening and thought leadership</li>
+          </ul>
+        </div>
+        <div class="main">
+          <h3>Our services</h3>
+          <p class="smaller">We help clients, collaborators and global leaders advance data sharing, responsible stewardship, data ethics, privacy-enhancing technologies, and data architectures for AI.</p>
+          <p class="smaller"><span class="accent-orange">We work with a range of organisations</span> across private, public and third sectors, from Microsoft and Google to national and regional governments across the world.</p>
+          <p class="smaller" style="margin-top:14px;"><strong>And since October 2024, we are the steward of Solid:</strong> its standards, codebases and communities.</p>
+          <div class="impact">
+            <h4>Our impact</h4>
+            <div class="row">
+              <div><div class="v">60,000</div><div class="l">people trained through courses in the banking, government and media sectors</div></div>
+              <div><div class="v">$395bn</div><div class="l">anticipated size of the global open-banking market by 2026</div></div>
+              <div><div class="v">300</div><div class="l">early-stage organisations we've supported</div></div>
             </div>
           </div>
         </div>
       </div>
-      <div class="foot"><span class="lock">ODI</span><span>theodi.org</span></div>
       <aside class="notes">
         LOUISE — part 4 (~1 min): "Practically, we're a mission-driven not-for-profit — about fifty people —
         working through five services: consultancy, training, policy and advocacy, research, and convening. We
         work with everyone from Microsoft and Google to national and regional governments. And since October
-        2024 we are the steward of Solid — its standards, codebases and community. Let me hand to Jesse and
-        Matthieu to show you what Solid actually is."
+        2024 we are the steward of Solid — its standards, codebases and community."
       </aside>
     </section>
 
-    <!-- ===================== 10b · ODI REACH ===================== -->
-    <section class="seg-odi">
-      <div class="slide pad">
-        <p class="kicker">Our reach</p>
-        <h2>Trusted across sectors, working worldwide</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="stats" style="margin-bottom:22px;">
-            <div class="stat"><div class="n">60,000</div><div class="l">people trained in banking, government &amp; media</div></div>
-            <div class="stat"><div class="n">$395bn</div><div class="l">anticipated size of the open-banking market by 2026</div></div>
-            <div class="stat"><div class="n">300</div><div class="l">early-stage organisations supported</div></div>
-          </div>
-          <p class="kicker" style="margin-bottom:10px;">Clients &amp; partners include</p>
-          <img class="logo-wall" src="img/clients.png" alt="ODI clients and partners including Microsoft, Google, Roche, BBC, Barclays and the Gates Foundation" />
-        </div>
+    <!-- ============ 11 · CLIENTS & PARTNERS ============ -->
+    <section class="wall">
+      <div class="wrap">
+        <p class="kick" style="color:#fff; font-size:30px;">Clients, partners, previous projects include</p>
+        <img src="img/clients.png" alt="ODI clients and partners including Microsoft, Google, Roche, BBC, Barclays and the Gates Foundation" style="position:absolute; left:0; right:0; top:96px; width:100%; height:calc(100% - 130px); object-fit:contain;" />
       </div>
-      <div class="foot"><span class="lock">ODI</span><span>theodi.org</span></div>
       <aside class="notes">
         LOUISE — reach (~30s): "And this isn't theoretical — we've trained sixty thousand people, supported
         three hundred early-stage organisations, and we work with everyone from Microsoft and Google to Barclays,
-        the BBC and the Gates Foundation, across the UK, Europe, the Americas and Asia-Pacific."
+        the BBC and the Gates Foundation, across the UK, Europe, the Americas and Asia-Pacific. Let me hand to
+        Jesse and Matthieu to show you what Solid actually is."
       </aside>
     </section>
 
-    <!-- ===================== 11 · SOLID DIVIDER ===================== -->
-    <section class="dark seg-solid divider">
-      <div class="slide pad" style="justify-content:center;">
-        <span class="seg-num">03</span>
-        <div class="grow">
-          <p class="meta rise1">Segment 3 · 7 min</p>
-          <h1 class="rise1">Intro to Solid</h1>
-          <p class="speakers rise1"><b>Jesse Wright</b> &amp; <b>Matthieu Bosquet</b> &nbsp;·&nbsp; the ODI</p>
-          <div class="spkrow"><div class="spk"><div class="av" style="background-image:url('img/jesse-wright.jpg')"></div><div class="nmx">Jesse Wright</div><div class="rox">the ODI</div></div><div class="spk"><div class="av">MB</div><div class="nmx">Matthieu Bosquet</div><div class="rox">the ODI</div></div></div>
-          <span class="chip rise1">Includes a live demo</span>
-        </div>
+    <!-- ============ 12 · DIVIDER · SOLID ============ -->
+    <section>
+      <div class="wrap big-divider">
+        <h1>Intro to Solid</h1>
+        <p class="sub">What it is, the problem it solves, and a live demo</p>
+        <p class="who">Jesse Wright &amp; Matthieu Bosquet · the ODI · 7 minutes</p>
       </div>
-      <div class="foot"><span class="lock">SOLID</span><span>solidproject.org</span></div>
     </section>
 
-    <!-- ===================== 12 · WHAT IS SOLID ===================== -->
-    <section class="seg-solid">
-      <div class="slide pad">
-        <p class="kicker">What is Solid?</p>
-        <h2>An open standard for user-centric data and identity</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="cols c2 mid">
-            <div>
-              <p class="lead">Instead of every app holding its own copy of your data, Solid stores it in a
-              <strong>Pod</strong>, a personal or organisational datastore with fine-grained access controls.
-              Apps read and write only <em>with permission</em>.</p>
-              <p class="small">Open, linked-data standards mean the same data is reused across apps without bespoke integration, and stays under the control of whoever it describes.</p>
-            </div>
-            <div class="svgwrap rise1">
-              <svg aria-hidden="true" viewBox="0 0 360 170" width="100%" height="170">
-                <!-- central pod -->
-                <rect x="138" y="56" width="84" height="74" rx="14" fill="#072589"/>
-                <circle cx="180" cy="80" r="11" fill="#6df8ff"/>
-                <rect x="160" y="98" width="40" height="7" rx="3.5" fill="#f467c0"/>
-                <rect x="166" y="111" width="28" height="7" rx="3.5" fill="#ffffff" opacity="0.7"/>
-                <text x="180" y="148" text-anchor="middle" font-size="12" font-weight="bold" fill="#072589" font-family="Helvetica">Your Pod</text>
-                <!-- apps -->
-                <g font-family="Helvetica" font-size="10" fill="#475073" text-anchor="middle">
-                  <rect x="20" y="28" width="74" height="34" rx="9" fill="#fff" stroke="#d9dee8" stroke-width="2"/><text x="57" y="49">App A</text>
-                  <rect x="20" y="120" width="74" height="34" rx="9" fill="#fff" stroke="#d9dee8" stroke-width="2"/><text x="57" y="141">App B</text>
-                  <rect x="266" y="74" width="74" height="34" rx="9" fill="#fff" stroke="#d9dee8" stroke-width="2"/><text x="303" y="95">AI agent</text>
-                </g>
-                <g stroke="#1dd3a7" stroke-width="2.5" fill="none" marker-end="url(#b)">
-                  <path d="M96 45c20 6 30 12 42 18"/><path d="M96 137c20-6 30-12 42-18"/><path d="M264 91h-42"/>
-                </g>
-                <defs><marker id="b" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0l8 4.5L0 9z" fill="#1dd3a7"/></marker></defs>
-                <!-- lock badge -->
-                <circle cx="180" cy="52" r="12" fill="#6bf58b"/><path d="M176 52v-3a4 4 0 018 0v3" stroke="#0a1230" stroke-width="2" fill="none"/><rect x="175" y="51" width="10" height="8" rx="2" fill="#0a1230"/>
-              </svg>
-            </div>
+    <!-- ============ 13 · WHAT IS SOLID ============ -->
+    <section>
+      <div class="wrap">
+        <h2>What is Solid</h2>
+        <div class="cols w2" style="margin-top:36px;">
+          <div>
+            <p class="lead">Solid is an open-source <strong>project</strong>, open <strong>standard</strong>, and <strong>movement</strong> for a <strong>user-centric data</strong> storage system, originating from Sir Tim Berners-Lee's lab at MIT CSAIL.</p>
+            <p class="lead">Your data lives in a <strong>Pod</strong>: a personal or organisational datastore with fine-grained access controls. Apps read and write only <strong>with permission</strong>, <strong>breaking down data silos</strong> and keeping data under the control of whoever it describes.</p>
+            <p class="lead">The ODI stewards Solid's standards, codebases, and communities.</p>
+          </div>
+          <div style="display:grid; row-gap:18px; justify-items:center; align-content:start;">
+            <img src="img/solid-pods.png" alt="Five people's Pods, each a hexagonal network of data, connected to one another" style="width:82%;" />
+            <img src="img/solid-logo.png" alt="The Solid logo" style="width:120px;" />
           </div>
         </div>
       </div>
-      <div class="foot"><span class="lock">SOLID</span><span>solidproject.org</span></div>
       <aside class="notes">
         JESSE (~1.5 min): "I'm Jesse Wright, here with Matthieu Bosquet — we both work on Solid at the ODI.
         One sentence: Solid is an open standard for user-centric data and identity on the web. Today every app
@@ -633,33 +455,28 @@
       </aside>
     </section>
 
-    <!-- ===================== 13 · THE PROBLEM ===================== -->
-    <section class="seg-solid">
-      <div class="slide pad">
-        <p class="kicker">The problem Solid solves</p>
+    <!-- ============ 14 · THE PROBLEM ============ -->
+    <section>
+      <div class="wrap">
         <h2>Every service keeps its own copy of your data</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="cols c2-3 mid">
-            <div class="stagger">
-              <p class="lead">Collected, copied and secured many times over, yet rarely current, portable or under your control.</p>
-              <ul>
-                <li>Silos and duplication</li>
-                <li>Concentrated breach risk</li>
-                <li>Vendor lock-in</li>
-                <li>Coarse, all-or-nothing consent</li>
-                <li>Identity re-proofed at every institution</li>
-              </ul>
-              <p class="lead" style="margin-top:12px;"><strong>Solid fixes this at the root by decoupling data from applications.</strong></p>
-            </div>
-            <div class="rise1">
-              <div class="figure"><img src="img/walled-gardens.png" alt="Cartoon of people lost in a maze of walled social-media gardens" /></div>
-              <p class="figcap">“Walled Gardens”, illustration by David Simonds</p>
-            </div>
+        <div class="cols" style="margin-top:36px; grid-template-columns: 1fr 460px;">
+          <div>
+            <p class="lead">Collected, copied and secured many times over, yet rarely current, portable or under your control:</p>
+            <ul class="lead" style="margin-top:14px;">
+              <li>Silos and duplication</li>
+              <li>Concentrated breach risk</li>
+              <li>Vendor lock-in</li>
+              <li>Coarse, all-or-nothing consent</li>
+              <li>Identity re-proofed at every institution</li>
+            </ul>
+            <p class="lead" style="margin-top:22px;"><strong>Solid fixes this at the root by decoupling data from applications.</strong></p>
+          </div>
+          <div class="figure">
+            <img src="img/walled-gardens.png" alt="Cartoon of people lost in a maze of walled social-media gardens" />
+            <p class="figcap">Walled Gardens, by David Simonds</p>
           </div>
         </div>
       </div>
-      <div class="foot"><span class="lock">SOLID</span><span>solidproject.org</span></div>
       <aside class="notes">
         MATTHIEU (~1.5 min): "I'm Matthieu. It's the same five problems in every sector: silos and duplication;
         breach risk that concentrates because every copy is a target; vendor lock-in; coarse, all-or-nothing
@@ -670,37 +487,23 @@
       </aside>
     </section>
 
-    <!-- ===================== 14 · WHY NOW / AI ===================== -->
-    <section class="seg-solid">
-      <div class="slide pad">
-        <p class="kicker">Why it matters now</p>
+    <!-- ============ 15 · WHY NOW / AI ============ -->
+    <section>
+      <div class="wrap">
         <h2>The missing data layer for trustworthy AI</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="cols c3-2 mid">
-            <div class="cols c3 stagger">
-              <div class="card"><div class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#0a1230" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div><h3>Data sovereignty</h3><p>People and organisations keep genuine control as AI proliferates.</p></div>
-              <div class="card"><div class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#0a1230" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></div><h3>Consented &amp; attributable</h3><p>Structured, permissioned, attributable data, the right base for AI you can trust.</p></div>
-              <div class="card"><div class="ico"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#0a1230" stroke-width="2"><path d="M4 12a8 8 0 018-8M20 12a8 8 0 01-8 8" /><path d="M12 4l3 3-3 3M12 20l-3-3 3-3"/></svg></div><h3>Reusable across agents</h3><p>An agent reads once, with consent, instead of each service scraping its own copy.</p></div>
-            </div>
-            <div class="svgwrap rise1">
-              <svg aria-hidden="true" viewBox="0 0 300 150" width="100%" height="150">
-                <rect x="18" y="50" width="74" height="60" rx="12" fill="#072589"/><circle cx="55" cy="70" r="9" fill="#6df8ff"/><rect x="38" y="86" width="34" height="6" rx="3" fill="#f467c0"/>
-                <text x="55" y="126" text-anchor="middle" font-size="11" fill="#072589" font-weight="bold" font-family="Helvetica">Pod</text>
-                <!-- consent gate -->
-                <circle cx="150" cy="80" r="22" fill="#6bf58b"/><path d="M143 80v-4a7 7 0 0114 0v4" stroke="#0a1230" stroke-width="2.5" fill="none"/><rect x="142" y="79" width="16" height="13" rx="3" fill="#0a1230"/>
-                <text x="150" y="126" text-anchor="middle" font-size="10" fill="#475073" font-family="Helvetica">consent</text>
-                <!-- agent -->
-                <rect x="208" y="50" width="74" height="60" rx="12" fill="#fff" stroke="#d9dee8" stroke-width="2"/><rect x="232" y="66" width="26" height="20" rx="5" fill="#f467c0"/><circle cx="239" cy="76" r="2.4" fill="#fff"/><circle cx="251" cy="76" r="2.4" fill="#fff"/><path d="M245 56v8" stroke="#475073" stroke-width="2"/>
-                <text x="245" y="126" text-anchor="middle" font-size="11" fill="#475073" font-weight="bold" font-family="Helvetica">AI agent</text>
-                <g stroke="#1dd3a7" stroke-width="2.5" fill="none" marker-end="url(#c)"><path d="M92 80h34"/><path d="M174 80h32"/></g>
-                <defs><marker id="c" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0l8 4.5L0 9z" fill="#1dd3a7"/></marker></defs>
-              </svg>
-            </div>
-          </div>
+        <div class="grid3" style="margin-top:52px;">
+          <div class="blk"><span class="tick green"></span>
+            <h3>Data sovereignty</h3>
+            <p>People and organisations keep genuine control of their data as AI proliferates.</p></div>
+          <div class="blk"><span class="tick teal"></span>
+            <h3>Consented and attributable</h3>
+            <p>Structured, permissioned, attributable data: the right base for AI you can trust.</p></div>
+          <div class="blk"><span class="tick orange"></span>
+            <h3>Reusable across agents</h3>
+            <p>An agent reads once, with consent, instead of each service scraping its own copy.</p></div>
         </div>
+        <p class="lead" style="margin-top:56px; max-width:44ch;"><strong>As AI agents act on our behalf, the urgent question is what data they act on, and who controls it.</strong></p>
       </div>
-      <div class="foot"><span class="lock">SOLID</span><span>solidproject.org</span></div>
       <aside class="notes">
         JESSE (~1.5 min): "Why now? Because of AI. As agents act on our behalf — booking, applying, negotiating —
         the urgent question is what data they act on, and who controls it. If it's a scraped, stale copy in
@@ -711,47 +514,65 @@
       </aside>
     </section>
 
-    <!-- ===================== 15 · THE STANDARD / STACK ===================== -->
-    <section class="seg-solid">
-      <div class="slide pad">
-        <p class="kicker">The standard</p>
-        <h2>The next layer of the open web</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="cols c2 mid">
-            <div class="svgwrap rise1">
-              <svg aria-hidden="true" viewBox="0 0 360 190" width="100%" height="190" font-family="Helvetica">
-                <g>
-                  <rect x="40" y="140" width="280" height="40" rx="8" fill="#1b3aa0"/>
-                  <text x="58" y="165" font-size="12" font-weight="bold" fill="#fff">Web 1.0</text>
-                  <text x="150" y="165" font-size="11" fill="#cdd8ff">HTTP · HTML · URLs</text>
-                </g>
-                <g>
-                  <rect x="64" y="92" width="232" height="40" rx="8" fill="#5897fb"/>
-                  <text x="82" y="117" font-size="12" font-weight="bold" fill="#fff">Web 2.0</text>
-                  <text x="174" y="117" font-size="11" fill="#eaf1ff">JavaScript · Web APIs</text>
-                </g>
-                <g>
-                  <rect x="92" y="44" width="176" height="40" rx="8" fill="#1dd3a7"/>
-                  <text x="110" y="69" font-size="12" font-weight="bold" fill="#06251c">Solid</text>
-                  <text x="158" y="69" font-size="11" fill="#06251c">SSO · AuthZ · Data API</text>
-                </g>
-                <text x="180" y="22" text-anchor="middle" font-size="11" fill="#f467c0" font-weight="bold">Web 3.0</text>
-              </svg>
-            </div>
-            <div class="stagger">
-              <p class="lead">Solid adds the three pieces the web never standardised:</p>
-              <ul>
-                <li><strong>Global single sign-on</strong>, one identity, everywhere</li>
-                <li><strong>Fine-grained authorization</strong>, access controlled per resource</li>
-                <li><strong>A universal data API</strong>, any app reads &amp; writes in a standard way</li>
-              </ul>
-              <p class="small">All open, W3C-track standards. No proprietary chain, no lock-in.</p>
-            </div>
-          </div>
-        </div>
+    <!-- ============ 16 · THE STANDARD / STACK ============ -->
+    <section>
+      <div class="wrap">
+        <h2>What is Solid (client-server specs)</h2>
+        <svg viewBox="0 0 1160 470" style="width:100%; height:auto; margin-top:28px;" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" aria-label="The web protocol stack with Solid as the next layer: global single sign-on, authorization and a universal data API on top of Web 2.0 and Web 1.0">
+          <!-- stack layers, bottom-up -->
+          <g font-size="17" font-weight="700" text-anchor="middle">
+            <!-- physical -->
+            <rect x="90" y="418" width="88" height="34" fill="#fff"/><text x="134" y="440" fill="#072589">Ethernet</text>
+            <rect x="186" y="418" width="88" height="34" fill="#fff"/><text x="230" y="440" fill="#072589">WiFi</text>
+            <rect x="282" y="418" width="88" height="34" fill="#fff"/><text x="326" y="434" fill="#072589">Mobile</text><text x="326" y="450" fill="#072589">data</text>
+            <rect x="378" y="418" width="88" height="34" fill="#fff"/><text x="422" y="440" fill="#072589">Fibre</text>
+            <rect x="474" y="418" width="88" height="34" fill="#fff"/><text x="518" y="440" fill="#072589">etc.</text>
+            <!-- IP -->
+            <rect x="90" y="378" width="232" height="32" rx="16" fill="#6e8f8f"/><text x="206" y="399" fill="#fff">IP v4</text>
+            <rect x="330" y="378" width="232" height="32" rx="16" fill="#6e8f8f"/><text x="446" y="399" fill="#fff">IP v6</text>
+            <!-- TCP / DNS / URI / HTTP / HTML -->
+            <rect x="90" y="338" width="472" height="32" rx="16" fill="#28bfd7"/><text x="326" y="359" fill="#fff">TCP</text>
+            <rect x="90" y="298" width="472" height="32" rx="16" fill="#3fbf6e"/><text x="326" y="319" fill="#fff">DNS</text>
+            <rect x="90" y="258" width="472" height="32" rx="16" fill="#a4cf3f"/><text x="326" y="279" fill="#fff">URI</text>
+            <rect x="90" y="218" width="472" height="32" rx="16" fill="#a4cf3f"/><text x="326" y="239" fill="#fff">HTTP</text>
+            <rect x="90" y="178" width="472" height="32" rx="16" fill="#a4cf3f"/><text x="326" y="199" fill="#fff">HTML</text>
+            <!-- JS / Web APIs -->
+            <rect x="90" y="138" width="472" height="32" rx="16" fill="#e0a321"/><text x="326" y="159" fill="#fff">JS / ECMAScript</text>
+            <rect x="90" y="98" width="472" height="32" rx="16" fill="#e0a321"/><text x="326" y="119" fill="#fff">Web APIs</text>
+            <!-- Solid row -->
+            <rect x="90" y="42" width="148" height="44" rx="6" fill="#ff6701"/><text x="164" y="60" fill="#fff">Universal Data</text><text x="164" y="78" fill="#fff">API (LDP)</text>
+            <rect x="252" y="42" width="148" height="44" rx="6" fill="#ff6701"/><text x="326" y="60" fill="#fff">AuthN</text><text x="326" y="78" fill="#fff">(global SSO)</text>
+            <rect x="414" y="42" width="148" height="44" rx="6" fill="#ff6701"/><text x="488" y="70" fill="#fff">AuthZ</text>
+          </g>
+          <!-- era arrows -->
+          <g stroke="#072589" stroke-width="2.5" fill="none">
+            <path d="M620 452 V 258"/><path d="M660 452 V 178"/><path d="M700 452 V 42"/>
+          </g>
+          <g fill="#072589">
+            <path d="M620 250l-6 12h12z"/><path d="M660 170l-6 12h12z"/><path d="M700 34l-6 12h12z"/>
+          </g>
+          <g font-size="17" font-weight="700" fill="#072589">
+            <text x="612" y="286" text-anchor="end">Web 1.0</text>
+            <text x="652" y="206" text-anchor="end">Web 2.0</text>
+            <text x="692" y="70" text-anchor="end">Web 3.0</text>
+            <text x="610" y="470" text-anchor="middle">TCP/IP</text>
+          </g>
+          <!-- diamonds -->
+          <g text-anchor="middle" font-size="16" font-weight="700">
+            <polygon points="920,290 1040,350 920,410 800,350" fill="#28a0c8"/>
+            <text x="920" y="345" fill="#fff">HTTP, HTML,</text><text x="920" y="365" fill="#fff">URL</text>
+            <polygon points="920,190 1040,250 920,310 800,250" fill="#29c0e0"/>
+            <text x="920" y="245" fill="#fff">JavaScript,</text><text x="920" y="265" fill="#fff">Web APIs</text>
+            <polygon points="920,90 1040,150 920,210 800,150" fill="#072589"/>
+            <text x="920" y="135" fill="#fff">Global SSO,</text><text x="920" y="155" fill="#fff">AuthZ,</text><text x="920" y="175" fill="#fff">Universal API</text>
+          </g>
+          <g font-size="17" font-weight="700" fill="#072589">
+            <text x="1056" y="356">Web 1.0</text>
+            <text x="1056" y="256">Web 2.0</text>
+            <text x="1056" y="146">Web 3.0</text>
+          </g>
+        </svg>
       </div>
-      <div class="foot"><span class="lock">SOLID</span><span>solidproject.org</span></div>
       <aside class="notes">
         MATTHIEU (~1 min): "Where this sits technically: Web 1.0 gave us HTTP, HTML and URLs — the document web.
         Web 2.0 added JavaScript and web APIs — the interactive web. Solid is the next layer, adding the three
@@ -762,27 +583,19 @@
       </aside>
     </section>
 
-    <!-- ===================== 16 · LIVE DEMO ===================== -->
-    <section class="seg-solid">
-      <div class="slide pad">
-        <p class="kicker">See it in action</p>
-        <h2>Live demo</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="demo rise1">
-            <span class="tag-live"><span class="dot"></span> Live demo</span>
-            <p class="lead" style="margin:12px 0 6px;">One person's data in a Pod, reused across two apps, with consent granted and revoked in real time.</p>
-            <ul class="steps">
-              <li>Log in once with a WebID, global single sign-on</li>
-              <li>App A writes a profile / record into the Pod</li>
-              <li>App B reads the same data, no re-entry, no integration</li>
-              <li>Grant, then revoke, access to a single resource</li>
-            </ul>
-          </div>
-          <p class="small" style="margin-top:12px;">Driver: Matthieu · Narration: Jesse · If it stalls &gt;15s, advance to the backup slide.</p>
-        </div>
+    <!-- ============ 17 · LIVE DEMO ============ -->
+    <section>
+      <div class="wrap">
+        <span class="live-flag">Live demo</span>
+        <h2>One Pod, two apps, real-time consent</h2>
+        <ol class="steps" style="margin-top:40px; max-width:46ch;">
+          <li>Log in once with a WebID: global single sign-on</li>
+          <li>App A writes a profile record into the Pod</li>
+          <li>App B reads the same data: no re-entry, no integration</li>
+          <li>Grant, then revoke, access to a single resource</li>
+        </ol>
+        <p class="smaller" style="margin-top:36px;">Driver: Matthieu · Narration: Jesse</p>
       </div>
-      <div class="foot"><span class="lock">SOLID</span><span>solidproject.org</span></div>
       <aside class="notes">
         DEMO — driven by Matthieu, narrated by Jesse (~1.5 min). Four beats:
         1) "I log in once, with one web identity — that's the global SSO."
@@ -792,35 +605,30 @@
         4) "And the control is real: I grant access to just this item, then revoke it — the second app instantly
             loses it."
         PRE-FLIGHT: Pod server reachable · both apps logged out &amp; reset · network stable · readable zoom ·
-        backup ready. If it wobbles &gt;15s: "let me show the same flow as screenshots" → backup.
+        backup ready. If it wobbles &gt;15s: "let me show the same flow as screenshots" → backup slide.
       </aside>
     </section>
 
-    <!-- ===================== 17 · BACKUP ===================== -->
-    <section class="seg-cop">
-      <div class="slide pad">
-        <span class="banner rise1">Backup, use only if the live demo fails</span>
-        <h2 style="margin-top:12px;">Solid in action</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="cols c2 mid">
-            <div class="stagger">
-              <p class="lead">The same flow, captured step by step:</p>
-              <ul>
-                <li>One login → a WebID and a Pod</li>
-                <li>App A writes data to the Pod</li>
-                <li>App B reuses it instantly, no integration</li>
-                <li>Access granted and revoked per resource</li>
-              </ul>
-            </div>
-            <div class="card rise1" style="border:2px dashed var(--accent); display:flex; flex-direction:column; justify-content:center; min-height:150px;">
-              <p class="small" style="margin:0 0 8px;"><strong>Drop screenshots here</strong> from a recorded run (one image per step), or embed the ODI's visual walkthrough.</p>
-              <p class="small" style="margin:0;">Walkthrough: <a href="https://solidproject.org/engagement">solidproject.org/engagement</a></p>
-            </div>
+    <!-- ============ 18 · BACKUP ============ -->
+    <section>
+      <div class="wrap">
+        <p class="kick">Backup · use only if the live demo fails</p>
+        <h2>Solid in action</h2>
+        <div class="cols" style="margin-top:34px;">
+          <div>
+            <ol class="steps" style="font-size:20px;">
+              <li style="font-size:20px;">One login: a WebID and a Pod</li>
+              <li style="font-size:20px;">App A writes data to the Pod</li>
+              <li style="font-size:20px;">App B reuses it instantly, no integration</li>
+              <li style="font-size:20px;">Access granted and revoked per resource</li>
+            </ol>
+          </div>
+          <div style="border: 3px solid var(--blue); padding: 26px 28px; align-self:stretch;">
+            <p class="smaller"><strong>Before the event:</strong> paste 3 or 4 screenshots here from a recorded run, one per step.</p>
+            <p class="smaller" style="margin:0;">Visual walkthrough: <a href="https://solidproject.org/engagement">solidproject.org/engagement</a></p>
           </div>
         </div>
       </div>
-      <div class="foot"><span class="lock">SOLID</span><span>solidproject.org/engagement</span></div>
       <aside class="notes">
         BACKUP — only if the live demo fails. Before the event, paste 3–4 screenshots from a recorded run, or
         embed the ODI walkthrough at solidproject.org/engagement. Narration mirrors the four demo beats. Then:
@@ -828,72 +636,57 @@
       </aside>
     </section>
 
-    <!-- ===================== 18 · FIRESIDE (holding) ===================== -->
-    <section class="dark seg-solid divider">
-      <div class="slide pad" style="justify-content:center;">
-        <span class="seg-num">04</span>
-        <div class="grow">
-          <p class="meta rise1">Segment 4 · 30 min</p>
-          <h1 class="rise1">Fireside chat</h1>
-          <div class="rise1" style="display:flex; align-items:center; gap:26px; margin-top:22px;">
-            <div class="person"><div class="avatar" style="box-shadow:0 0 0 4px rgba(7,37,137,1),0 0 0 6px var(--accent)">JB</div><div class="nm" style="color:#fff">John Bruce</div><div class="ro" style="color:#c7d2ff">CEO, Inrupt</div></div>
-            <div style="font-size:1.6rem; color:var(--accent); font-weight:800;">×</div>
-            <div class="person"><div class="avatar photo" style="background-image:url('img/tim-berners-lee.jpg'); box-shadow:0 0 0 4px rgba(7,37,137,1),0 0 0 6px var(--accent)"></div><div class="nm" style="color:#fff">Sir Tim Berners-Lee</div><div class="ro" style="color:#c7d2ff">Inventor of the web · originator of Solid</div></div>
-          </div>
-          <span class="chip rise1">Audience Q&amp;A via chat</span>
+    <!-- ============ 19 · FIRESIDE (holding) ============ -->
+    <section>
+      <div class="wrap">
+        <p class="kick">Fireside chat · 30 minutes</p>
+        <h2 style="max-width:20ch;">The web's next layer, in conversation</h2>
+        <div class="people two" style="margin-top:26px;">
+          <div><div class="headshot monogram">JB</div>
+            <div class="caption"><div class="nm">John Bruce</div><div class="ro">CEO and Co-founder, Inrupt</div></div></div>
+          <div><div class="headshot" style="background-image:url('img/tim-berners-lee.jpg')"></div>
+            <div class="caption"><div class="nm">Sir Tim Berners-Lee</div><div class="ro">Inventor of the World Wide Web, originator of Solid</div></div></div>
         </div>
+        <p class="smaller" style="margin-top:18px;">Put your questions in the chat throughout; the moderator will bring them in.</p>
       </div>
-      <div class="foot"><span class="lock">ODI <i>×</i> EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
       <aside class="notes">
-        Holding slide only — kept on screen for the 30-minute conversation. Unscripted. MC invites audience
+        Holding slide — kept on screen for the 30-minute conversation. Unscripted. MC invites audience
         questions into the chat; a moderator curates and feeds them to John for the final portion. At time:
         "Thank you both. Let's turn to what we're building together." → CoP.
       </aside>
     </section>
 
-    <!-- ===================== 19 · COP DIVIDER ===================== -->
-    <section class="dark seg-cop divider">
-      <div class="slide pad" style="justify-content:center;">
-        <span class="seg-num">05</span>
-        <div class="grow">
-          <p class="meta rise1">Segment 5 · 15 min</p>
-          <h1 class="rise1">The Community of Practice</h1>
-          <p class="speakers rise1"><b>Roberto Breitman</b> · scope &amp; goals &nbsp;|&nbsp; <b>Elisa Kendall</b> · FIBO &amp; finance &nbsp;|&nbsp; <b>Stuart Coleman</b> · business value</p>
-          <div class="spkrow"><div class="spk"><div class="av" style="background-image:url('img/roberto-breitman.jpg')"></div><div class="nmx">Roberto Breitman</div><div class="rox">scope &amp; goals</div></div><div class="spk"><div class="av">EK</div><div class="nmx">Elisa Kendall</div><div class="rox">FIBO &amp; finance</div></div><div class="spk"><div class="av" style="background-image:url('img/stuart-coleman.jpg')"></div><div class="nmx">Stuart Coleman</div><div class="rox">business value</div></div></div>
-        </div>
+    <!-- ============ 20 · DIVIDER · COP ============ -->
+    <section>
+      <div class="wrap big-divider">
+        <h1>The Community of Practice</h1>
+        <p class="sub">Scope and goals · FIBO and finance · business value</p>
+        <p class="who">Roberto Breitman · Elisa Kendall · Stuart Coleman · 15 minutes</p>
       </div>
-      <div class="foot"><span class="lock">ODI <i>×</i> EDM ASSOCIATION</span><span>edma-microsite.vercel.app</span></div>
     </section>
 
-    <!-- ===================== 20 · ROBERTO scope ===================== -->
-    <section class="seg-cop">
-      <div class="slide pad">
-        <p class="kicker">Roberto Breitman · scope &amp; goals</p>
+    <!-- ============ 21 · SCOPE & GOALS ============ -->
+    <section>
+      <div class="wrap">
+        <p class="kick">Roberto Breitman · scope &amp; goals</p>
         <h2>Making Solid production-ready for regulated sectors</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="cols c2 mid">
-            <div>
-              <p class="lead">A two-way exchange: EDMA's data-management expertise meets Solid's open control over data. Industry brings the requirements; Solid breaks down the silos.</p>
-              <div class="stats stagger" style="margin-top:14px;">
-                <div class="stat"><div class="n">3</div><div class="l">priority sectors: finance, healthcare, government</div></div>
-                <div class="stat"><div class="n">300+</div><div class="l">in the W3C Solid Community Group</div></div>
-                <div class="stat"><div class="n">MIT</div><div class="l">licence on every output</div></div>
-              </div>
-            </div>
-            <div class="card tint rise1">
-              <p class="n" style="color:var(--accent); margin-bottom:8px;">OUR OBJECTIVES</p>
-              <ul>
-                <li>Raise awareness and adoption of Solid</li>
-                <li>Assess Solid's readiness for each sector</li>
-                <li>Demonstrate value through real deployments</li>
-                <li>Build the best-practice and commercial understanding adoption depends on</li>
-              </ul>
-            </div>
+        <div class="cols" style="margin-top:36px;">
+          <div>
+            <p class="lead">A two-way exchange: EDMA's data-management expertise meets Solid's open control over data. We start where the cost of the status quo is highest:</p>
+            <p class="lead" style="margin-top:14px;"><strong>Finance · Healthcare · Government</strong></p>
+            <p class="smaller" style="margin-top:22px;">Built on 300+ participants in the W3C Solid Community Group. Every output is MIT-licensed.</p>
+          </div>
+          <div>
+            <h3 style="color:var(--green); margin-bottom:14px;">Our objectives</h3>
+            <ol class="lead" style="font-weight:400;">
+              <li>Raise awareness and adoption of Solid</li>
+              <li>Assess Solid's readiness for each sector</li>
+              <li>Demonstrate value through real deployments</li>
+              <li>Build the best-practice and commercial understanding adoption depends on</li>
+            </ol>
           </div>
         </div>
       </div>
-      <div class="foot"><span class="lock">ODI <i>×</i> EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
       <aside class="notes">
         ROBERTO — part 1 (~2.5 min): "I'm Roberto Breitman, a co-chair. At heart this is a two-way exchange:
         EDMA's members bring data-management expertise and regulated-industry demand; Solid brings an open way
@@ -906,24 +699,20 @@
       </aside>
     </section>
 
-    <!-- ===================== 21 · ROBERTO work programme ===================== -->
-    <section class="seg-cop">
-      <div class="slide pad">
-        <p class="kicker">Roberto Breitman · the work programme</p>
+    <!-- ============ 22 · WORK PROGRAMME ============ -->
+    <section>
+      <div class="wrap">
+        <p class="kick">Roberto Breitman · the work programme</p>
         <h2>Six concrete deliverables</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="deliv stagger">
-            <div class="card"><span class="n">1</span><h3>Use cases &amp; reference implementations</h3><p>Demonstrable deployments per sector, with white papers and webinars.</p></div>
-            <div class="card"><span class="n">2</span><h3>Sector ontology bindings</h3><p>How established ontologies (FIBO and peers) bind to Solid, not new ontologies.</p></div>
-            <div class="card"><span class="n">3</span><h3>Security &amp; functional requirements</h3><p>What a Solid service must do per sector, including CDMC expectations.</p></div>
-            <div class="card"><span class="n">4</span><h3>The Solid Certification</h3><p>A neutral mark: cyber-security baseline + CDMC + sector requirements, tiered assurance.</p></div>
-            <div class="card"><span class="n">5</span><h3>Solid–DPROD bindings</h3><p>Describing the data products in a Pod and how to request access.</p></div>
-            <div class="card"><span class="n">6</span><h3>Open community platform</h3><p>A neutral home on EDMConnect, every output MIT-licensed.</p></div>
-          </div>
+        <div class="grid3" style="margin-top:44px;">
+          <div class="blk"><span class="tick green"></span><h3><span class="bnum">1.</span>Use cases &amp; reference implementations</h3><p>Demonstrable deployments per sector, with white papers and webinars.</p></div>
+          <div class="blk"><span class="tick teal"></span><h3><span class="bnum">2.</span>Sector ontology bindings</h3><p>How established ontologies (FIBO and peers) bind to Solid; no new ontologies.</p></div>
+          <div class="blk"><span class="tick orange"></span><h3><span class="bnum">3.</span>Security &amp; functional requirements</h3><p>What a Solid service must do per sector, including CDMC expectations.</p></div>
+          <div class="blk"><span class="tick cyan"></span><h3><span class="bnum">4.</span>The Solid Certification</h3><p>A neutral mark: cyber-security baseline + CDMC + sector requirements, tiered assurance.</p></div>
+          <div class="blk"><span class="tick lime"></span><h3><span class="bnum">5.</span>Solid&ndash;DPROD bindings</h3><p>Describing the data products in a Pod and how to request access.</p></div>
+          <div class="blk"><span class="tick amber"></span><h3><span class="bnum">6.</span>Open community platform</h3><p>A neutral home on EDMConnect, every output MIT-licensed.</p></div>
         </div>
       </div>
-      <div class="foot"><span class="lock">ODI <i>×</i> EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
       <aside class="notes">
         ROBERTO — part 2 (~2.5 min): "Those objectives become six deliverables. One: real, demonstrable use
         cases and reference implementations, written up so others can follow. Two: sector ontology bindings —
@@ -936,36 +725,34 @@
       </aside>
     </section>
 
-    <!-- ===================== 22 · ELISA FIBO ===================== -->
-    <section class="seg-cop">
-      <div class="slide pad">
-        <p class="kicker">Elisa Kendall · FIBO &amp; financial services</p>
+    <!-- ============ 23 · FIBO ============ -->
+    <section>
+      <div class="wrap">
+        <p class="kick">Elisa Kendall · FIBO &amp; financial services</p>
         <h2>FIBO is the bridge between finance and Solid</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="cols c2 mid">
-            <div>
-              <div class="svgwrap" style="margin-bottom:12px;">
-                <svg aria-hidden="true" viewBox="0 0 360 120" width="100%" height="120" font-family="Helvetica">
-                  <rect x="20" y="40" width="96" height="56" rx="12" fill="#072589"/><text x="68" y="66" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">FIBO</text><text x="68" y="84" text-anchor="middle" font-size="9.5" fill="#9fd0ff">shared meaning</text>
-                  <rect x="244" y="40" width="96" height="56" rx="12" fill="#1dd3a7"/><text x="292" y="66" text-anchor="middle" font-size="13" font-weight="bold" fill="#06251c">Solid</text><text x="292" y="84" text-anchor="middle" font-size="9.5" fill="#06251c">user control</text>
-                  <path d="M116 52 q64 -34 128 0" fill="none" stroke="#f37533" stroke-width="3"/>
-                  <rect x="146" y="20" width="68" height="26" rx="13" fill="#f37533"/><text x="180" y="37" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">interop</text>
-                  <g stroke="#475073" stroke-width="2.5" marker-end="url(#d)" fill="none"><path d="M116 78h128"/></g>
-                  <defs><marker id="d" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0l8 4.5L0 9z" fill="#475073"/></marker></defs>
-                </svg>
-              </div>
-              <p class="small">Finance already has a shared, rigorous vocabulary in <strong>FIBO</strong>. Bind it to Solid and data in a Pod means the same thing to every institution, <em>semantic interoperability</em>, nothing new invented.</p>
-            </div>
-            <div class="cols stagger" style="gap:12px;">
-              <div class="card"><h3>Lending on verified, current data</h3><p>Agreements modelled in FIBO, verified against the borrower's Pod, read at source, not re-keyed.</p></div>
-              <div class="card"><h3>Reusable KYC / AML</h3><p>Identity, address and source-of-funds proofed once, confirmed by signature check, weeks and cost out of onboarding.</p></div>
-              <div class="card"><h3>Bank-provided identity</h3><p>Banks issue credentials into a Pod the customer presents elsewhere, a cost centre becomes a service line. (e.g. NatWest's Solid pilots.)</p></div>
-            </div>
+        <div class="cols" style="margin-top:30px; grid-template-columns: 430px 1fr;">
+          <div>
+            <svg viewBox="0 0 430 190" style="width:100%; height:auto;" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" aria-label="FIBO provides shared meaning, Solid provides user control, bound together for interoperability">
+              <rect x="10" y="60" width="150" height="80" fill="#072589"/>
+              <text x="85" y="96" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">FIBO</text>
+              <text x="85" y="122" text-anchor="middle" font-size="14" fill="#fff">shared meaning</text>
+              <rect x="270" y="60" width="150" height="80" fill="#02b3b0"/>
+              <text x="345" y="96" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">Solid</text>
+              <text x="345" y="122" text-anchor="middle" font-size="14" fill="#fff">user control</text>
+              <path d="M160 100 H 270" stroke="#ff6701" stroke-width="6"/>
+              <rect x="165" y="14" width="100" height="34" fill="#ff6701"/>
+              <text x="215" y="37" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">interop</text>
+              <path d="M215 48 V 92" stroke="#ff6701" stroke-width="4"/>
+            </svg>
+            <p class="smaller" style="margin-top:16px;">Bind FIBO to Solid and data in a Pod means the same thing to every institution: <strong>semantic interoperability</strong>, nothing new invented.</p>
+          </div>
+          <div>
+            <div class="blk" style="margin-bottom:22px;"><h3>Lending on verified, current data</h3><p>Agreements modelled in FIBO, verified against the borrower's Pod, read at source, not re-keyed.</p></div>
+            <div class="blk" style="margin-bottom:22px;"><h3>Reusable KYC / AML</h3><p>Identity, address and source-of-funds proofed once, confirmed by signature check: weeks and cost out of onboarding.</p></div>
+            <div class="blk"><h3>Bank-provided identity</h3><p>Banks issue credentials into a Pod the customer presents elsewhere: a cost centre becomes a service line (see NatWest's Solid pilots).</p></div>
           </div>
         </div>
       </div>
-      <div class="foot"><span class="lock">ODI <i>×</i> EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
       <aside class="notes">
         ELISA (~5 min): "I'm Elisa Kendall; I co-lead the FIBO and ontology work. FIBO — the Financial Industry
         Business Ontology — is years of work by the financial community to agree, machine-readably, what terms
@@ -983,24 +770,20 @@
       </aside>
     </section>
 
-    <!-- ===================== 23 · STUART business value ===================== -->
-    <section class="seg-cop">
-      <div class="slide pad">
-        <p class="kicker">Stuart Coleman · business value</p>
+    <!-- ============ 24 · BUSINESS VALUE ============ -->
+    <section>
+      <div class="wrap">
+        <p class="kick">Stuart Coleman · business value</p>
         <h2>Cost out, risk down, new revenue in</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="vtiles stagger">
-            <div class="card"><h3>Less data custody</h3><p>Read from the Pod instead of holding copies, lower cost, liability and compliance burden.</p></div>
-            <div class="card"><h3>Reusable credentials</h3><p>Proven identity &amp; eligibility reused across sectors, onboarding and KYC/AML cost falls.</p></div>
-            <div class="card"><h3>Single source of truth</h3><p>Update once, not everywhere, less reconciliation, fewer stale-copy errors.</p></div>
-            <div class="card"><h3>Interoperability, no lock-in</h3><p>Open W3C-track standard; shared sector ontologies, not bespoke integrations.</p></div>
-            <div class="card"><h3>New permissioned revenue</h3><p>Value-added services, like bank-provided identity, on user-controlled data.</p></div>
-            <div class="card"><h3>AI-ready &amp; future-proof</h3><p>Consented, attributable data for trustworthy AI; aligns with GDPR Art. 20, the EU Data Act &amp; DMA.</p></div>
-          </div>
+        <div class="grid3" style="margin-top:44px;">
+          <div class="blk"><span class="tick green"></span><h3>Less data custody</h3><p>Read from the Pod instead of holding copies: lower cost, liability and compliance burden.</p></div>
+          <div class="blk"><span class="tick teal"></span><h3>Reusable credentials</h3><p>Proven identity and eligibility reused across sectors; onboarding and KYC/AML cost falls.</p></div>
+          <div class="blk"><span class="tick orange"></span><h3>Single source of truth</h3><p>Update once, not everywhere: less reconciliation, fewer stale-copy errors.</p></div>
+          <div class="blk"><span class="tick cyan"></span><h3>Interoperability, no lock-in</h3><p>Open W3C-track standard; shared sector ontologies, not bespoke integrations.</p></div>
+          <div class="blk"><span class="tick lime"></span><h3>New permissioned revenue</h3><p>Value-added services, like bank-provided identity, on user-controlled data.</p></div>
+          <div class="blk"><span class="tick amber"></span><h3>AI-ready &amp; future-proof</h3><p>Consented, attributable data for trustworthy AI; aligns with GDPR Art. 20, the EU Data Act and DMA.</p></div>
         </div>
       </div>
-      <div class="foot"><span class="lock">ODI <i>×</i> EDM ASSOCIATION</span><span>Solid Community of Practice</span></div>
       <aside class="notes">
         STUART (~5 min): "I'm Stuart Coleman. Elisa gave the how; here's why it pays, in six ways. One: less data
         custody — read from the Pod with permission instead of securing your own copy; every copy you don't hold
@@ -1017,22 +800,18 @@
       </aside>
     </section>
 
-    <!-- ===================== 24 · GET INVOLVED ===================== -->
-    <section class="seg-cop">
-      <div class="slide pad">
-        <p class="kicker">Get involved</p>
-        <h2>Shape the rails your sector will run on</h2>
-        <hr class="rule" />
-        <div class="grow">
-          <div class="cols c3 stagger">
-            <div class="card"><span class="n" style="display:inline-grid;place-items:center;width:1.8em;height:1.8em;border-radius:999px;background:var(--accent);color:var(--ink);margin-bottom:10px;">1</span><h3>Register on EDMConnect</h3><p>Hosted on EDMConnect. Anyone can register, membership is not required.</p></div>
-            <div class="card"><span class="n" style="display:inline-grid;place-items:center;width:1.8em;height:1.8em;border-radius:999px;background:var(--accent);color:var(--ink);margin-bottom:10px;">2</span><h3>Join the community call</h3><p>A bi-weekly call open to all: the W3C Solid CG, the Linked Web Storage WG, and implementers.</p></div>
-            <div class="card"><span class="n" style="display:inline-grid;place-items:center;width:1.8em;height:1.8em;border-radius:999px;background:var(--accent);color:var(--ink);margin-bottom:10px;">3</span><h3>Bring a use case or take a role</h3><p>Sponsor a pilot, build or host infrastructure, steward bindings, co-design the certification, or pilot Solid.</p></div>
-          </div>
-          <p class="small rise1" style="margin-top:16px;"><strong>Co-chairs:</strong> Jim Halcomb (EDM Association) · Jacobus Geluk (agnos.ai) · Roberto Breitman, Stuart Coleman &amp; Jesse Wright (ODI). FIBO &amp; ontology leadership: Shaun Rolls &amp; Elisa Kendall.</p>
-        </div>
+    <!-- ============ 25 · GET INVOLVED ============ -->
+    <section>
+      <div class="wrap">
+        <p class="kick">Get involved</p>
+        <h2>Shape how Solid transforms your sector</h2>
+        <ol class="steps" style="margin-top:40px; max-width:60ch;">
+          <li><strong>Register on EDMConnect.</strong> Anyone can register; membership is not required.</li>
+          <li><strong>Join the bi-weekly community call,</strong> alongside the W3C Solid Community Group, the Linked Web Storage Working Group, and implementers.</li>
+          <li><strong>Bring a use case or take a role:</strong> sponsor a pilot, build or host infrastructure, steward bindings, co-design the certification.</li>
+        </ol>
+        <p class="smaller" style="margin-top:34px;"><strong>Co-chairs:</strong> Jim Halcomb (EDM Association) · Jacobus Geluk (agnos.ai) · Roberto Breitman, Stuart Coleman &amp; Jesse Wright (ODI). FIBO &amp; ontology leadership: Shaun Rolls &amp; Elisa Kendall.</p>
       </div>
-      <div class="foot"><span class="lock">ODI <i>×</i> EDM ASSOCIATION</span><span>hub.edmcouncil.org</span></div>
       <aside class="notes">
         MC / Roberto (~1.5 min): "Here's how to take part — and the point is that you can. One: register on
         EDMConnect; anyone can, no membership needed. Two: join the bi-weekly community call, with the W3C Solid
@@ -1043,21 +822,15 @@
       </aside>
     </section>
 
-    <!-- ===================== 25 · THANK YOU ===================== -->
-    <section class="dark seg-open">
-      <div class="slide pad" style="justify-content:center;">
-        <div class="grow">
-          <p class="kicker rise1">Thank you</p>
-          <h1 class="rise1">Join the Solid<br/>Community of Practice</h1>
-          <hr class="rule rise1" />
-          <p class="cta-big rise1" style="margin-top:6px;">
-            Register &amp; join: <a href="https://hub.edmcouncil.org/">hub.edmcouncil.org</a><br/>
-            Read more: <a href="https://edma-microsite.vercel.app">edma-microsite.vercel.app</a>
-          </p>
-          <p class="small rise1" style="margin-top:18px; color:#9fb0e8;">Co-convened by the EDM Association and the Open Data Institute. All outputs published under the MIT licence.</p>
-        </div>
+    <!-- ============ 26 · THANK YOU ============ -->
+    <section class="blue">
+      <div class="wrap">
+        <h1 style="color:#fff; margin-top:36px;">Join the Solid<br/>Community of Practice</h1>
+        <p style="font-size:26px; margin-top:44px;">Register and join: <a href="https://hub.edmcouncil.org/">hub.edmcouncil.org</a></p>
+        <p style="font-size:26px;">Read more: <a href="https://edma-microsite.vercel.app">edma-microsite.vercel.app</a></p>
+        <p style="font-size:18px; margin-top:40px; opacity:0.85;">Co-convened by the EDM Association and the Open Data Institute. All outputs published under the MIT licence.</p>
       </div>
-      <div class="foot"><span class="lock">ODI <i>×</i> EDM ASSOCIATION</span><span>#SolidCommunityOfPractice</span></div>
+      <div class="dots" aria-hidden="true"></div>
       <aside class="notes">
         MC close (~30s): "Thank you for joining. The most useful next step: register on EDMConnect at
         hub.edmcouncil.org and come to the next community call — everything today is on the microsite. Thanks to
@@ -1074,7 +847,6 @@
 <script>
   Reveal.initialize({
     hash: true,
-    slideNumber: 'c/t',
     transition: 'fade',
     transitionSpeed: 'fast',
     width: 1280,
@@ -1084,6 +856,39 @@
     maxScale: 2.0,
     plugins: [ RevealNotes ],
   });
+
+  // Inject ODI logo + page number onto every slide (except full-bleed slides).
+  document.querySelectorAll('.reveal .slides > section').forEach(function (s, i) {
+    if (s.hasAttribute('data-nochrome')) return;
+    if (!s.hasAttribute('data-nologo')) {
+      var logo = document.createElement('div');
+      logo.className = 'odi-logo'; logo.setAttribute('aria-hidden', 'true');
+      s.appendChild(logo);
+    }
+    var pg = document.createElement('div');
+    pg.className = 'pg'; pg.textContent = String(i + 1);
+    s.appendChild(pg);
+  });
+
+  // ODI title-slide dot band: deterministic pseudo-random colour grid.
+  (function () {
+    var palette = ['#29abe2', '#3f8ea6', '#6b7f85', '#a08d6b', '#e8842c', '#ff6701',
+                   '#d9a521', '#c3d021', '#8cc63f', '#3fbf6e', '#02b3b0', '#0071bc'];
+    var seed = 42;
+    function rnd() { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; }
+    document.querySelectorAll('.dots').forEach(function (el) {
+      var cols = 22, rows = 6, cw = 1280 / cols, ch = 250 / rows, r = 15;
+      var svg = '<svg viewBox="0 0 1280 250" preserveAspectRatio="xMidYMid slice">';
+      for (var y = 0; y < rows; y++) {
+        for (var x = 0; x < cols; x++) {
+          var c = palette[Math.floor(rnd() * palette.length)];
+          svg += '<circle cx="' + (cw / 2 + x * cw) + '" cy="' + (ch / 2 + y * ch) + '" r="' + r + '" fill="' + c + '"/>';
+        }
+      }
+      svg += '</svg>';
+      el.innerHTML = svg;
+    });
+  })();
 </script>
 </body>
 </html>
