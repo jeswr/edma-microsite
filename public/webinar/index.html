@@ -90,6 +90,11 @@
     .big-divider h1 { font-size: 84px; max-width: 20ch; }
     .big-divider .sub { font-size: 30px; font-weight: 700; margin-top: 220px; max-width: 30ch; line-height: 1.25; }
     .big-divider .who { font-size: 22px; font-weight: 400; margin-top: 14px; }
+    .divider-people { position: absolute; right: 64px; top: 300px; display: flex; gap: 18px; }
+    .divider-people > div { width: 190px; display: flex; flex-direction: column; }
+    .divider-people.three { top: 280px; }
+    .divider-people.three > div { width: 168px; }
+    .divider-people .caption { flex: 1; min-height: 74px; }
 
     /* title slide */
     .title-logo { position: absolute; top: 34px; right: 44px; width: 150px; height: 63px; background: var(--blue);
@@ -243,6 +248,10 @@
         <h1>Intro to the EDM Association</h1>
         <p class="sub">The community setting the standards of enterprise data management</p>
         <p class="who">Jim Halcomb · EDM Association · 4 minutes</p>
+        <div class="divider-people">
+          <div><div class="headshot" style="background-image:url('img/jim-halcomb.jpg')"></div>
+            <div class="caption"><div class="nm">Jim Halcomb</div><div class="ro">EDM Association</div></div></div>
+        </div>
       </div>
     </section>
 
@@ -309,6 +318,10 @@
         <h1>Intro to the ODI</h1>
         <p class="sub">Our mission, our reach, and why we steward Solid</p>
         <p class="who">Louise Burke · CEO, the Open Data Institute · 4 minutes</p>
+        <div class="divider-people">
+          <div><div class="headshot" style="background-image:url('img/louise-burke.jpg')"></div>
+            <div class="caption"><div class="nm">Louise Burke</div><div class="ro">CEO, the ODI</div></div></div>
+        </div>
       </div>
     </section>
 
@@ -425,6 +438,12 @@
         <h1>Intro to Solid</h1>
         <p class="sub">What it is, the problem it solves, and a live demo</p>
         <p class="who">Jesse Wright &amp; Matthieu Bosquet · the ODI · 7 minutes</p>
+        <div class="divider-people">
+          <div><div class="headshot" style="background-image:url('img/jesse-wright.jpg')"></div>
+            <div class="caption"><div class="nm">Jesse Wright</div><div class="ro">the ODI</div></div></div>
+          <div><div class="headshot monogram">MB</div>
+            <div class="caption"><div class="nm">Matthieu Bosquet</div><div class="ro">the ODI</div></div></div>
+        </div>
       </div>
     </section>
 
@@ -642,7 +661,7 @@
         <p class="kick">Fireside chat · 30 minutes</p>
         <h2 style="max-width:20ch;">The web's next layer, in conversation</h2>
         <div class="people two" style="margin-top:26px;">
-          <div><div class="headshot monogram">JB</div>
+          <div><div class="headshot" style="background-image:url('img/john-bruce.jpg')"></div>
             <div class="caption"><div class="nm">John Bruce</div><div class="ro">CEO and Co-founder, Inrupt</div></div></div>
           <div><div class="headshot" style="background-image:url('img/tim-berners-lee.jpg')"></div>
             <div class="caption"><div class="nm">Sir Tim Berners-Lee</div><div class="ro">Inventor of the World Wide Web, originator of Solid</div></div></div>
@@ -661,7 +680,15 @@
       <div class="wrap big-divider">
         <h1>The Community of Practice</h1>
         <p class="sub">Scope and goals · FIBO and finance · business value</p>
-        <p class="who">Roberto Breitman · Elisa Kendall · Stuart Coleman · 15 minutes</p>
+        <p class="who">Three co-chairs · 15 minutes</p>
+        <div class="divider-people three">
+          <div><div class="headshot" style="background-image:url('img/roberto-breitman.jpg')"></div>
+            <div class="caption"><div class="nm">Roberto Breitman</div><div class="ro">scope &amp; goals</div></div></div>
+          <div><div class="headshot" style="background-image:url('img/elisa-kendall.png')"></div>
+            <div class="caption"><div class="nm">Elisa Kendall</div><div class="ro">FIBO &amp; finance</div></div></div>
+          <div><div class="headshot" style="background-image:url('img/stuart-coleman.jpg')"></div>
+            <div class="caption"><div class="nm">Stuart Coleman</div><div class="ro">business value</div></div></div>
+        </div>
       </div>
     </section>
 
