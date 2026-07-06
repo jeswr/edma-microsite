@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#072589" />
+  <meta name="color-scheme" content="light" />
+  <title>Solid at LSEG Enginuity · the ODI</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+
+  <style>
+    /* ODI house style, matching the webinar deck; sized for a stand screen
+       viewed at distance: bigger type, fewer words, auto-cycling loop. */
+    :root {
+      --blue:   #072589;
+      --mist:   #e0e5e9;
+      --green:  #21b24e;
+      --teal:   #02b3b0;
+      --orange: #ff6701;
+    }
+    html, body { background: #131722; }
+    .reveal {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 26px; color: var(--blue);
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    .reveal .slides { text-align: left; }
+    .reveal .slides section { height: 100%; padding: 0; background: var(--mist); }
+    .reveal .slides section.blue { background: var(--blue); }
+    .reveal h1, .reveal h2, .reveal h3 {
+      font-family: inherit; color: var(--blue); text-transform: none;
+      font-weight: 700; letter-spacing: -0.01em; line-height: 1.06; margin: 0; text-wrap: balance;
+    }
+    .reveal p { color: var(--blue); line-height: 1.4; margin: 0 0 12px; }
+    .reveal strong { font-weight: 700; }
+
+    .wrap { position: absolute; inset: 0; padding: 52px 64px 64px; display: flex; flex-direction: column; }
+
+    .odi-logo-lg { position: absolute; top: 36px; right: 48px; width: 150px; height: 63px; background: var(--blue);
+      -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.1 32.3"><path d="M77 .4v31.5H62V21.4c-2 6.5-8 10.5-15.8 10.5H32.1V21.5c-2.2 6.2-8.3 10.7-15.4 10.7C7.6 32.2.3 25 .3 16.2S7.6.2 16.7.2c7.1 0 13.2 4.5 15.4 10.7V.4h14.1C54 .4 60 4.4 62 10.9V.4h15z"/></svg>') no-repeat center / contain;
+              mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.1 32.3"><path d="M77 .4v31.5H62V21.4c-2 6.5-8 10.5-15.8 10.5H32.1V21.5c-2.2 6.2-8.3 10.7-15.4 10.7C7.6 32.2.3 25 .3 16.2S7.6.2 16.7.2c7.1 0 13.2 4.5 15.4 10.7V.4h14.1C54 .4 60 4.4 62 10.9V.4h15z"/></svg>') no-repeat center / contain; }
+    section.blue .odi-logo-lg { background: #fff; }
+
+    .headline { font-size: 58px; max-width: 18ch; }
+    .strap { font-size: 27px; font-weight: 700; font-style: italic; margin-top: 10px; }
+
+    .tri { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 46px; flex: 1; align-content: center; }
+    .tri h3 { font-size: 27px; margin-bottom: 10px; }
+    .tri p { font-size: 21px; margin: 0 0 8px; }
+    .tick { display: block; width: 52px; height: 9px; margin-bottom: 14px; }
+    .tick.green { background: var(--green); } .tick.teal { background: var(--teal); } .tick.orange { background: var(--orange); }
+
+    .foot { font-size: 21px; font-weight: 700; margin: 0; }
+    .foot span { font-weight: 400; }
+
+    .dots { position: absolute; left: 0; right: 0; bottom: 0; height: 120px; overflow: hidden; }
+    .dots svg { display: block; width: 100%; height: 100%; }
+
+    /* video slide */
+    .vid-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 22px; }
+    .vid-head h2 { font-size: 40px; color: #fff; }
+    .vid-head p { font-size: 22px; color: #fff; margin: 0; }
+    .vid-frame { flex: 1; position: relative; }
+    .vid-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  </style>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- ============ 1 · SOLID, THE ODI, AND FINANCE ============ -->
+    <section data-autoslide="30000">
+      <div class="odi-logo-lg" aria-hidden="true"></div>
+      <div class="wrap" style="padding-bottom:150px;">
+        <h1 class="headline">Solid: one copy of the truth</h1>
+        <p class="strap">Data that moves between institutions, under the control of whoever it describes</p>
+        <div class="tri">
+          <div>
+            <span class="tick green"></span>
+            <h3>What is Solid</h3>
+            <p>An open W3C standard from Sir Tim Berners-Lee. Your data lives in a <strong>Pod</strong> you control; apps and institutions read and write <strong>only with permission</strong>.</p>
+            <p>No silos, no stale copies, no lock-in.</p>
+          </div>
+          <div>
+            <span class="tick teal"></span>
+            <h3>Stewarded by the ODI</h3>
+            <p>Since 2024 the Open Data Institute stewards Solid: its <strong>standards</strong> at the W3C, its <strong>codebases</strong>, and its global <strong>community</strong>.</p>
+            <p>Founded by Sir Tim Berners-Lee and Sir Nigel Shadbolt.</p>
+          </div>
+          <div>
+            <span class="tick orange"></span>
+            <h3>Finance-ready, with EDMA</h3>
+            <p>With the EDM Association we run the <strong>Solid Community of Practice</strong>: binding <strong>FIBO</strong> to Solid, setting sector requirements, and building the <strong>Solid Certification</strong>.</p>
+            <p>Verified lending data, reusable KYC, bank-provided identity.</p>
+          </div>
+        </div>
+        <p class="foot">Join us: <span>solidproject.org · edma-microsite.vercel.app · or talk to us at the stand</span></p>
+      </div>
+      <div class="dots" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============ 2 · VIDEO ============ -->
+    <section class="blue" data-autoslide="150000">
+      <div class="wrap">
+        <div class="vid-head">
+          <h2>See Solid in action</h2>
+          <p>solidproject.org/engagement</p>
+        </div>
+        <div class="vid-frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/sXwZXWMuymM?rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=sXwZXWMuymM&controls=0"
+            title="Solid in action: the ODI's visual walkthrough"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: false,
+    transition: 'fade',
+    transitionSpeed: 'fast',
+    width: 1280,
+    height: 720,
+    margin: 0,
+    minScale: 0.2,
+    maxScale: 2.0,
+    loop: true,
+    autoSlide: 30000,
+    autoSlideStoppable: false,
+    controls: false,
+    progress: false,
+  });
+
+  // dot band (same seeded generator as the webinar deck)
+  (function () {
+    var palette = ['#29abe2', '#3f8ea6', '#6b7f85', '#a08d6b', '#e8842c', '#ff6701',
+                   '#d9a521', '#c3d021', '#8cc63f', '#3fbf6e', '#02b3b0', '#0071bc'];
+    var seed = 42;
+    function rnd() { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; }
+    document.querySelectorAll('.dots').forEach(function (el) {
+      var cols = 22, rows = 3, cw = 1280 / cols, ch = 120 / rows, r = 15;
+      var svg = '<svg viewBox="0 0 1280 120" preserveAspectRatio="xMidYMid slice">';
+      for (var y = 0; y < rows; y++) {
+        for (var x = 0; x < cols; x++) {
+          var c = palette[Math.floor(rnd() * palette.length)];
+          svg += '<circle cx="' + (cw / 2 + x * cw) + '" cy="' + (ch / 2 + y * ch) + '" r="' + r + '" fill="' + c + '"/>';
+        }
+      }
+      svg += '</svg>';
+      el.innerHTML = svg;
+    });
+  })();
+</script>
+</body>
+</html>
