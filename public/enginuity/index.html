@@ -18,6 +18,7 @@
       --green:  #21b24e;
       --teal:   #02b3b0;
       --orange: #ff6701;
+      --lime:   #c3d021;
     }
     html, body { background: #131722; }
     .reveal {
@@ -56,6 +57,33 @@
 
     .dots { position: absolute; left: 0; right: 0; bottom: 0; height: 120px; overflow: hidden; }
     .dots svg { display: block; width: 100%; height: 100%; }
+
+    /* ODI logo bottom-left (DCAI / IDEA slides, matching the source deck) */
+    .odi-logo-bl { position: absolute; left: 34px; bottom: 26px; width: 74px; height: 31px; background: var(--blue);
+      -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.1 32.3"><path d="M77 .4v31.5H62V21.4c-2 6.5-8 10.5-15.8 10.5H32.1V21.5c-2.2 6.2-8.3 10.7-15.4 10.7C7.6 32.2.3 25 .3 16.2S7.6.2 16.7.2c7.1 0 13.2 4.5 15.4 10.7V.4h14.1C54 .4 60 4.4 62 10.9V.4h15z"/></svg>') no-repeat center / contain;
+              mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.1 32.3"><path d="M77 .4v31.5H62V21.4c-2 6.5-8 10.5-15.8 10.5H32.1V21.5c-2.2 6.2-8.3 10.7-15.4 10.7C7.6 32.2.3 25 .3 16.2S7.6.2 16.7.2c7.1 0 13.2 4.5 15.4 10.7V.4h14.1C54 .4 60 4.4 62 10.9V.4h15z"/></svg>') no-repeat center / contain; }
+    section.blue .odi-logo-bl { background: #fff; }
+
+    /* DCAI slide */
+    .dcai { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 372px; }
+    .dcai .body { padding: 46px 40px 66px 64px; display: flex; flex-direction: column; }
+    .dcai .qeye { background: url('img/dcai-eye.png') 62% 34% / cover no-repeat; }
+    .dcai .quote { font-size: 27px; font-style: italic; line-height: 1.26; margin: 0 0 20px; }
+    .dcai .quote b { font-style: italic; }
+    .dcai p { font-size: 18.5px; line-height: 1.34; margin: 0 0 12px; }
+    .dcai .projects { display: grid; grid-template-columns: 1fr 1fr; column-gap: 30px; row-gap: 9px; margin-top: auto; }
+    .dcai .projects div { font-size: 17.5px; font-style: italic; padding-left: 20px; text-indent: -20px; color: var(--blue); }
+
+    /* IDEA slide */
+    .idea { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 250px; column-gap: 44px; padding: 54px 56px 68px 64px; }
+    .idea .lhs { display: flex; flex-direction: column; }
+    .idea .big { font-size: 100px; color: var(--lime); font-weight: 700; line-height: 0.88; }
+    .idea .sub { font-size: 35px; color: #fff; font-weight: 700; margin: 8px 0 46px; }
+    .idea p { font-size: 24px; color: var(--lime); font-weight: 700; line-height: 1.34; margin: 0 0 26px; max-width: 30ch; }
+    .idea .qrs { display: flex; flex-direction: column; gap: 22px; align-self: start; }
+    .idea .qr-lab { color: var(--lime); font-size: 21px; margin: 0 0 8px; }
+    .idea .qr-box { background: #fff; padding: 8px; width: 210px; }
+    .idea .qr-box img { display: block; width: 100%; height: auto; }
 
     /* video slide */
     .vid-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 22px; }
@@ -115,6 +143,51 @@
             allowfullscreen></iframe>
         </div>
       </div>
+    </section>
+
+    <!-- ============ 3 · DATA-CENTRIC AI ============ -->
+    <section data-autoslide="35000">
+      <div class="dcai">
+        <div class="body">
+          <p class="quote">“The emergence of the latest generative AI, indeed all of modern machine learning, depends on vast amounts of data. <b>Without data, there would be no AI.</b>”</p>
+          <p><strong>AI systems depend heavily on high-quality, well-governed data.</strong> But those building, using, assuring or regulating AI often focus on the models rather than on the <strong>data that shapes them</strong>.</p>
+          <p>We risk overlooking a core point: <strong>without secure, reliable AI-ready data foundations that are accessible to everyone in the same way, no AI system will truly serve the public.</strong></p>
+          <p>The ODI's Data-centric AI (DCAI) programme tackles these challenges and their implications for healthy, trustworthy AI ecosystems. <strong>We study causes, question assumptions, unpack misleading trends,</strong> and build critical components of the public data infrastructure for AI.</p>
+          <div class="projects">
+            <div>&rarr; Croissant, a metadata standard for AI-ready data</div>
+            <div>&rarr; A framework for AI-ready data</div>
+            <div>&rarr; A global AI data policy observatory</div>
+            <div>&rarr; Benchmarking LLMs on public service tasks</div>
+            <div>&rarr; The AI data transparency index</div>
+            <div>&rarr; Understanding AI-readiness in local authorities and central government</div>
+          </div>
+        </div>
+        <div class="qeye" role="img" aria-label="An eye rendered in the ODI's dithered colour-block style"></div>
+      </div>
+      <div class="odi-logo-bl" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============ 4 · IDEA ============ -->
+    <section class="blue" data-autoslide="40000">
+      <div class="idea">
+        <div class="lhs">
+          <div class="big">IDEA</div>
+          <div class="sub">An Interchange for Data and Enterprise AI</div>
+          <p>We're launching IDEA, an interchange for data and enterprise AI, with SAP providing founding sponsorship.</p>
+          <p>IDEA will set up a programme of research, community building, and peer learning to help enterprises of all sizes make the most of the promise AI holds through AI-ready data infrastructure, standards, and well-governed enterprise data.</p>
+        </div>
+        <div class="qrs">
+          <div>
+            <p class="qr-lab">Website</p>
+            <div class="qr-box"><img src="img/qr-website.png" alt="QR code linking to the IDEA website" /></div>
+          </div>
+          <div>
+            <p class="qr-lab">Sign up for updates</p>
+            <div class="qr-box"><img src="img/qr-signup.png" alt="QR code to sign up for IDEA updates" /></div>
+          </div>
+        </div>
+      </div>
+      <div class="odi-logo-bl" aria-hidden="true"></div>
     </section>
 
   </div>
