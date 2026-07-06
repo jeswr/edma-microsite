@@ -197,6 +197,19 @@
     /* stack diagram text */
     .stack-note { font-size: 19px; }
 
+    /* vertical balance: headline stays top-anchored (house style),
+       body content centres in the remaining space so slides don't
+       end with a dead bottom half */
+    .wrap.vflex { display: flex; flex-direction: column; }
+    .vgrow { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .vfoot { margin-top: auto; }
+    .callout { border-left: 8px solid var(--orange); padding: 10px 0 10px 24px; max-width: 46ch; }
+    .callout p { margin: 0; }
+
+    /* backup-slide storyboard: abstract app mocks, one per demo beat */
+    .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .shots svg { display: block; width: 100%; height: auto; background: #fff; }
+
     @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
   </style>
 </head>
@@ -224,15 +237,18 @@
 
     <!-- ============ 2 · CONTENTS ============ -->
     <section>
-      <div class="wrap">
+      <div class="wrap vflex">
         <p class="kick">Contents</p>
-        <div class="toc" style="margin-top:30px;">
-          <div class="item"><span class="n">1.</span><span class="t">Intro to the EDM Association<small>Jim Halcomb</small></span><span class="m">4 min</span></div>
-          <div class="item"><span class="n">2.</span><span class="t">Intro to the Open Data Institute<small>Louise Burke</small></span><span class="m">4 min</span></div>
-          <div class="item"><span class="n">3.</span><span class="t">Intro to Solid, with a live demo<small>Jesse Wright &amp; Matthieu Bosquet</small></span><span class="m">7 min</span></div>
-          <div class="item"><span class="n">4.</span><span class="t">Fireside chat<small>John Bruce (Inrupt) &amp; Sir Tim Berners-Lee</small></span><span class="m">30 min</span></div>
-          <div class="item"><span class="n">5.</span><span class="t">The Community of Practice<small>Stuart Coleman &amp; Elisa Kendall</small></span><span class="m">15 min</span></div>
+        <div class="vgrow">
+          <div class="toc">
+            <div class="item"><span class="n">1.</span><span class="t">Intro to the EDM Association<small>Jim Halcomb</small></span><span class="m">4 min</span></div>
+            <div class="item"><span class="n">2.</span><span class="t">Intro to the Open Data Institute<small>Louise Burke</small></span><span class="m">4 min</span></div>
+            <div class="item"><span class="n">3.</span><span class="t">Intro to Solid, with a live demo<small>Jesse Wright &amp; Matthieu Bosquet</small></span><span class="m">7 min</span></div>
+            <div class="item"><span class="n">4.</span><span class="t">Fireside chat<small>John Bruce (Inrupt) &amp; Sir Tim Berners-Lee</small></span><span class="m">30 min</span></div>
+            <div class="item"><span class="n">5.</span><span class="t">The Community of Practice<small>Stuart Coleman &amp; Elisa Kendall</small></span><span class="m">15 min</span></div>
+          </div>
         </div>
+        <p class="smaller vfoot" style="margin:0;">14 July 2026 · 3:00 pm BST · 60 minutes · put your questions in the chat throughout</p>
       </div>
       <aside class="notes">
         MC (~30s): "Short introductions from each convener, a 7-minute tour of Solid with a live demo, then the
@@ -284,22 +300,24 @@
 
     <!-- ============ 5 · EDMA WHY ============ -->
     <section>
-      <div class="wrap">
+      <div class="wrap vflex">
         <h2>Why convene a community around Solid?</h2>
-        <div class="cols" style="margin-top:44px;">
-          <div>
-            <span class="tick orange"></span>
-            <h3 style="margin-bottom:10px;">The problem is structural</h3>
-            <p class="lead">Every bank, hospital and agency keeps its own copy of the same data: collected, copied and secured over and over, yet rarely current, portable, or under the control of the person it describes.</p>
-          </div>
-          <div>
-            <span class="tick green"></span>
-            <h3 style="margin-bottom:10px;">A two-way exchange</h3>
-            <p class="lead"><strong>Industry brings</strong> requirements, domain models and the authority to engage regulators and standards bodies.</p>
-            <p class="lead"><strong>Solid brings</strong> an open, standards-based way to break down the silos, lock-in and duplication.</p>
+        <div class="vgrow">
+          <div class="cols">
+            <div>
+              <span class="tick orange"></span>
+              <h3 style="margin-bottom:10px;">The problem is structural</h3>
+              <p class="lead">Every bank, hospital and agency keeps its own copy of the same data: collected, copied and secured over and over, yet rarely current, portable, or under the control of the person it describes.</p>
+            </div>
+            <div>
+              <span class="tick green"></span>
+              <h3 style="margin-bottom:10px;">A two-way exchange</h3>
+              <p class="lead"><strong>Industry brings</strong> requirements, domain models and the authority to engage regulators and standards bodies.</p>
+              <p class="lead"><strong>Solid brings</strong> an open, standards-based way to break down the silos, lock-in and duplication.</p>
+            </div>
           </div>
         </div>
-        <p class="smaller" style="margin-top:34px;">EDMA convenes and sponsors this community. We don't own the answers: every output is MIT-licensed.</p>
+        <p class="smaller vfoot" style="margin:0;">EDMA convenes and sponsors this community. We don't own the answers: every output is MIT-licensed.</p>
       </div>
       <aside class="notes">
         JIM — part 2 (~2 min): "Why is the EDM Association convening a community around Solid? Because the problem
@@ -451,14 +469,14 @@
     <section>
       <div class="wrap">
         <h2>What is Solid</h2>
-        <div class="cols w2" style="margin-top:36px;">
+        <div class="cols w2" style="margin-top:36px; align-items:center;">
           <div>
             <p class="lead">Solid is an open-source <strong>project</strong>, open <strong>standard</strong>, and <strong>movement</strong> for a <strong>user-centric data</strong> storage system, originating from Sir Tim Berners-Lee's lab at MIT CSAIL.</p>
             <p class="lead">Your data lives in a <strong>Pod</strong>: a personal or organisational datastore with fine-grained access controls. Apps read and write only <strong>with permission</strong>, <strong>breaking down data silos</strong> and keeping data under the control of whoever it describes.</p>
             <p class="lead">The ODI stewards Solid's standards, codebases, and communities.</p>
           </div>
-          <div style="display:grid; row-gap:18px; justify-items:center; align-content:start;">
-            <img src="img/solid-pods.png" alt="Five people's Pods, each a hexagonal network of data, connected to one another" style="width:82%;" />
+          <div style="display:grid; row-gap:22px; justify-items:center; align-content:center;">
+            <img src="img/solid-pods.png" alt="Five people's Pods, each a hexagonal network of data, connected to one another" style="width:86%;" />
             <img src="img/solid-logo.png" alt="The Solid logo" style="width:120px;" />
           </div>
         </div>
@@ -508,20 +526,24 @@
 
     <!-- ============ 15 · WHY NOW / AI ============ -->
     <section>
-      <div class="wrap">
+      <div class="wrap vflex">
         <h2>The missing data layer for trustworthy AI</h2>
-        <div class="grid3" style="margin-top:52px;">
-          <div class="blk"><span class="tick green"></span>
-            <h3>Data sovereignty</h3>
-            <p>People and organisations keep genuine control of their data as AI proliferates.</p></div>
-          <div class="blk"><span class="tick teal"></span>
-            <h3>Consented and attributable</h3>
-            <p>Structured, permissioned, attributable data: the right base for AI you can trust.</p></div>
-          <div class="blk"><span class="tick orange"></span>
-            <h3>Reusable across agents</h3>
-            <p>An agent reads once, with consent, instead of each service scraping its own copy.</p></div>
+        <div class="vgrow">
+          <div class="grid3">
+            <div class="blk"><span class="tick green"></span>
+              <h3>Data sovereignty</h3>
+              <p>People and organisations keep genuine control of their data as AI proliferates.</p></div>
+            <div class="blk"><span class="tick teal"></span>
+              <h3>Consented and attributable</h3>
+              <p>Structured, permissioned, attributable data: the right base for AI you can trust.</p></div>
+            <div class="blk"><span class="tick orange"></span>
+              <h3>Reusable across agents</h3>
+              <p>An agent reads once, with consent, instead of each service scraping its own copy.</p></div>
+          </div>
+          <div class="callout" style="margin-top:64px;">
+            <p class="lead" style="font-weight:700;">As AI agents act on our behalf, the urgent question is what data they act on, and who controls it.</p>
+          </div>
         </div>
-        <p class="lead" style="margin-top:56px; max-width:44ch;"><strong>As AI agents act on our behalf, the urgent question is what data they act on, and who controls it.</strong></p>
       </div>
       <aside class="notes">
         JESSE (~1.5 min): "Why now? Because of AI. As agents act on our behalf — booking, applying, negotiating —
@@ -604,16 +626,18 @@
 
     <!-- ============ 17 · LIVE DEMO ============ -->
     <section>
-      <div class="wrap">
-        <span class="live-flag">Live demo</span>
+      <div class="wrap vflex">
+        <span class="live-flag" style="align-self:flex-start;">Live demo</span>
         <h2>One Pod, two apps, real-time consent</h2>
-        <ol class="steps" style="margin-top:40px; max-width:46ch;">
-          <li>Log in once with a WebID: global single sign-on</li>
-          <li>App A writes a profile record into the Pod</li>
-          <li>App B reads the same data: no re-entry, no integration</li>
-          <li>Grant, then revoke, access to a single resource</li>
-        </ol>
-        <p class="smaller" style="margin-top:36px;">Driver: Matthieu · Narration: Jesse</p>
+        <div class="vgrow">
+          <ol class="steps" style="max-width:46ch;">
+            <li>Log in once with a WebID: global single sign-on</li>
+            <li>App A writes a profile record into the Pod</li>
+            <li>App B reads the same data: no re-entry, no integration</li>
+            <li>Grant, then revoke, access to a single resource</li>
+          </ol>
+        </div>
+        <p class="smaller vfoot" style="margin:0;">Driver: Matthieu · Narration: Jesse</p>
       </div>
       <aside class="notes">
         DEMO — driven by Matthieu, narrated by Jesse (~1.5 min). Four beats:
@@ -633,7 +657,7 @@
       <div class="wrap">
         <p class="kick">Backup · use only if the live demo fails</p>
         <h2>Solid in action</h2>
-        <div class="cols" style="margin-top:34px;">
+        <div class="cols" style="margin-top:30px; grid-template-columns: 0.85fr 1.15fr;">
           <div>
             <ol class="steps" style="font-size:20px;">
               <li style="font-size:20px;">One login: a WebID and a Pod</li>
@@ -641,16 +665,77 @@
               <li style="font-size:20px;">App B reuses it instantly, no integration</li>
               <li style="font-size:20px;">Access granted and revoked per resource</li>
             </ol>
+            <p class="smaller" style="margin-top:26px;">Visual walkthrough: <a href="https://solidproject.org/engagement">solidproject.org/engagement</a></p>
           </div>
-          <div style="border: 3px solid var(--blue); padding: 26px 28px; align-self:stretch;">
-            <p class="smaller"><strong>Before the event:</strong> paste 3 or 4 screenshots here from a recorded run, one per step.</p>
-            <p class="smaller" style="margin:0;">Visual walkthrough: <a href="https://solidproject.org/engagement">solidproject.org/engagement</a></p>
+          <div class="shots" aria-label="Storyboard of the four demo steps">
+            <svg viewBox="0 0 300 168" role="img" aria-label="Step 1: logging in once with a WebID">
+              <rect width="300" height="168" fill="#fff"/>
+              <rect width="300" height="24" fill="#e0e5e9"/>
+              <circle cx="14" cy="12" r="4" fill="#c3ccd4"/><circle cx="28" cy="12" r="4" fill="#c3ccd4"/><circle cx="42" cy="12" r="4" fill="#c3ccd4"/>
+              <rect x="58" y="6" width="180" height="12" rx="6" fill="#fff"/>
+              <rect x="0" y="24" width="300" height="1" fill="#c3ccd4"/>
+              <rect x="6" y="30" width="20" height="20" fill="#072589"/><text x="16" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">1</text>
+              <rect x="70" y="58" width="160" height="18" rx="3" fill="#eef1f4" stroke="#c3ccd4"/>
+              <text x="78" y="71" font-size="11" fill="#6b7f85">https://jesse.solidpod.example</text>
+              <rect x="70" y="86" width="160" height="26" rx="4" fill="#072589"/>
+              <text x="150" y="103" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Log in with WebID</text>
+              <text x="150" y="138" text-anchor="middle" font-size="11" fill="#6b7f85">one identity, every app</text>
+            </svg>
+            <svg viewBox="0 0 300 168" role="img" aria-label="Step 2: App A writes a record into the Pod">
+              <rect width="300" height="168" fill="#fff"/>
+              <rect width="300" height="24" fill="#e0e5e9"/>
+              <circle cx="14" cy="12" r="4" fill="#c3ccd4"/><circle cx="28" cy="12" r="4" fill="#c3ccd4"/><circle cx="42" cy="12" r="4" fill="#c3ccd4"/>
+              <rect x="0" y="24" width="300" height="1" fill="#c3ccd4"/>
+              <rect x="6" y="30" width="20" height="20" fill="#072589"/><text x="16" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">2</text>
+              <text x="42" y="46" font-size="12" font-weight="700" fill="#072589">App A</text>
+              <rect x="40" y="58" width="120" height="10" rx="3" fill="#c3ccd4"/>
+              <rect x="40" y="76" width="96" height="10" rx="3" fill="#c3ccd4"/>
+              <rect x="40" y="94" width="110" height="10" rx="3" fill="#c3ccd4"/>
+              <rect x="40" y="116" width="64" height="22" rx="4" fill="#21b24e"/>
+              <text x="72" y="131" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">Save</text>
+              <path d="M170 96 H 212" stroke="#ff6701" stroke-width="4"/><path d="M212 88 l14 8 -14 8 z" fill="#ff6701"/>
+              <polygon points="252,66 278,81 278,111 252,126 226,111 226,81" fill="#02b3b0"/>
+              <text x="252" y="101" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Pod</text>
+            </svg>
+            <svg viewBox="0 0 300 168" role="img" aria-label="Step 3: App B reads the same data with no integration">
+              <rect width="300" height="168" fill="#fff"/>
+              <rect width="300" height="24" fill="#e0e5e9"/>
+              <circle cx="14" cy="12" r="4" fill="#c3ccd4"/><circle cx="28" cy="12" r="4" fill="#c3ccd4"/><circle cx="42" cy="12" r="4" fill="#c3ccd4"/>
+              <rect x="0" y="24" width="300" height="1" fill="#c3ccd4"/>
+              <rect x="6" y="30" width="20" height="20" fill="#072589"/><text x="16" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">3</text>
+              <polygon points="48,66 74,81 74,111 48,126 22,111 22,81" fill="#02b3b0"/>
+              <text x="48" y="101" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Pod</text>
+              <path d="M88 96 H 130" stroke="#ff6701" stroke-width="4"/><path d="M130 88 l14 8 -14 8 z" fill="#ff6701"/>
+              <text x="162" y="46" font-size="12" font-weight="700" fill="#072589">App B</text>
+              <rect x="160" y="58" width="120" height="10" rx="3" fill="#c3ccd4"/>
+              <rect x="160" y="76" width="96" height="10" rx="3" fill="#c3ccd4"/>
+              <rect x="160" y="94" width="110" height="10" rx="3" fill="#c3ccd4"/>
+              <text x="160" y="132" font-size="11" fill="#21b24e" font-weight="700">✓ same data, no re-entry</text>
+            </svg>
+            <svg viewBox="0 0 300 168" role="img" aria-label="Step 4: access granted then revoked on a single resource">
+              <rect width="300" height="168" fill="#fff"/>
+              <rect width="300" height="24" fill="#e0e5e9"/>
+              <circle cx="14" cy="12" r="4" fill="#c3ccd4"/><circle cx="28" cy="12" r="4" fill="#c3ccd4"/><circle cx="42" cy="12" r="4" fill="#c3ccd4"/>
+              <rect x="0" y="24" width="300" height="1" fill="#c3ccd4"/>
+              <rect x="6" y="30" width="20" height="20" fill="#072589"/><text x="16" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">4</text>
+              <text x="42" y="46" font-size="12" font-weight="700" fill="#072589">Access control</text>
+              <rect x="40" y="60" width="220" height="30" rx="4" fill="#eef1f4" stroke="#c3ccd4"/>
+              <text x="50" y="80" font-size="12" fill="#072589">profile · App B</text>
+              <rect x="200" y="66" width="50" height="18" rx="9" fill="#21b24e"/>
+              <circle cx="241" cy="75" r="7" fill="#fff"/>
+              <rect x="40" y="102" width="220" height="30" rx="4" fill="#eef1f4" stroke="#c3ccd4"/>
+              <text x="50" y="122" font-size="12" fill="#072589">profile · App B</text>
+              <rect x="200" y="108" width="50" height="18" rx="9" fill="#c3ccd4"/>
+              <circle cx="209" cy="117" r="7" fill="#fff"/>
+              <text x="50" y="152" font-size="11" fill="#ff6701" font-weight="700">revoked: App B instantly loses access</text>
+            </svg>
           </div>
         </div>
       </div>
       <aside class="notes">
-        BACKUP — only if the live demo fails. Before the event, paste 3–4 screenshots from a recorded run, or
-        embed the ODI walkthrough at solidproject.org/engagement. Narration mirrors the four demo beats. Then:
+        BACKUP — only if the live demo fails. The storyboard panels mirror the four demo beats; narrate them
+        exactly as the live demo would have run (login → App A writes → App B reads → grant/revoke). If deeper
+        visuals are wanted, the ODI walkthrough at solidproject.org/engagement has the full flow. Then:
         "That's Solid. Now to the conversation you came for." → Fireside.
       </aside>
     </section>
@@ -692,10 +777,10 @@
 
     <!-- ============ 21 · SCOPE & GOALS ============ -->
     <section>
-      <div class="wrap">
+      <div class="wrap vflex">
         <p class="kick">Stuart Coleman · scope &amp; goals</p>
         <h2>Making Solid production-ready for regulated sectors</h2>
-        <div class="cols" style="margin-top:36px;">
+        <div class="cols" style="flex:1; align-content:center;">
           <div>
             <p class="lead">A two-way exchange: EDMA's data-management expertise meets Solid's open control over data. We start where the cost of the status quo is highest:</p>
             <p class="lead" style="margin-top:14px;"><strong>Finance · Healthcare · Government</strong></p>
@@ -726,10 +811,10 @@
 
     <!-- ============ 22 · WORK PROGRAMME ============ -->
     <section>
-      <div class="wrap">
+      <div class="wrap vflex">
         <p class="kick">Stuart Coleman · the work programme</p>
         <h2>Six concrete deliverables</h2>
-        <div class="grid3" style="margin-top:44px;">
+        <div class="grid3" style="flex:1; align-content:center; row-gap:44px;">
           <div class="blk"><span class="tick green"></span><h3><span class="bnum">1.</span>Use cases &amp; reference implementations</h3><p>Demonstrable deployments per sector, with white papers and webinars.</p></div>
           <div class="blk"><span class="tick teal"></span><h3><span class="bnum">2.</span>Sector ontology bindings</h3><p>How established ontologies (FIBO and peers) bind to Solid; no new ontologies.</p></div>
           <div class="blk"><span class="tick orange"></span><h3><span class="bnum">3.</span>Security &amp; functional requirements</h3><p>What a Solid service must do per sector, including CDMC expectations.</p></div>
@@ -797,10 +882,10 @@
 
     <!-- ============ 24 · BUSINESS VALUE ============ -->
     <section>
-      <div class="wrap">
+      <div class="wrap vflex">
         <p class="kick">Stuart Coleman · business value</p>
         <h2>Cost out, risk down, new revenue in</h2>
-        <div class="grid3" style="margin-top:44px;">
+        <div class="grid3" style="flex:1; align-content:center; row-gap:44px;">
           <div class="blk"><span class="tick green"></span><h3>Less data custody</h3><p>Read from the Pod instead of holding copies: lower cost, liability and compliance burden.</p></div>
           <div class="blk"><span class="tick teal"></span><h3>Reusable credentials</h3><p>Proven identity and eligibility reused across sectors; onboarding and KYC/AML cost falls.</p></div>
           <div class="blk"><span class="tick orange"></span><h3>Single source of truth</h3><p>Update once, not everywhere: less reconciliation, fewer stale-copy errors.</p></div>
@@ -827,15 +912,17 @@
 
     <!-- ============ 25 · GET INVOLVED ============ -->
     <section>
-      <div class="wrap">
+      <div class="wrap vflex">
         <p class="kick">Get involved</p>
         <h2>Shape how Solid transforms your sector</h2>
-        <ol class="steps" style="margin-top:40px; max-width:60ch;">
-          <li><strong>Register on EDMConnect.</strong> Anyone can register; membership is not required.</li>
-          <li><strong>Join the bi-weekly community call,</strong> alongside the W3C Solid Community Group, the Linked Web Storage Working Group, and implementers.</li>
-          <li><strong>Bring a use case or take a role:</strong> sponsor a pilot, build or host infrastructure, steward bindings, co-design the certification.</li>
-        </ol>
-        <p class="smaller" style="margin-top:34px;"><strong>Co-chairs:</strong> Jim Halcomb (EDM Association) · Jacobus Geluk (agnos.ai) · Roberto Breitman, Stuart Coleman &amp; Jesse Wright (ODI). FIBO &amp; ontology leadership: Shaun Rolls &amp; Elisa Kendall.</p>
+        <div class="vgrow">
+          <ol class="steps" style="max-width:60ch;">
+            <li><strong>Register on EDMConnect.</strong> Anyone can register; membership is not required.</li>
+            <li><strong>Join the bi-weekly community call,</strong> alongside the W3C Solid Community Group, the Linked Web Storage Working Group, and implementers.</li>
+            <li><strong>Bring a use case or take a role:</strong> sponsor a pilot, build or host infrastructure, steward bindings, co-design the certification.</li>
+          </ol>
+        </div>
+        <p class="smaller vfoot" style="margin:0;"><strong>Co-chairs:</strong> Jim Halcomb (EDM Association) · Jacobus Geluk (agnos.ai) · Roberto Breitman, Stuart Coleman &amp; Jesse Wright (ODI). FIBO &amp; ontology leadership: Shaun Rolls &amp; Elisa Kendall.</p>
       </div>
       <aside class="notes">
         MC / Stuart (~1.5 min): "Here's how to take part — and the point is that you can. One: register on
@@ -848,7 +935,7 @@
     </section>
 
     <!-- ============ 26 · THANK YOU ============ -->
-    <section class="blue">
+    <section class="blue" data-nochrome>
       <div class="wrap">
         <h1 style="color:#fff; margin-top:36px;">Join the Solid<br/>Community of Practice</h1>
         <p style="font-size:26px; margin-top:44px;">Register and join: <a href="https://hub.edmcouncil.org/">hub.edmcouncil.org</a></p>
