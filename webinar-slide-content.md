@@ -27,7 +27,7 @@ page number bottom-right.
 - **Title:** One copy of the truth
 - **Strapline (italic):** Sir Tim Berners-Lee on Solid and the future of enterprise data
 - **Meta:** EDM Association + the Open Data Institute
-- **Date line (bold):** 14 July 2026 · 10:00 am EDT / 3:00 pm UK
+- **Date line (bold):** 14 July 2026 · 10:00 am EST / 3:00 pm UK
 - **Sub-line:** This session will not be recorded
 
 **Notes:** On screen during housekeeping (Savannah/Paragon, ~2 min) and welcome (Emma Thwaites, ODI). "Welcome — 'One copy of the truth', a conversation with Sir Tim Berners-Lee on Solid and the future of enterprise data, from the EDM Association and the Open Data Institute. This session is not being recorded, so do take part. Drop questions in the chat throughout — we'll come to them after the fireside."
@@ -45,7 +45,7 @@ page number bottom-right.
   3. In conversation: Solid & the future of enterprise data — Sir Tim Berners-Lee & John Bruce · Inrupt — 20 min
   4. Audience Q&A — Hosted by Emma Thwaites, with Elisa Kendall — 10 min
   5. The Solid Community of Practice — Jim Halcomb & Elisa Kendall · EDM Association — 5 min
-- **Footer:** 14 July 2026 · 10:00 am EDT / 3:00 pm UK · not recorded · put your questions in the chat throughout
+- **Footer:** 14 July 2026 · 10:00 am EST / 3:00 pm UK · not recorded · put your questions in the chat throughout
 
 **Notes (Emma, ~30s):** "Here's how the next 45 minutes run: I'll introduce our speakers, then Jesse Wright gives a short introduction to Solid. The heart of the session is a conversation between Sir Tim Berners-Lee and John Bruce of Inrupt, then your questions, and we close with the Community of Practice the EDM Association and the ODI are launching. Everything is MIT-licensed and open to all."
 
@@ -53,18 +53,16 @@ page number bottom-right.
 
 ## Slide 3 — Meet the speakers
 
-**Layout:** 4×2 grid of headshots with blue caption blocks (Emma shown as an "ET" monogram tile — no photo). Emma introduces the panel verbally.
+**Layout:** 3×2 grid of headshots with blue caption blocks (Emma shown as an "ET" monogram tile — no photo). Emma introduces the panel verbally. Matches the six speakers listed on the public event page.
 
 - **Kicker:** Emma Thwaites · welcome & introductions
 - **Speakers (name — role):**
   - Emma Thwaites — Moderator · Strategic Advisor, Global Policy & Corporate Affairs, ODI
   - Sir Tim Berners-Lee — Inventor of the World Wide Web · Co-founder & CTO, Inrupt Inc.
   - John Bruce — Co-founder & CEO, Inrupt Inc.
+  - Jesse Wright — Project Lead – Solid, Open Data Institute
   - Jim Halcomb — Chief Research & Development Officer, EDM Association
   - Elisa Kendall — Senior Ontologist, EDM Association
-  - Jesse Wright — Project Lead – Solid, Open Data Institute
-  - Louise Burke — Chief Executive Officer, Open Data Institute
-  - Stuart Coleman — Director of Learning & Consultancy, Open Data Institute
 
 **Notes:** Emma introduces the panel, spoken quickly (~1.5 min), then a brief word on the ODI, then hands to Jesse.
 
