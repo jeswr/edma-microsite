@@ -136,7 +136,7 @@ CONTENT = {
     "s06": {
         "title": "Introduction to Solid",
         "subtitle": "What it is, the problem it solves, and a live demo",
-        "who": "Jesse Wright · Project Lead – Solid, the ODI · 10 minutes",
+        "who": "Jesse Wright · Project Lead – Solid, ODI · 10 minutes",
     },
     "s07": {
         "title": "What is Solid",
