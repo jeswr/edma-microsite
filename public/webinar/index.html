@@ -624,7 +624,7 @@
         <p class="kick">Jim Halcomb &amp; Elisa Kendall</p>
         <h2>Putting one copy of the truth into practice</h2>
         <div class="vgrow">
-          <p class="lead" style="max-width:64ch; margin-bottom:24px;">A <strong>community of practice</strong> is a neutral, vendor-independent group where finance, healthcare and government work alongside the people building Solid to make it production-ready for regulated data. Built on 300+ participants in the W3C Solid Community Group; every output MIT-licensed.</p>
+          <p class="lead" style="max-width:64ch; margin-bottom:24px;">A <strong>community of practice</strong> is a neutral, vendor-independent group where finance, healthcare and government work alongside the people building Solid to make it production-ready for regulated data.</p>
           <div class="grid3">
             <div class="blk"><span class="tick green"></span><h3>Real pilots per sector</h3><p>Demonstrable deployments in finance, healthcare and government — not slideware.</p></div>
             <div class="blk"><span class="tick teal"></span><h3>Aligned to sector standards</h3><p>How Solid <strong>connects</strong> to the models these industries already rely on — starting with the <strong>Financial Industry Business Ontology (FIBO)</strong> in finance.</p></div>
@@ -792,18 +792,17 @@
     s.appendChild(pg);
   });
 
-  // ODI title-slide dot band: deterministic pseudo-random colour grid.
+  // ODI title-slide dot band: column-stepped ODI gradient.
   (function () {
-    var palette = ['#29abe2', '#3f8ea6', '#6b7f85', '#a08d6b', '#e8842c', '#ff6701',
-                   '#d9a521', '#c3d021', '#8cc63f', '#3fbf6e', '#02b3b0', '#0071bc'];
-    var seed = 42;
-    function rnd() { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; }
+    var palette = ['#00b6ff', '#32a6cb', '#66969a', '#9a8766', '#cc7734', '#ff6801',
+                   '#f3800b', '#e79817', '#d9b020', '#cdc92a', '#c0e236', '#9bd95e',
+                   '#74d087', '#4dc7ae', '#27bfd7'];
     document.querySelectorAll('.dots').forEach(function (el) {
       var cols = 22, rows = 6, cw = 1280 / cols, ch = 250 / rows, r = 15;
       var svg = '<svg viewBox="0 0 1280 250" preserveAspectRatio="xMidYMid slice">';
       for (var y = 0; y < rows; y++) {
         for (var x = 0; x < cols; x++) {
-          var c = palette[Math.floor(rnd() * palette.length)];
+          var c = palette[x % palette.length];
           svg += '<circle cx="' + (cw / 2 + x * cw) + '" cy="' + (ch / 2 + y * ch) + '" r="' + r + '" fill="' + c + '"/>';
         }
       }
