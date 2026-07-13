@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# webinar pptx build
+/webinar-odi.pptx
+/pptx-build/odi-template.pptx
+
+# android signing key (never commit)
+release.keystore
+*.keystore
