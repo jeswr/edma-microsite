@@ -47,3 +47,4 @@ next-env.d.ts
 # android signing key (never commit)
 release.keystore
 *.keystore
+/webinar-web.pptx
