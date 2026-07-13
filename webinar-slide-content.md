@@ -53,7 +53,7 @@ page number bottom-right.
 
 ## Slide 3 — Meet the speakers
 
-**Layout:** 3×2 grid of headshots with blue caption blocks (Emma shown as an "ET" monogram tile — no photo). Emma introduces the panel verbally. Matches the six speakers listed on the public event page.
+**Layout:** 3×2 grid of headshots with blue caption blocks. Emma introduces the panel verbally. Matches the six speakers listed on the public event page.
 
 - **Kicker:** Emma Thwaites · welcome & introductions
 - **Speakers (name — role):**
