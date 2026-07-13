@@ -694,6 +694,25 @@ def set_font_on_paragraphs(
                 run.font.italic = italic
 
 
+def set_paragraph_spacing(shape, Pt, *, after: float = 0, include_last: bool = False) -> None:
+    if not getattr(shape, "has_text_frame", False):
+        return
+    paragraphs = shape.text_frame.paragraphs
+    for idx, paragraph in enumerate(paragraphs):
+        paragraph.space_after = Pt(after if include_last or idx < len(paragraphs) - 1 else 0)
+
+
+def delete_blank_top_level_shapes(slide) -> int:
+    """Remove template-only shapes with no text, such as decorative panels."""
+    removed = 0
+    for shape in list(slide.shapes):
+        if shape_text(shape).strip():
+            continue
+        delete_shape(shape)
+        removed += 1
+    return removed
+
+
 def add_caption_block(slide, pptx, left, top, width, height, name: str, role: str):
     MSO_SHAPE = pptx["MSO_SHAPE"]
     MSO_AUTO_SIZE = pptx["MSO_AUTO_SIZE"]
@@ -751,6 +770,7 @@ def add_plain_textbox(
     color: str = ODI_BLUE_HEX,
     bold: bool | None = None,
     italic: bool | None = None,
+    paragraph_space_after: float | None = None,
 ):
     Pt = pptx["Pt"]
     RGBColor = pptx["RGBColor"]
@@ -758,8 +778,11 @@ def add_plain_textbox(
     tf = box.text_frame
     tf.clear()
     tf.word_wrap = True
-    for idx, line in enumerate(as_lines(text)):
+    lines = as_lines(text)
+    for idx, line in enumerate(lines):
         paragraph = tf.paragraphs[0] if idx == 0 else tf.add_paragraph()
+        if paragraph_space_after is not None:
+            paragraph.space_after = Pt(paragraph_space_after if idx < len(lines) - 1 else 0)
         run = paragraph.add_run()
         run.text = line
         run.font.name = "Arial"
@@ -783,7 +806,7 @@ def add_markdown_textbox(
     *,
     size: float = 12,
     color: str = ODI_BLUE_HEX,
-    paragraph_space_after: float = 4,
+    paragraph_space_after: float = 8,
     bold: bool = False,
 ):
     Pt = pptx["Pt"]
@@ -799,7 +822,7 @@ def add_markdown_textbox(
 
     for idx, paragraph_text in enumerate(paragraphs):
         paragraph = tf.paragraphs[0] if idx == 0 else tf.add_paragraph()
-        paragraph.space_after = Pt(paragraph_space_after)
+        paragraph.space_after = Pt(paragraph_space_after if idx < len(paragraphs) - 1 else 0)
         for segment, segment_bold in parse_bold_markers(paragraph_text):
             run = paragraph.add_run()
             run.text = segment
@@ -852,6 +875,33 @@ def add_agenda_item(slide, pptx, item: dict[str, str], left, top, width, height)
     r_subtitle.font.name = "Arial"
     r_subtitle.font.size = Pt(11.3)
     r_subtitle.font.color.rgb = RGBColor.from_string(ODI_BLUE_HEX)
+
+
+def add_impact_stat(slide, pptx, left, top, width, number: str, description: str) -> None:
+    Inches = pptx["Inches"]
+    add_plain_textbox(
+        slide,
+        pptx,
+        number,
+        left,
+        top,
+        width,
+        Inches(0.40),
+        size=25.5,
+        color=ODI_BLUE_HEX,
+        bold=True,
+    )
+    add_plain_textbox(
+        slide,
+        pptx,
+        description,
+        left,
+        top + Inches(0.45),
+        width,
+        Inches(0.38),
+        size=8.8,
+        color=ODI_BLUE_HEX,
+    )
 
 
 TEMPLATE_ARTIFACT_PATTERNS = [
@@ -926,6 +976,7 @@ def keep_and_reorder_slides(prs, pptx, warnings: list[str]) -> None:
 
 def build_slide_01(slide, pptx, warnings):
     content = CONTENT["s01"]
+    Inches = pptx["Inches"]
     replace_first(slide, "This is the title of the presentation", content["title"], warnings, "slide 01")
     replace_first(
         slide,
@@ -939,7 +990,31 @@ def build_slide_01(slide, pptx, warnings):
         warnings,
         "slide 01",
     )
+    title_matches = find_shapes_containing(slide, content["title"], exact=True)
+    if title_matches:
+        title_shape = title_matches[0]
+        title_shape.left = Inches(0.62)
+        title_shape.top = Inches(0.98)
+        title_shape.width = Inches(11.35)
+        title_shape.height = Inches(0.85)
+        title_shape.text_frame.margin_left = 0
+        title_shape.text_frame.margin_right = 0
+        title_shape.text_frame.margin_top = 0
+        title_shape.text_frame.margin_bottom = 0
+        set_font_on_shape(title_shape, pptx["Pt"], pptx["RGBColor"], size=40, color=ODI_BLUE_HEX, bold=True)
+
     for shape in find_shapes_containing(slide, content["strap"]):
+        shape.left = Inches(0.66)
+        shape.top = Inches(2.03)
+        shape.width = Inches(10.75)
+        shape.height = Inches(1.28)
+        shape.text_frame.margin_left = 0
+        shape.text_frame.margin_right = 0
+        shape.text_frame.margin_top = 0
+        shape.text_frame.margin_bottom = 0
+        set_font_on_paragraphs(shape, [0], pptx["Pt"], pptx["RGBColor"], size=16.2, color=ODI_BLUE_HEX, italic=True)
+        set_font_on_paragraphs(shape, [1, 2, 3], pptx["Pt"], pptx["RGBColor"], size=10.6, color=ODI_BLUE_HEX)
+        set_paragraph_spacing(shape, pptx["Pt"], after=4.5)
         set_font_on_paragraphs(shape, [0], pptx["Pt"], pptx["RGBColor"], italic=True)
 
 
@@ -1009,8 +1084,13 @@ def build_slide_03(slide, pptx, warnings):
     content = CONTENT["s03"]
     replace_first(slide, "ODI team", content["kicker"], warnings, "slide 03")
     delete_shapes_containing(slide, ["Add name", "Watch the"])
-    for pic in list(picture_shapes(slide, pptx["MSO_SHAPE_TYPE"])):
-        delete_shape(pic)
+    delete_blank_top_level_shapes(slide)
+    for shape in find_shapes_containing(slide, content["kicker"]):
+        shape.left = pptx["Inches"](0.33)
+        shape.top = pptx["Inches"](0.34)
+        shape.width = pptx["Inches"](7.2)
+        shape.height = pptx["Inches"](0.34)
+        set_font_on_shape(shape, pptx["Pt"], pptx["RGBColor"], size=10.0, color=ODI_BLUE_HEX, bold=True)
 
     Inches = pptx["Inches"]
     card_w = Inches(3.75)
@@ -1039,60 +1119,84 @@ def build_slide_04(slide, pptx, warnings):
     RGBColor = pptx["RGBColor"]
 
     delete_shapes_containing(slide, ["ODI partners and clients", "The ODI — steward", "Mission-driven non-profit"])
+    for pic in list(picture_shapes(slide, pptx["MSO_SHAPE_TYPE"])):
+        delete_shape(pic)
 
-    band = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, Inches(13.34), Inches(2.08))
-    band.fill.solid()
-    band.fill.fore_color.rgb = RGBColor.from_string(ODI_BLUE_HEX)
-    try:
-        band.line.fill.background()
-    except Exception:
-        band.line.color.rgb = RGBColor.from_string(ODI_BLUE_HEX)
+    # The template's client logo wall is the slide BACKGROUND picture — clear it
+    # so this slide uses the plain mist background like the other content slides.
+    P_NS = "{http://schemas.openxmlformats.org/presentationml/2006/main}"
+    csld = slide._element.find(P_NS + "cSld")
+    if csld is not None:
+        bg = csld.find(P_NS + "bg")
+        if bg is not None:
+            csld.remove(bg)
 
     add_plain_textbox(
         slide,
         pptx,
         content["kicker"],
-        Inches(0.36),
+        Inches(0.54),
+        Inches(0.30),
+        Inches(7.8),
         Inches(0.24),
-        Inches(7.4),
-        Inches(0.24),
-        size=9.0,
-        color="FFFFFF",
+        size=8.8,
+        color=ODI_BLUE_HEX,
     )
     add_plain_textbox(
         slide,
         pptx,
         content["title"],
-        Inches(0.36),
-        Inches(0.55),
-        Inches(8.0),
-        Inches(0.45),
+        Inches(0.54),
+        Inches(0.68),
+        Inches(8.4),
+        Inches(0.50),
         size=25.0,
-        color="FFFFFF",
+        color=ODI_BLUE_HEX,
         bold=True,
     )
     add_plain_textbox(
         slide,
         pptx,
         content["body"],
-        Inches(0.36),
-        Inches(1.10),
-        Inches(11.7),
-        Inches(0.70),
-        size=9.8,
-        color="FFFFFF",
+        Inches(0.54),
+        Inches(1.28),
+        Inches(12.05),
+        Inches(0.88),
+        size=9.3,
+        color=ODI_BLUE_HEX,
+        paragraph_space_after=4.0,
     )
+
+    impact_stats = [
+        ("60,000", "people trained across banking, government and media"),
+        ("$395bn", "anticipated global open-banking market by 2026"),
+        ("300", "early-stage organisations supported"),
+    ]
+    stat_lefts = [Inches(0.58), Inches(4.72), Inches(8.86)]
+    for left, (number, description) in zip(stat_lefts, impact_stats):
+        add_impact_stat(slide, pptx, left, Inches(2.40), Inches(3.45), number, description)
+
     add_plain_textbox(
         slide,
         pptx,
         content["trusted_label"],
-        Inches(0.36),
-        Inches(2.20),
-        Inches(3.8),
-        Inches(0.28),
-        size=11.0,
-        color="FFFFFF",
+        Inches(0.54),
+        Inches(3.66),
+        Inches(6.0),
+        Inches(0.26),
+        size=10.5,
+        color=ODI_BLUE_HEX,
         bold=True,
+    )
+    # Two-row logo strip (recoloured ODI blue) on the mist background — no clipping.
+    add_picture_fit(
+        slide,
+        IMG_DIR / "clients-strip-blue.png",
+        Inches(0.9),
+        Inches(4.15),
+        Inches(11.5),
+        Inches(2.86),
+        mode="contain",
     )
 
 
@@ -1129,6 +1233,11 @@ def build_slide_07(slide, pptx, warnings):
     headings = sorted_text_shapes(slide, "Column heading", exact=True)
     if headings:
         set_text(headings[0], content["title"])
+        headings[0].left = pptx["Inches"](0.58)
+        headings[0].top = pptx["Inches"](0.46)
+        headings[0].width = pptx["Inches"](6.75)
+        headings[0].height = pptx["Inches"](0.58)
+        set_font_on_shape(headings[0], pptx["Pt"], pptx["RGBColor"], size=27, color=ODI_BLUE_HEX, bold=True)
         for extra in headings[1:]:
             delete_shape(extra)
     else:
@@ -1140,6 +1249,12 @@ def build_slide_07(slide, pptx, warnings):
             bodies[0],
             content["body"],
         )
+        bodies[0].left = pptx["Inches"](0.68)
+        bodies[0].top = pptx["Inches"](1.30)
+        bodies[0].width = pptx["Inches"](6.25)
+        bodies[0].height = pptx["Inches"](4.85)
+        set_font_on_shape(bodies[0], pptx["Pt"], pptx["RGBColor"], size=14.2, color=ODI_BLUE_HEX)
+        set_paragraph_spacing(bodies[0], pptx["Pt"], after=9.0)
         for extra in bodies[1:]:
             delete_shape(extra)
     else:
@@ -1147,30 +1262,16 @@ def build_slide_07(slide, pptx, warnings):
 
     delete_shapes_containing(slide, ["Watch the"])
     pics = picture_shapes(slide, pptx["MSO_SHAPE_TYPE"])
-    if pics:
-        replace_picture(slide, pics[-1], IMG_DIR / "solid-pods.png", mode="contain")
-    else:
-        warnings.append("slide 07: could not find example picture; adding Solid pods image in fallback box")
-        add_picture_fit(
-            slide,
-            IMG_DIR / "solid-pods.png",
-            pptx["Inches"](8.20),
-            pptx["Inches"](0.60),
-            pptx["Inches"](4.75),
-            pptx["Inches"](5.90),
-            mode="contain",
-        )
-    add_plain_textbox(
+    for pic in list(pics):
+        delete_shape(pic)
+    add_picture_fit(
         slide,
-        pptx,
-        content["figure_caption"],
+        IMG_DIR / "solid-pods.png",
         pptx["Inches"](8.15),
-        pptx["Inches"](6.08),
-        pptx["Inches"](4.55),
-        pptx["Inches"](0.28),
-        size=8.7,
-        color=ODI_BLUE_HEX,
-        bold=True,
+        pptx["Inches"](1.26),
+        pptx["Inches"](4.75),
+        pptx["Inches"](4.45),
+        mode="contain",
     )
 
 
@@ -1190,11 +1291,11 @@ def build_slide_08(slide, pptx, warnings):
         pptx,
         [content["lead"], *[f"• {bullet}" for bullet in content["bullets"]], content["fix"], content["ai_line"]],
         Inches(0.72),
-        Inches(1.18),
+        Inches(1.22),
         Inches(6.60),
-        Inches(5.25),
-        size=12.5,
-        paragraph_space_after=3.5,
+        Inches(5.42),
+        size=13.0,
+        paragraph_space_after=8.5,
     )
     add_picture_fit(
         slide,
@@ -1406,11 +1507,12 @@ def build_slide_13(slide, pptx, warnings):
 
 def build_focus_slide(slide, pptx, warnings, *, slide_num: str, content: dict):
     Inches = pptx["Inches"]
+    kicker = re.sub(r"\s+·\s+focus\s+[A-Z]\s*$", "", content["kicker"])
 
     replace_first_of(
         slide,
         ["The need", "The solution", "The impact"],
-        content["kicker"],
+        kicker,
         warnings,
         slide_num,
         "focus kicker",
@@ -1424,7 +1526,7 @@ def build_focus_slide(slide, pptx, warnings, *, slide_num: str, content: dict):
         "focus title",
     )
 
-    kicker_matches = find_shapes_containing(slide, content["kicker"])
+    kicker_matches = find_shapes_containing(slide, kicker)
     if kicker_matches:
         kicker_shape = kicker_matches[0]
         kicker_shape.left = Inches(0.34)
@@ -1521,6 +1623,7 @@ def build_slide_17(slide, pptx, warnings):
         set_font_on_paragraphs(body_shape, [2], pptx["Pt"], pptx["RGBColor"], size=22, color=ODI_BLUE_HEX, bold=True)
         set_font_on_paragraphs(body_shape, [3], pptx["Pt"], pptx["RGBColor"], size=13.0, color=ODI_BLUE_HEX)
         set_font_on_paragraphs(body_shape, [4], pptx["Pt"], pptx["RGBColor"], size=10.2, color=ODI_BLUE_HEX)
+        set_paragraph_spacing(body_shape, pptx["Pt"], after=5.5)
 
 
 def build_slide_18(slide, pptx, warnings):
